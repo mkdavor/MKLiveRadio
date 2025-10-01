@@ -21,7 +21,4 @@ If you are a station owner and would like your stream removed, please contact us
 MK Live Radio does **not use any third-party services** such as analytics, advertising, or tracking libraries.
 
 ## 4. Contact
-If you have questions, encounter issues, or wish to request the removal of a station, please contact the developer at:
-
-📧 **mk.radio.contact@gmail.com**  
-or open an issue in the [GitHub repository](../../issues).
+If you have questions, encounter issues, or wish to request the removal of a station, please open an issue in the [GitHub repository](../../issues).
