@@ -1,20 +1,27 @@
 # Privacy Policy for MK Live Radio
 
-**Effective Date:** 29.09.2025
+**Effective Date:** 29.09.2025  
 
-## Information Collection and Use
-MK Live Radio does **not collect, store, or share any personal data** from its users.  
-You can use the app without creating an account or providing any personal information.
+## 1. Information Collection and Use
+MK Live Radio does **not collect, store, or share any personal data** from users.  
+You may use the app without creating an account or providing any personal information.
 
-## Radio Streams
-The app provides access to **publicly available radio station streams**.  
-These links are freely accessible on the internet without accounts, payments, or technical workarounds.
+## 2. Radio Streams
+The app provides access to **publicly available radio streams** from local Macedonian stations.  
 
-If you are the owner of a station and would like it removed from the app, please let us know and we will comply promptly.
+- These streams are freely accessible on the internet.  
+- They are not restricted by login, payment, or geolocation.  
+- MK Live Radio does **not host, modify, or monetize** any of these streams.  
 
-## Third-Party Services
-The app does **not** use analytics, advertising, or any third-party tracking services.
+MK Live Radio **does not own or claim ownership** of any of the radio stations or their content.  
 
-## Contact
-If you have questions about this privacy policy, encounter issues with the app, or wish to request removal of a station,  
-please open an **[issue in this repository](../../issues)**.
+If you are a station owner and would like your stream removed, please contact us and we will comply promptly.
+
+## 3. Third-Party Services
+MK Live Radio does **not use any third-party services** such as analytics, advertising, or tracking libraries.
+
+## 4. Contact
+If you have questions, encounter issues, or wish to request the removal of a station, please contact the developer at:
+
+📧 **mk.radio.contact@gmail.com**  
+or open an issue in the [GitHub repository](../../issues).
