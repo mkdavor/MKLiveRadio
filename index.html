@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="mk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MK Live Radio</title>
+    <meta name="description"
+        content="Слушај ги твоите омилени македонски радио станици во живо со MK Live Radio — брзо, едноставно и бесплатно." />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --text: #f5f5f5;
+            --accent: #e63946;
+            --accent-hover: #ff4757;
+            --radius: 16px;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        img.logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.9rem 1.8rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .button:hover {
+            background: var(--accent-hover);
+            transform: scale(1.04);
+        }
+
+        .appstore-logo {
+            height: 22px;
+            margin-right: 10px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="logo.jpg" alt="MK Live Radio Logo" class="logo" />
+
+    <h1>MK&nbsp;Live&nbsp;Radio</h1>
+
+    <p>Слушај ги твоите омилени македонски радио станици – во живо, бесплатно и секогаш достапно.</p>
+    <p>Höre deine liebsten mazedonischen Radiosender – live, kostenlos und immer verfügbar.</p>
+    <p>Listen to your favorite Macedonian radio stations — live, free, and always available.</p>
+
+    <a class="button" href="https://apps.apple.com/de/app/mk-live-radio/id6748603781" target="_blank" rel="noopener">
+        <img class="appstore-logo"
+            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+            alt="Download on the App Store" />
+        Преземи од App Store
+    </a>
+
+    <footer>© 2025 MKLiveRadio</footer>
+</body>
+
+</html>
