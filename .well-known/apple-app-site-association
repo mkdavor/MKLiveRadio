@@ -1,10 +1,16 @@
 {
-  "headers": [
-    {
-      "source": "/.well-known/apple-app-site-association",
-      "headers": [
-        { "key": "Content-Type", "value": "application/json" }
-      ]
-    }
-  ]
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "JDC49FQST9.radio2beta.tatjana.mk"
+        ],
+        "paths": [
+          "/station",
+          "/station/*"
+        ]
+      }
+    ]
+  }
 }
