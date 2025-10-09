@@ -48,32 +48,16 @@
             margin-bottom: 0.5rem;
         }
 
-        .countdown {
-            font-size: 1.4rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin: 1.2rem 0 0.4rem 0;
-        }
-
-        button.cancel {
-            margin-top: 0.5rem;
-            background: none;
-            border: 1px solid #444;
-            color: #aaa;
-            padding: 0.6rem 1.2rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        button.cancel:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+        p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            max-width: 500px;
+            margin-bottom: 1.2rem;
         }
 
         .appstore-button {
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: 1.8rem;
         }
 
         .appstore-button img {
@@ -100,8 +84,7 @@
     <img src="logo.png" alt="MK Live Radio Logo" class="logo" />
     <h1>MK&nbsp;Live&nbsp;Radio</h1>
 
-    <div class="countdown" id="countdown"></div>
-    <button class="cancel" id="cancelBtn" style="display:none;">Откажи</button>
+    <p>Отвори ја апликацијата и слушај ги најдобрите македонски радио станици</p>
 
     <a class="appstore-button" href="https://apps.apple.com/de/app/mk-live-radio/id6748603781" target="_blank"
         rel="noopener">
@@ -113,53 +96,16 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
 
+        // Automatically open the app via custom URL scheme
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id") || "0";
         const appUrl = `mkliveradio://station?id=${id}`;
-        const storeUrl = "https://apps.apple.com/de/app/mk-live-radio/id6748603781";
 
-        let appOpened = false;
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden) appOpened = true;
-        });
-
-        // Try to open the app silently
+        // Use hidden iframe to open the app silently (no redirect)
         const iframe = document.createElement("iframe");
         iframe.style.display = "none";
         iframe.src = appUrl;
         document.body.appendChild(iframe);
-
-        // Wait a moment — if the page is still visible, app isn’t installed
-        setTimeout(() => {
-            if (!appOpened) startCountdown();
-        }, 900);
-
-        function startCountdown() {
-            let seconds = 5;
-            const countdownEl = document.getElementById("countdown");
-            const cancelBtn = document.getElementById("cancelBtn");
-            let canceled = false;
-
-            countdownEl.textContent = `Изгледа ја немаш апликацијата — пренасочување кон App Store за ${seconds}...`;
-            cancelBtn.style.display = "inline-block";
-
-            const interval = setInterval(() => {
-                seconds--;
-                if (seconds > 0) {
-                    countdownEl.textContent = `Изгледа ја немаш апликацијата — пренасочување кон App Store за ${seconds}...`;
-                } else {
-                    clearInterval(interval);
-                    if (!canceled) window.location.href = storeUrl;
-                }
-            }, 1000);
-
-            cancelBtn.onclick = () => {
-                canceled = true;
-                clearInterval(interval);
-                countdownEl.textContent = "Пренасочувањето е откажано.";
-                cancelBtn.style.display = "none";
-            };
-        }
     </script>
 </body>
 
