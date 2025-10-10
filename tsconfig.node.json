@@ -7,8 +7,8 @@
     "types": ["node"],
     "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "Node",
+    /* Works with Vite & Tailwind */
+    "moduleResolution": "NodeNext",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
