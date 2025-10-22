@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import logo from "../assets/logo.png";
 import appstore from "../assets/appstore.svg";
 
@@ -46,7 +48,8 @@ const Station = () => {
   }, [showCountdown, seconds, canceled]);
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen bg-black text-white text-center px-6">
+    <main className="relative flex flex-col items-center justify-center h-screen bg-black text-white text-center px-6">
+      {/* Logo and title */}
       <img
         src={logo}
         alt="MK Live Radio Logo"
@@ -54,6 +57,7 @@ const Station = () => {
       />
       <h1 className="text-3xl font-bold mb-2">MK Live Radio</h1>
 
+      {/* Content */}
       {!showCountdown ? (
         <p className="text-gray-400 mb-6">
           Отвори ја апликацијата и слушај ја најдобрата македонска музика 🎶
@@ -76,6 +80,7 @@ const Station = () => {
         </>
       )}
 
+      {/* App Store button */}
       <a
         href={APP_STORE_URL}
         target="_blank"
@@ -88,6 +93,15 @@ const Station = () => {
           className="h-14 hover:scale-105 transition"
         />
       </a>
+
+      {/* Footer */}
+      <footer className="absolute bottom-4 left-0 right-0 text-center text-gray-500 text-sm">
+        © {new Date().getFullYear()} MK Live Radio · Made with ❤️ in Macedonia
+      </footer>
+
+      {/* Analytics */}
+      <Analytics />
+      <SpeedInsights />
     </main>
   );
 };
