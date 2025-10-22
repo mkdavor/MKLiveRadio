@@ -1,73 +1,24 @@
-# React + TypeScript + Vite
+# Privacy Policy for MK Live Radio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Effective Date:** 29.09.2025  
 
-Currently, two official plugins are available:
+## 1. Information Collection and Use
+MK Live Radio does **not collect, store, or share any personal data** from users.  
+You may use the app without creating an account or providing any personal information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Radio Streams
+The app provides access to **publicly available radio streams** from local Macedonian stations.  
 
-## React Compiler
+- These streams are freely accessible on the internet.  
+- They are not restricted by login, payment, or geolocation.  
+- MK Live Radio does **not host, modify, or monetize** any of these streams.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+MK Live Radio **does not own or claim ownership** of any of the radio stations or their content.  
 
-## Expanding the ESLint configuration
+If you are a station owner and would like your stream removed, please contact us and we will comply promptly.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 3. Third-Party Services
+MK Live Radio does **not use any third-party services** such as analytics, advertising, or tracking libraries.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 4. Contact
+If you have questions, encounter issues, or wish to request the removal of a station, please open an issue in the [GitHub repository](../../issues).
