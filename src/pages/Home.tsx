@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import appstore from "../assets/appstore.svg";
 import logo from "../assets/logo.png";
+import instaLogo from "../assets/instaLogo.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -33,13 +34,24 @@ const Home = () => {
       <a
         href="https://apps.apple.com/de/app/mk-live-radio/id6748603781"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <img
           src={appstore}
           alt="Download on the App Store"
           className="h-14 hover:scale-105 transition"
         />
+      </a>
+
+      {/* Instagram */}
+      <a
+        href="https://www.instagram.com/mkliveradio"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 mt-5 text-gray-400 hover:text-white transition"
+      >
+        <img src={instaLogo} alt="Instagram" className="w-6 h-6" />
+        <span>@mkliveradio</span>
       </a>
 
       {/* Footer */}

@@ -92,7 +92,7 @@ function ContentEN() {
         The app only links to <strong>public Macedonian radio streams</strong>{" "}
         available online.
       </p>
-      <ul>
+      <ul className="list-disc list-inside space-y-1 mt-2 mb-4 text-gray-300">
         <li>No login or geoblock</li>
         <li>No hosting or modification of the streams</li>
         <li>No monetization of the streams</li>
@@ -105,14 +105,14 @@ function ContentEN() {
 
       <h2 className="text-2xl font-semibold mt-10 mb-2">3. Contact</h2>
       <p>
-        For issues or removal requests, please open an issue on{" "}
+        For questions or station removal requests, please write to{" "}
         <a
-          href="https://github.com/mkdavor/mkliveradio/issues"
+          href="mailto:contact@mkliveradio.app"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-400 underline hover:text-blue-300"
         >
-          GitHub
+          contact@mkliveradio.app
         </a>
         .
       </p>
@@ -123,7 +123,7 @@ function ContentEN() {
 function ContentMK() {
   return (
     <>
-      <h1 className="text-4xl font-bold mb-4">Политика на приватност</h1>
+      <h1 className="text-4xl font-bold mb-4">Политика за приватност</h1>
       <p className="text-gray-400 mb-8">
         Стапува во сила: <strong>29.09.2025</strong>
       </p>
@@ -142,7 +142,7 @@ function ContentMK() {
         Апликацијата поврзува{" "}
         <strong>јавно достапни македонски радио стримови</strong>.
       </p>
-      <ul>
+      <ul className="list-disc list-inside space-y-1 mt-2 mb-4 text-gray-300">
         <li>Без барање за најава</li>
         <li>Без гео-ограничувања</li>
         <li>Без хостирање или модификација</li>
@@ -156,14 +156,14 @@ function ContentMK() {
 
       <h2 className="text-2xl font-semibold mt-10 mb-2">3. Контакт</h2>
       <p>
-        За прашања или отстранување на станица, отворете issue на{" "}
+        За прашања или барања за отстранување на станица, пишете на{" "}
         <a
-          href="https://github.com/mkdavor/mkliveradio/issues"
+          href="mailto:contact@mkliveradio.app"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-400 underline hover:text-blue-300"
         >
-          GitHub
+          contact@mkliveradio.app
         </a>
         .
       </p>
