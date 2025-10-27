@@ -14,7 +14,7 @@ const Home = () => {
           to="/privacy"
           className="text-sm text-gray-400 hover:text-white transition"
         >
-          🇲🇰/🇬🇧 Privacy Policy
+          🇲🇰/🇬🇧 Политика за приватност
         </Link>
       </div>
 
