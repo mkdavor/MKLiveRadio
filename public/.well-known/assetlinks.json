@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.mkliveradio.android",
+      "sha256_cert_fingerprints": [
+        "2E:3D:B7:72:DE:90:43:DE:4E:B9:2C:97:15:4A:3B:87:42:49:78:11:E9:D8:12:B7:83:03:27:AC:FE:E4:06:B6"
+      ]
+    }
+  }
+]
