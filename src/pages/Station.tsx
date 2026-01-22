@@ -1,51 +1,58 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import logo from "../assets/logo.png";
 import appstore from "../assets/appstore.svg";
+import playstore from "../assets/playstore.svg";
+import stations from "../stations.json";
 
 const APP_STORE_URL =
   "https://apps.apple.com/de/app/mk-live-radio/id6748603781";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=app.mkliveradio.android";
 
 const Station = () => {
-  const [showCountdown, setShowCountdown] = useState(false);
-  const [seconds, setSeconds] = useState(5);
-  const [canceled, setCanceled] = useState(false);
+  const params = new URLSearchParams(window.location.search);
+  const idParam = params.get("id");
+  const id = idParam ? Number(idParam) : null;
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id") || "0";
-    const appUrl = `mkliveradio://station?id=${id}`;
+  const stationName = useMemo(() => {
+    if (id === null || Number.isNaN(id)) return null;
+    const match = (stations as { id: number; name: string }[]).find(
+      (s) => s.id === id,
+    );
+    return match?.name || null;
+  }, [id]);
 
-    let appOpened = false;
-    const handleHide = () => (appOpened = true);
-    document.addEventListener("visibilitychange", handleHide);
-
-    // Try opening the app
-    window.location.href = appUrl;
-
-    // If it doesn’t open → show countdown
-    const timer = setTimeout(() => {
-      if (!appOpened) setShowCountdown(true);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-      document.removeEventListener("visibilitychange", handleHide);
+  const { isApple, isAndroid } = useMemo(() => {
+    const ua = navigator.userAgent || "";
+    const iosLike = /iPhone|iPad|iPod/i.test(ua);
+    // iPadOS 13+ reports Mac platform with touch points
+    const iPadOS =
+      /Macintosh|Mac OS X/i.test(ua) && navigator.maxTouchPoints > 1;
+    const macOS = /Macintosh|Mac OS X/i.test(ua);
+    const apple = iosLike || iPadOS || macOS;
+    return {
+      isApple: apple,
+      isAndroid: /Android/i.test(ua),
     };
   }, []);
 
   useEffect(() => {
-    if (!showCountdown || canceled) return;
-
-    if (seconds === 0) {
-      window.location.href = APP_STORE_URL;
+    if (isApple) {
+      const iosDeepLink = `mkliveradio://station?id=${id}`;
+      // Try to open the iOS app; no store fallback
+      window.location.href = iosDeepLink;
       return;
     }
 
-    const countdown = setTimeout(() => setSeconds((s) => s - 1), 1000);
-    return () => clearTimeout(countdown);
-  }, [showCountdown, seconds, canceled]);
+    if (isAndroid) {
+      // Try to open the Android app via intent; no Play Store fallback
+      const androidIntent = `intent://station?id=${id}#Intent;scheme=mkliveradio;package=app.mkliveradio.android;end`;
+      window.location.href = androidIntent;
+    }
+    // Non Apple/Android: no redirect
+  }, [id, isApple, isAndroid]);
 
   return (
     <main className="relative flex flex-col items-center justify-center h-screen bg-black text-white text-center px-6">
@@ -55,44 +62,33 @@ const Station = () => {
         alt="MK Live Radio Logo"
         className="rounded-2xl mb-6 w-32 h-32 shadow-lg"
       />
-      <h1 className="text-3xl font-bold mb-2">MK Live Radio</h1>
+      <h1 className="text-3xl font-bold mb-8">MK Live Radio</h1>
 
-      {/* Content */}
-      {!showCountdown ? (
-        <p className="text-gray-400 mb-6">
-          Отвори ја апликацијата и слушај ја најдобрата македонска музика 🎶
+      {stationName && (
+        <p className="mb-6 px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-lg font-semibold text-white shadow-lg backdrop-blur">
+          Слушај {stationName}
         </p>
-      ) : (
-        <>
-          <p className="text-red-400 font-medium mb-2">
-            Изгледа ја немаш апликацијата
-          </p>
-          <p className="text-gray-300 mb-4">
-            Пренасочување кон App Store за{" "}
-            <span className="font-bold text-white">{seconds}</span> сек...
-          </p>
-          <button
-            onClick={() => setCanceled(true)}
-            className="border border-gray-500 text-gray-300 px-4 py-2 rounded-lg hover:border-red-500 hover:text-red-400 transition"
-          >
-            Откажи
-          </button>
-        </>
       )}
 
-      {/* App Store button */}
-      <a
-        href={APP_STORE_URL}
-        target="_blank"
-        rel="noopener"
-        className="mt-8 inline-block"
-      >
-        <img
-          src={appstore}
-          alt="Download on the App Store"
-          className="h-14 hover:scale-105 transition"
-        />
-      </a>
+      {/* No text or buttons; auto-redirect handled on mount */}
+
+      {/* Store badges always visible */}
+      <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
+        <a href={APP_STORE_URL} target="_blank" rel="noopener">
+          <img
+            src={appstore}
+            alt="Download on the App Store"
+            className="h-14 hover:scale-105 transition"
+          />
+        </a>
+        <a href={PLAY_STORE_URL} target="_blank" rel="noopener">
+          <img
+            src={playstore}
+            alt="Get it on Google Play"
+            className="h-14 hover:scale-105 transition"
+          />
+        </a>
+      </div>
 
       {/* Footer */}
       <footer className="absolute bottom-4 left-0 right-0 text-center text-gray-500 text-sm">
