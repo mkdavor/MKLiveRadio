@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import appstore from "../assets/appstore.svg";
+import playstore from "../assets/playstore.svg";
 import logo from "../assets/logo.png";
 import instaLogo from "../assets/instaLogo.png";
 import { Link } from "react-router-dom";
@@ -30,18 +31,34 @@ const Home = () => {
         секогаш достапно.
       </p>
 
-      {/* App Store */}
-      <a
-        href="https://apps.apple.com/de/app/mk-live-radio/id6748603781"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src={appstore}
-          alt="Download on the App Store"
-          className="h-14 hover:scale-105 transition"
-        />
-      </a>
+      {/* Store badges: column on mobile, row on larger screens */}
+      <div className="flex flex-col sm:flex-row items-center gap-4">
+        {/* App Store (commonly shown first) */}
+        <a
+          href="https://apps.apple.com/de/app/mk-live-radio/id6748603781"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={appstore}
+            alt="Download on the App Store"
+            className="h-14 hover:scale-105 transition"
+          />
+        </a>
+
+        {/* Google Play */}
+        <a
+          href="https://play.google.com/store/apps/details?id=app.mkliveradio.android"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={playstore}
+            alt="Get it on Google Play"
+            className="h-14 hover:scale-105 transition"
+          />
+        </a>
+      </div>
 
       {/* Instagram */}
       <a
