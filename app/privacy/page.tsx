@@ -30,20 +30,22 @@ export default function PrivacyPolicyPage() {
           <button
             onClick={() => setLang("mk")}
             aria-label="Switch to Macedonian"
-            className={`rounded-full border px-3 py-1 text-sm transition ${
+            className={`flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition ${
               lang === "mk" ? "bg-white text-black" : "border-gray-600 text-white"
             }`}
           >
-            🇲🇰 MK
+            <Image src="https://flagcdn.com/w40/mk.png" alt="MK" width={16} height={12} />
+            MK
           </button>
           <button
             onClick={() => setLang("en")}
             aria-label="Switch to English"
-            className={`rounded-full border px-3 py-1 text-sm transition ${
+            className={`flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition ${
               lang === "en" ? "bg-white text-black" : "border-gray-600 text-white"
             }`}
           >
-            🇬🇧 EN
+            <Image src="https://flagcdn.com/w40/gb.png" alt="EN" width={16} height={12} />
+            EN
           </button>
         </div>
       </header>
@@ -84,8 +86,23 @@ function ContentEN() {
       </ul>
 
       <p>
-        MK Live Radio does not own any of the radio stations or their content. Station owners may
-        request removal at any time.
+        MK Live Radio does not own any of the radio stations, their content, or their logos.
+      </p>
+      <p className="mt-3">
+        All trademarks, logos, and names are the property of their respective owners and are used
+        for identification purposes only.
+      </p>
+      <p className="mt-3">
+        MK Live Radio is not affiliated with, endorsed by, or officially connected to any radio
+        station.
+      </p>
+      <p className="mt-3">Each station includes a link to its official website.</p>
+      <p className="mt-3">
+        Streaming content is provided by third-party sources and is publicly available.
+      </p>
+      <p className="mt-3">
+        If you are a rights holder and would like any content to be removed or modified, please
+        contact us and we will address your request promptly.
       </p>
 
       <h2 className="mb-2 mt-10 text-2xl font-semibold">3. Contact</h2>
@@ -130,8 +147,22 @@ function ContentMK() {
       </ul>
 
       <p>
-        MK Live Radio не поседува сопственост врз радио станиците или нивната содржина.
-        Сопствениците на станици може да побараат отстранување во секое време.
+        MK Live Radio нема сопственост врз радио станиците, нивната содржина или нивните логоа.
+      </p>
+      <p className="mt-3">
+        Сите трговски марки, логоа и имиња се сопственост на нивните соодветни сопственици и се
+        користат исклучиво за идентификациски цели.
+      </p>
+      <p className="mt-3">
+        MK Live Radio не е поврзан, поддржан или официјално одобрен од ниту една радио станица.
+      </p>
+      <p className="mt-3">Секоја радио станица содржи линк до нејзината официјална веб-страница.</p>
+      <p className="mt-3">
+        Стриминг содржината е обезбедена од трети страни и е јавно достапна.
+      </p>
+      <p className="mt-3">
+        Доколку сте сопственик на содржина или права и сакате отстранување или измена на било кој
+        дел, ве молиме контактирајте нѐ и истото ќе биде обработено во најкус можен рок.
       </p>
 
       <h2 className="mb-2 mt-10 text-2xl font-semibold">3. Контакт</h2>

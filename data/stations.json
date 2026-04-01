@@ -1,302 +1,834 @@
 [
     {
         "id": 0,
-        "name": "Антена 5"
+        "name": "Антена 5",
+        "name_en": "Antenna 5",
+        "logoDefault": "antenna5",
+        "url": "https://fms.off.net.mk:8000/antenna5.stream",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://www.antenna5.com.mk/"
     },
     {
         "id": 5,
-        "name": "Jazz FM"
+        "name": "Jazz FM",
+        "name_en": "Jazz FM",
+        "logoDefault": "jazzFmLogoDark",
+        "url": "https://live.jazzfm.mk/listen/jazzfm/live",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://jazzfm.mk"
     },
     {
         "id": 10,
-        "name": "Радио Скопје"
+        "name": "Радио Скопје",
+        "name_en": "Radio Skopje",
+        "logoDefault": "radio1logo",
+        "url": "https://play.mrt.com.mk/live/47",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": true,
+        "website": "https://www.mrt.com.mk"
     },
     {
         "id": 20,
-        "name": "Радио 2"
+        "name": "Радио 2",
+        "name_en": "Radio 2",
+        "logoDefault": "radio2logo",
+        "url": "https://play.mrt.com.mk/live/48",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": true,
+        "website": "https://www.mrt.com.mk",
+        "relatedLinks": [
+            {
+                "title": "Тик Так и Зорка",
+                "icon": "tikTakZorka",
+                "url": "https://tiktakizorka.buzzsprout.com"
+            }
+        ]
     },
     {
         "id": 30,
-        "name": "Радио 3"
+        "name": "Радио 3",
+        "name_en": "Radio 3",
+        "logoDefault": "radio3logo",
+        "url": "https://play.mrt.com.mk/live/49",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": true,
+        "website": "https://www.mrt.com.mk"
     },
     {
         "id": 40,
-        "name": "Радио САТ"
+        "name": "Радио САТ",
+        "name_en": "Radio SAT",
+        "logoDefault": "radioSatLogo",
+        "url": "https://play.mrt.com.mk/live/50",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": true,
+        "website": "https://www.mrt.com.mk"
     },
     {
         "id": 50,
-        "name": "Канал 77"
+        "name": "Канал 77",
+        "name_en": "Kanal 77",
+        "logoDefault": "kanal77Logo",
+        "url": "https://radiocnd.mms.mk/proxy/offnet/stream",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://kanal77.mk"
     },
     {
         "id": 60,
-        "name": "Метрополис"
+        "name": "Метрополис",
+        "name_en": "Metropolis",
+        "logoDefault": "metropolisLogo",
+        "url": "https://eu4.fastcast4u.com/proxy/metradio?mp=/1",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "http://www.metropolisradio.com.mk"
     },
     {
         "id": 70,
-        "name": "Радио 105 Бомбардер"
+        "name": "Радио 105 Бомбардер",
+        "name_en": "Radio 105 Bombarder",
+        "logoDefault": "radio105bombarderLogo",
+        "url": "https://radio105bombarder.com:21010/radio105",
+        "city": "Битола",
+        "city_en": "Bitola",
+        "shouldParseUrl": false,
+        "website": "https://radio105bombarder.com"
     },
     {
         "id": 80,
-        "name": "Радио 106"
+        "name": "Радио 106",
+        "name_en": "Radio 106",
+        "logoDefault": "radio106Logo",
+        "url": "http://stream.zemi.mk:8003/1",
+        "city": "Битола",
+        "city_en": "Bitola",
+        "shouldParseUrl": false,
+        "website": "https://www.106.com.mk"
     },
     {
         "id": 90,
-        "name": "Александар Македонски"
+        "name": "Александар Македонски",
+        "name_en": "Aleksandar Makedonski",
+        "logoDefault": "aleksandarMakedonskiLogo",
+        "url": "https://s2.free-shoutcast.com/stream/18138",
+        "city": "Кичево",
+        "city_en": "Kichevo",
+        "shouldParseUrl": false,
+        "website": "https://www.radioaleksandarmakedonski.com/?i=1"
     },
     {
         "id": 100,
-        "name": "Радио Бубамара"
+        "name": "Радио Бубамара",
+        "name_en": "Radio Bubamara",
+        "logoDefault": "bubamaraLogo",
+        "url": "https://stream.bubamara.com.mk/live-128.aac",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://radiobubamara.mk"
     },
     {
         "id": 110,
-        "name": "City Радио"
+        "name": "City Радио",
+        "name_en": "City Radio",
+        "logoDefault": "cityRadioLogo",
+        "url": "http://srv1.mol.com.mk:9998/radio.mp3",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "http://www.cityradio.com.mk"
     },
     {
         "id": 120,
-        "name": "Експрес Радио"
+        "name": "Експрес Радио",
+        "name_en": "Ekspres Radio",
+        "logoDefault": "ekspresRadioLogo",
+        "url": "http://ekspresradio.dyndns.org:8000/;",
+        "city": "Струмица",
+        "city_en": "Strumica",
+        "shouldParseUrl": false,
+        "website": "https://www.ekspresradio.com.mk"
     },
     {
         "id": 130,
-        "name": "Радио ВМРО"
+        "name": "Радио ВМРО",
+        "name_en": "Radio VMRO",
+        "logoDefault": "radioVmroLogo",
+        "url": "https://radiovmro.radioca.st/;",
+        "city": "Битола",
+        "city_en": "Bitola",
+        "shouldParseUrl": false,
+        "website": "https://www.radiovmro.mk"
     },
     {
         "id": 140,
-        "name": "Sky Радио"
+        "name": "Sky Радио",
+        "name_en": "Sky Radio",
+        "logoDefault": "skyRadioLogo",
+        "url": "https://s1.skyradio.com.mk/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://skyradio.com.mk"
     },
     {
         "id": 150,
-        "name": "Фортуна"
+        "name": "Фортуна",
+        "name_en": "Fortuna",
+        "logoDefault": "radioFortunaLogo",
+        "url": "https://radiofortuna.ipradio.mk/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://radiofortuna.com.mk"
     },
     {
         "id": 170,
-        "name": "Радио Кавадарци"
+        "name": "Радио Кавадарци",
+        "name_en": "Radio Kavadarci",
+        "logoDefault": "radioKavadarciLogo",
+        "url": "https://stream.zeno.fm/p79t9wf7mg0uv",
+        "city": "Кавадарци",
+        "city_en": "Kavadarci",
+        "shouldParseUrl": false,
+        "website": "https://radiokavadarci.mk/"
     },
     {
         "id": 180,
-        "name": "Радио МЕФФ"
+        "name": "Радио МЕФФ",
+        "name_en": "Radio MEFF",
+        "logoDefault": "radioMeffLogo",
+        "url": "https://s32.myradiostream.com:16040/;",
+        "city": "Прилеп",
+        "city_en": "Prilep",
+        "shouldParseUrl": false,
+        "website": "https://radiomeff.mk"
     },
     {
         "id": 190,
-        "name": "Play FM"
+        "name": "Play FM",
+        "name_en": "Play FM",
+        "logoDefault": "playFMLogo",
+        "url": "https://radio.shoutcast.mk:8046/;",
+        "city": "Струга",
+        "city_en": "Struga",
+        "shouldParseUrl": false,
+        "website": "https://www.playfm.mk"
     },
     {
         "id": 200,
-        "name": "Радио Пулс"
+        "name": "Радио Пулс",
+        "name_en": "Radio Puls",
+        "logoDefault": "radioPulsLogo",
+        "url": "http://pulsradio.mk:8000/;",
+        "city": "Неготино",
+        "city_en": "Negotino",
+        "shouldParseUrl": false,
+        "website": "http://pulsradio.mk"
     },
     {
         "id": 210,
-        "name": "Спортско Радио"
+        "name": "Спортско Радио",
+        "name_en": "Sportsko Radio",
+        "logoDefault": "spotskoRadioLogo",
+        "url": "https://streaming.zemi.mk:8080/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://sportskoradio903.com.mk"
     },
     {
         "id": 220,
-        "name": "Club FM"
+        "name": "Club FM",
+        "name_en": "Club FM",
+        "logoDefault": "clubFMLogo",
+        "url": "http://srv1.mol.com.mk:9996/radio.mp3",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://clubfm.mk"
     },
     {
         "id": 230,
-        "name": "Канал 103"
+        "name": "Канал 103",
+        "name_en": "Kanal 103",
+        "logoDefault": "kanal103Logo",
+        "url": "https://radiostream.neotel.mk/kanal103",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "http://kanal103.com.mk"
     },
     {
         "id": 240,
-        "name": "Радио Лидер"
+        "name": "Радио Лидер",
+        "name_en": "Radio Lider",
+        "logoDefault": "radioLiderLogo",
+        "url": "https://liderfm.ipradio.mk/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://lider.mk"
     },
     {
         "id": 250,
-        "name": "Супер Радио"
+        "name": "Супер Радио",
+        "name_en": "Super Radio",
+        "logoDefault": "superRadioLogoDark",
+        "url": "https://stream.zeno.fm/muzq097d2c9uv",
+        "city": "Охрид",
+        "city_en": "Ohrid",
+        "shouldParseUrl": false,
+        "website": "https://superradio.com.mk"
     },
     {
         "id": 260,
-        "name": "Urban FM"
+        "name": "Urban FM",
+        "name_en": "Urban FM",
+        "logoDefault": "urbanFmLogo",
+        "url": "https://securestreams4.autopo.st:1668/stream",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://urbanfm.mk"
     },
     {
         "id": 270,
-        "name": "Браво"
+        "name": "Браво",
+        "name_en": "Bravo",
+        "logoDefault": "bravoRadioLogo",
+        "url": "http://80.77.157.10:8000/stream/2/;",
+        "city": "Куманово",
+        "city_en": "Kumanovo",
+        "shouldParseUrl": false,
+        "website": "https://bravoradio.mk"
     },
     {
         "id": 280,
-        "name": "Galaxy"
+        "name": "Galaxy",
+        "name_en": "Galaxy",
+        "logoDefault": "galaxyRadioLogo",
+        "url": "http://galaxy.mk:8000/;",
+        "city": "Кавадарци",
+        "city_en": "Kavadarci",
+        "shouldParseUrl": false,
+        "website": "https://galaxy.mk"
     },
     {
         "id": 290,
-        "name": "Хит Радио"
+        "name": "Хит Радио",
+        "name_en": "Hit Radio",
+        "logoDefault": "hitRadioLogo",
+        "url": "https://radio.shoutcast.mk:8062/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://radiohit.com.mk"
     },
     {
         "id": 300,
-        "name": "Life Радио"
+        "name": "Life Радио",
+        "name_en": "Life Radio",
+        "logoDefault": "radioLifeLogo",
+        "url": "http://liferadio.ddns.net:8000/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://life.com.mk"
     },
     {
         "id": 310,
-        "name": "Зона М1"
+        "name": "Зона М1",
+        "name_en": "Zona M1",
+        "logoDefault": "zonam1logo",
+        "url": "https://zonam1.ddns.net:8300/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk"
     },
     {
         "id": 320,
-        "name": "Марија"
+        "name": "Марија",
+        "name_en": "Marija",
+        "logoDefault": "radioMarijaLogo",
+        "url": "https://dreamsiteradiocp2.com/proxy/rmmacedonia2?mp=/stream",
+        "city": "Струмица",
+        "city_en": "Strumica",
+        "shouldParseUrl": false,
+        "website": "https://radiomarija.mk"
     },
     {
         "id": 330,
-        "name": "Radio S"
+        "name": "Radio S",
+        "name_en": "Radio S",
+        "logoDefault": "radioSLogo",
+        "url": "https://radiocnd.mms.mk/proxy/radios/stream",
+        "city": "Свети Николе",
+        "city_en": "Sveti Nikole",
+        "shouldParseUrl": false,
+        "website": "https://radios.mk"
     },
     {
         "id": 340,
-        "name": "УГД ФМ"
+        "name": "УГД ФМ",
+        "name_en": "UGD FM",
+        "logoDefault": "ugdFmLogo",
+        "url": "http://ugdfm-stream.ugd.edu.mk:8000/stream",
+        "city": "Штип",
+        "city_en": "Shtip",
+        "shouldParseUrl": false,
+        "website": "https://ugdfm.ugd.edu.mk"
     },
     {
         "id": 350,
-        "name": "Пела"
+        "name": "Пела",
+        "name_en": "Pela",
+        "logoDefault": "radioPelaLogo",
+        "url": "https://cloud.mkdstream.com/p/8131/stream",
+        "city": "Прилеп",
+        "city_en": "Prilep",
+        "shouldParseUrl": false,
+        "website": "https://radiopela.mk/"
     },
     {
         "id": 360,
-        "name": "Радио 5"
+        "name": "Радио 5",
+        "name_en": "Radio 5",
+        "logoDefault": "radio5Logo",
+        "url": "https://5fm.mk:8000/stream/1/?type=http/;",
+        "city": "Велес",
+        "city_en": "Veles",
+        "shouldParseUrl": false,
+        "website": "https://5fm.mk"
     },
     {
         "id": 370,
-        "name": "Бум"
+        "name": "Бум",
+        "name_en": "Bum",
+        "logoDefault": "radioBumLogo",
+        "url": "http://hyades.shoutca.st:8533/;",
+        "city": "Куманово",
+        "city_en": "Kumanovo",
+        "shouldParseUrl": false,
+        "website": "https://radiobum.com.mk"
     },
     {
         "id": 380,
-        "name": "Just Music"
+        "name": "Just Music",
+        "name_en": "Just Music",
+        "logoDefault": "justMusicLogo",
+        "url": "https://radiostream.neotel.mk/justmusicradio",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://justmusicradio.mk/?lang=mk"
     },
     {
         "id": 390,
-        "name": "Орбис"
+        "name": "Орбис",
+        "name_en": "Orbis",
+        "logoDefault": "radioOrbisLogo",
+        "url": "https://stream.zeno.fm/7s9nmg5wcg0uv",
+        "city": "Битола",
+        "city_en": "Bitola",
+        "shouldParseUrl": false,
+        "website": "https://rtvorbis.mk"
     },
     {
         "id": 400,
-        "name": "Орбис 2"
+        "name": "Орбис 2",
+        "name_en": "Orbis 2",
+        "logoDefault": "radioOrbisLogo",
+        "url": "https://stream.zeno.fm/fs5xsvcuz1zuv",
+        "city": "Битола",
+        "city_en": "Bitola",
+        "shouldParseUrl": false,
+        "website": "https://rtvorbis.mk"
     },
     {
         "id": 410,
-        "name": "Само МК"
+        "name": "Само МК",
+        "name_en": "Samo MK",
+        "logoDefault": "samoMkLogo",
+        "url": "https://radiostream.neotel.mk/samomk",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://samomk.mk"
     },
     {
         "id": 420,
-        "name": "Time FM"
+        "name": "Time FM",
+        "name_en": "Time FM",
+        "logoDefault": "timeFmLogo",
+        "url": "https://s2.free-shoutcast.com/stream/18058",
+        "city": "Гевгелија",
+        "city_en": "Gevgelija",
+        "shouldParseUrl": false,
+        "website": "https://www.timefm.mk"
     },
     {
         "id": 430,
-        "name": "Радио 22"
+        "name": "Радио 22",
+        "name_en": "Radio 22",
+        "logoDefault": "radio22Logo",
+        "url": "https://radio.server14.kariha.net:8008/;",
+        "city": "Прилеп",
+        "city_en": "Prilep",
+        "shouldParseUrl": false,
+        "website": "https://radio22prilep.wixsite.com/radio22"
     },
     {
         "id": 440,
-        "name": "Радио Бар"
+        "name": "Радио Бар",
+        "name_en": "Radio Bar",
+        "logoDefault": "radioBarLogo",
+        "url": "https://visual.shoutca.st:8122/stream",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://radiobar.mk"
     },
     {
         "id": 450,
-        "name": "Diamond"
+        "name": "Diamond",
+        "name_en": "Diamond",
+        "logoDefault": "radioDiamondLogo",
+        "url": "https://cast6.asurahosting.com/proxy/nikola/stream",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://diamondradio4.wixsite.com/diamondradio"
     },
     {
         "id": 460,
-        "name": "Радио ТИМ"
+        "name": "Радио ТИМ",
+        "name_en": "Radio TIM",
+        "logoDefault": "radioTimLogo",
+        "url": "https://radiotim.radioca.st/radiotim/",
+        "city": "Битола",
+        "city_en": "Bitola",
+        "shouldParseUrl": false,
+        "website": "https://radiotim.radioca.st/radiotim/"
     },
     {
         "id": 464,
-        "name": "Jazz FM Christmas"
+        "name": "Jazz FM Christmas",
+        "name_en": "Jazz FM Christmas",
+        "logoDefault": "jazzFmChristmasLogoLight",
+        "url": "https://live.jazzfm.mk/listen/xmas/live.mp3",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://jazzfm.mk"
     },
     {
         "id": 465,
-        "name": "Jazz FM Grooves"
+        "name": "Jazz FM Grooves",
+        "name_en": "Jazz FM Grooves",
+        "logoDefault": "jazzFmLogoDark",
+        "url": "https://live.jazzfm.mk/listen/jazz-fm-grooves/live",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://jazzfm.mk"
     },
     {
         "id": 466,
-        "name": "Funk Soul Brother"
+        "name": "Funk Soul Brother",
+        "name_en": "Funk Soul Brother",
+        "logoDefault": "jazzFmLogoDark",
+        "url": "https://live.jazzfm.mk/listen/funk-soul-brother/live",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://jazzfm.mk"
     },
     {
         "id": 470,
-        "name": "Зона Кафе"
+        "name": "Зона Кафе",
+        "name_en": "Zona Cafe",
+        "logoDefault": "zonaCafeLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/25/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 480,
-        "name": "Зона House"
+        "name": "Зона House",
+        "name_en": "Zona House",
+        "logoDefault": "zonaHouseLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/2/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 490,
-        "name": "Зона Екс Ју Сентиши"
+        "name": "Зона Екс Ју Сентиши",
+        "name_en": "Zona Ex-Yu Sentishi",
+        "logoDefault": "zonaEksYuSentishiLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/3/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 500,
-        "name": "Зона Мак Забавна"
+        "name": "Зона Мак Забавна",
+        "name_en": "Zona Mak Zabavna",
+        "logoDefault": "zonaMakZabavnaLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/4/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 510,
-        "name": "Зона Мак Народна"
+        "name": "Зона Мак Народна",
+        "name_en": "Zona Mak Narodna",
+        "logoDefault": "zonaMakNarodnaLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/5/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 520,
-        "name": "Зона Екс Ју"
+        "name": "Зона Екс Ју",
+        "name_en": "Zona Eks Yu",
+        "logoDefault": "zonaEksYuLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/6/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 530,
-        "name": "Зона Ретро"
+        "name": "Зона Ретро",
+        "name_en": "Zona Retro",
+        "logoDefault": "zonaRetroLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/7/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 540,
-        "name": "Зона Кафански"
+        "name": "Зона Кафански",
+        "name_en": "Zona Kafanski",
+        "logoDefault": "zonaKafanskiLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/8/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 550,
-        "name": "Зона Фолк Балади"
+        "name": "Зона Фолк Балади",
+        "name_en": "Zona Folk Baladi",
+        "logoDefault": "zonaFolkBaladiLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/9/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 560,
-        "name": "Зона Латино"
+        "name": "Зона Латино",
+        "name_en": "Zona Latino",
+        "logoDefault": "zonaLatinoLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/10/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 570,
-        "name": "Зона Детски"
+        "name": "Зона Детски",
+        "name_en": "Zona Detski",
+        "logoDefault": "zonaDetskiLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/11/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 580,
-        "name": "Зона Чочеци"
+        "name": "Зона Чочеци",
+        "name_en": "Zona Chocheci",
+        "logoDefault": "zonaChocheciLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/12/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 590,
-        "name": "Зона Greece Hits"
+        "name": "Зона Greece Hits",
+        "name_en": "Zona Greece Hits",
+        "logoDefault": "zonaGreeceHitsLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/13/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 600,
-        "name": "Зона Џез"
+        "name": "Зона Џез",
+        "name_en": "Zona Jazz",
+        "logoDefault": "zonaJazzLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/14/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 610,
-        "name": "Зона Амбиент"
+        "name": "Зона Амбиент",
+        "name_en": "Zona Ambient",
+        "logoDefault": "zonaAmbientLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/15/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 620,
-        "name": "Зона Мак Патриотски"
+        "name": "Зона Мак Патриотски",
+        "name_en": "Zona Mak Patriotski",
+        "logoDefault": "zonaMakPatriotskiLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/16/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 630,
-        "name": "Зона Мак Евергрини"
+        "name": "Зона Мак Евергрини",
+        "name_en": "Zona Mak Evergrini",
+        "logoDefault": "zonaMakEvergriniLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/17/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 640,
-        "name": "Зона Сериозна"
+        "name": "Зона Сериозна",
+        "name_en": "Zona Seriozna",
+        "logoDefault": "zonaSerioznaLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/18/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 650,
-        "name": "Зона DJ Зона Фолк"
+        "name": "Зона DJ Зона Фолк",
+        "name_en": "Zona DJ Zona Folk",
+        "logoDefault": "zonaDjZonaFolkLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/19/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 660,
-        "name": "Зона Рап"
+        "name": "Зона Рап",
+        "name_en": "Zona Rap",
+        "logoDefault": "zonaRapLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/20/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 670,
-        "name": "Зона World Music"
+        "name": "Зона World Music",
+        "name_en": "Zona World Music",
+        "logoDefault": "zonaWorldMusicLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/21/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 680,
-        "name": "Зона Инструментал"
+        "name": "Зона Инструментал",
+        "name_en": "Zona Instrumental",
+        "logoDefault": "zonaInstrumentalLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/22/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 690,
-        "name": "Зона Духовна"
+        "name": "Зона Духовна",
+        "name_en": "Zona Duhovna",
+        "logoDefault": "zonaDuhovnaLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/23/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 700,
-        "name": "Зона Метал"
+        "name": "Зона Метал",
+        "name_en": "Zona Metal",
+        "logoDefault": "zonaMetalLogo",
+        "url": "https://zonam1.ddns.net:8200/stream/24/;",
+        "city": "Скопје",
+        "city_en": "Skopje",
+        "shouldParseUrl": false,
+        "website": "https://zonam1radio.com.mk/"
     },
     {
         "id": 710,
-        "name": "Радио Лав"
+        "name": "Радио Лав",
+        "name_en": "Radio Lav",
+        "logoDefault": "radioLavLogo",
+        "url": "https://cloud.mkdstream.com/p/7094/stream",
+        "city": "Охрид",
+        "city_en": "Ohrid",
+        "shouldParseUrl": false,
+        "website": "https://radiolav.mk"
     }
 ]

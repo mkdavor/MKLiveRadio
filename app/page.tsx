@@ -7,9 +7,13 @@ export default function HomePage() {
       <div className="absolute right-4 top-4">
         <Link
           href="/privacy"
-          className="text-sm text-gray-400 transition hover:text-white"
+          className="flex items-center gap-2 text-sm text-gray-400 transition hover:text-white"
         >
-          🇲🇰/🇬🇧 Политика за приватност
+          <span className="flex items-center gap-1" aria-hidden>
+            <Image src="https://flagcdn.com/w40/mk.png" alt="MK" width={16} height={12} />
+            <Image src="https://flagcdn.com/w40/gb.png" alt="EN" width={16} height={12} />
+          </span>
+          <span>Политика за приватност</span>
         </Link>
       </div>
 
