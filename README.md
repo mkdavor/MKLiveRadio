@@ -18,7 +18,13 @@ MK Live Radio **does not own or claim ownership** of any of the radio stations o
 If you are a station owner and would like your stream removed, please contact us and we will comply promptly.
 
 ## 3. Third-Party Services
-MK Live Radio does **not use any third-party services** such as analytics, advertising, or tracking libraries.
+The web version of MK Live Radio uses **Firebase Analytics (Google Analytics 4)** for aggregate usage analytics.
+It only tracks which station is played (station id and station name) and listening duration in the web player.
+
+MK Live Radio does not require account registration and does not collect direct personal identifiers
+such as name, phone number, or email address for analytics.
+
+Firebase web config is defined in [lib/analytics.ts](./lib/analytics.ts).
 
 ## 4. Contact
 If you have questions, encounter issues, or wish to request the removal of a station, please open an issue in the [GitHub repository](../../issues).

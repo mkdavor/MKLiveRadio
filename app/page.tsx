@@ -1,9 +1,86 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  absoluteUrl,
+  APP_STORE_URL,
+  DEFAULT_OG_IMAGE,
+  INSTAGRAM_URL,
+  PLAY_STORE_URL,
+  SEO_KEYWORDS,
+  SITE_URL,
+} from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "MK Live Radio",
+  description:
+    "Listen to Macedonian and Balkan radio stations live for free on web, iOS, and Android.",
+  keywords: SEO_KEYWORDS,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    title: "MK Live Radio | Macedonian & Balkan Radio Stations Live",
+    description:
+      "Stream Macedonian radio stations live and free. Available on web, iOS, and Android.",
+    images: [{ url: DEFAULT_OG_IMAGE, alt: "MK Live Radio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MK Live Radio",
+    description: "Macedonian and Balkan radio stations live.",
+    images: [absoluteUrl(DEFAULT_OG_IMAGE)],
+  },
+};
 
 export default function HomePage() {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "MK Live Radio",
+    url: SITE_URL,
+    inLanguage: ["mk", "en"],
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE_URL}/stations?search={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  const mobileAppSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        name: "MK Live Radio iOS",
+        operatingSystem: "iOS",
+        applicationCategory: "MusicApplication",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        url: APP_STORE_URL,
+      },
+      {
+        "@type": "MobileApplication",
+        name: "MK Live Radio Android",
+        operatingSystem: "Android",
+        applicationCategory: "MusicApplication",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        url: PLAY_STORE_URL,
+      },
+    ],
+  };
+
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-black px-6 text-center text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(mobileAppSchema) }}
+      />
       <div className="absolute right-4 top-4">
         <Link
           href="/privacy"
@@ -32,7 +109,7 @@ export default function HomePage() {
 
       <div className="flex flex-col items-center gap-4 sm:flex-row">
         <a
-          href="https://apps.apple.com/de/app/mk-live-radio/id6748603781"
+          href={APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -46,7 +123,7 @@ export default function HomePage() {
         </a>
 
         <a
-          href="https://play.google.com/store/apps/details?id=app.mkliveradio.android"
+          href={PLAY_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -60,8 +137,16 @@ export default function HomePage() {
         </a>
       </div>
 
+      <Link
+        href="/webplayer"
+        className="group mt-5 inline-flex items-center gap-2 rounded-full border border-[#c63a2e]/45 bg-gradient-to-r from-[#c63a2e]/26 via-[#d14a3f]/22 to-[#8f2018]/24 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(198,58,46,0.28)] transition duration-300 hover:scale-[1.03] hover:border-[#e26156]/75 hover:shadow-[0_0_38px_rgba(198,58,46,0.48)]"
+      >
+        <span className="h-2 w-2 rounded-full bg-[#e26156] transition group-hover:bg-[#ff8478]" />
+        Слушај без апликација
+      </Link>
+
       <a
-        href="https://www.instagram.com/mkliveradio"
+        href={INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-5 flex items-center gap-2 text-gray-400 transition hover:text-white"
