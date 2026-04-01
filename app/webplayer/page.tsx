@@ -58,7 +58,7 @@ const copy = {
       ready: "Подготвено за слушање во живо",
       live: "Во живо",
       paused: "Паузирано",
-      connecting: "Се поврзува со стрим...",
+      connecting: "Се поврзува...",
       streamUnavailable: "Стримот моментално не е достапен",
       resolving: "Се вчитува URL за стрим...",
       selected: "Избрано: ",
