@@ -83,26 +83,76 @@ export default async function StationSeoPage({ params }: StationPageProps) {
   const stationCity = getStationDisplayCity(station, "en");
   const pagePath = getStationPath(station);
   const listenUrl = `/webplayer?id=${station.id}`;
+  const pageUrl = absoluteUrl(pagePath);
+  const listenAbsoluteUrl = absoluteUrl(listenUrl);
+  const pageId = `${pageUrl}#webpage`;
+  const stationId = `${pageUrl}#radiostation`;
+  const streamId = `${pageUrl}#stream`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const stationLogoUrl = absoluteUrl(`/logos/${pickStationLogoName(station)}.webp`);
 
   const radioStationSchema = {
-    "@context": "https://schema.org",
     "@type": "RadioStation",
+    "@id": stationId,
     name: stationName,
     alternateName: stationNameMk,
-    url: absoluteUrl(pagePath),
+    url: pageUrl,
+    mainEntityOfPage: {
+      "@id": pageId,
+    },
     areaServed: "Macedonia",
     inLanguage: ["mk", "en"],
     sameAs: station.website ? [station.website] : undefined,
-    image: absoluteUrl(`/logos/${pickStationLogoName(station)}.webp`),
+    image: stationLogoUrl,
     potentialAction: {
       "@type": "ListenAction",
-      target: absoluteUrl(listenUrl),
+      target: listenAbsoluteUrl,
     },
   };
 
+  const streamSchema = {
+    "@type": "AudioObject",
+    "@id": streamId,
+    name: `${stationName} live stream`,
+    contentUrl: station.url,
+    embedUrl: listenAbsoluteUrl,
+    inLanguage: ["mk", "en"],
+    regionAllowed: "Macedonia",
+    isPartOf: {
+      "@id": stationId,
+    },
+  };
+
+  const webPageSchema = {
+    "@type": "WebPage",
+    "@id": pageId,
+    url: pageUrl,
+    name: `${stationName} Live Radio`,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": absoluteUrl("/#website"),
+      name: SITE_NAME,
+      url: absoluteUrl("/"),
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: stationLogoUrl,
+    },
+    breadcrumb: {
+      "@id": breadcrumbId,
+    },
+    mainEntity: {
+      "@id": stationId,
+    },
+    about: {
+      "@id": streamId,
+    },
+    inLanguage: ["mk", "en"],
+  };
+
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": breadcrumbId,
     itemListElement: [
       {
         "@type": "ListItem",
@@ -129,11 +179,12 @@ export default async function StationSeoPage({ params }: StationPageProps) {
     <main className="min-h-screen bg-black px-5 py-12 text-white sm:px-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(radioStationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [webPageSchema, radioStationSchema, streamSchema, breadcrumbSchema],
+          }),
+        }}
       />
 
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-8">
@@ -171,29 +222,34 @@ export default async function StationSeoPage({ params }: StationPageProps) {
             Android.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-col items-start gap-4">
             <Link
               href={listenUrl}
-              className="rounded-full border border-white/30 px-5 py-2 font-semibold transition hover:border-white hover:bg-white hover:text-black"
+              className="group inline-flex items-center gap-2 rounded-full border border-[#c63a2e]/45 bg-gradient-to-r from-[#c63a2e]/26 via-[#d14a3f]/22 to-[#8f2018]/24 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(198,58,46,0.28)] transition duration-300 hover:scale-[1.03] hover:border-[#e26156]/75 hover:shadow-[0_0_38px_rgba(198,58,46,0.48)]"
             >
-              Listen Live
+              <span className="h-2 w-2 rounded-full bg-[#e26156] transition group-hover:bg-[#ff8478]" />
+              Open Web Player
             </Link>
-            <a
-              href={APP_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-white/20 px-5 py-2 text-gray-200 transition hover:border-white"
-            >
-              iOS App
-            </a>
-            <a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-white/20 px-5 py-2 text-gray-200 transition hover:border-white"
-            >
-              Android App
-            </a>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/appstore.svg"
+                  alt="Download on the App Store"
+                  width={168}
+                  height={56}
+                  className="h-14 w-auto transition hover:scale-105"
+                />
+              </a>
+              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/playstore.svg"
+                  alt="Get it on Google Play"
+                  width={189}
+                  height={56}
+                  className="h-14 w-auto transition hover:scale-105"
+                />
+              </a>
+            </div>
             {station.website && (
               <a
                 href={station.website}
