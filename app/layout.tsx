@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   title: {
-    default: "MK Live Radio | Macedonian & Balkan Radio Stations Live",
+    default: "MK Live Radio | Macedonian Radio Stations Live",
     template: "%s | MK Live Radio",
   },
   description:
-    "Listen to Macedonian and Balkan radio stations live for free. Stream 75+ online stations from North Macedonia on web, iOS, and Android.",
+    "Listen to Macedonian radio stations live for free. Stream 75+ online stations from Macedonia on web, iOS, and Android.",
   keywords: SEO_KEYWORDS,
   alternates: {
     canonical: "/",
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US"],
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "MK Live Radio | Macedonian & Balkan Radio Stations Live",
+    title: "MK Live Radio | Macedonian Radio Stations Live",
     description:
-      "Stream Macedonian radio stations live and free. Discover local FM, Balkan hits, folk, pop, and talk radio in one app.",
+      "Stream Macedonian radio stations live and free. Discover local FM, folk, pop, and talk radio in one app.",
     images: [
       {
         url: DEFAULT_OG_IMAGE,
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MK Live Radio | Macedonian & Balkan Radio Stations Live",
+    title: "MK Live Radio | Macedonian Radio Stations Live",
     description:
       "Listen to Macedonian radios online with the MK Live Radio mobile app and web player.",
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],

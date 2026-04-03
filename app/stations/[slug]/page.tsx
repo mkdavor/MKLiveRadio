@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: StationPageProps): Promise<Me
       `${stationName} online`,
       `${stationName} radio stream`,
       "Macedonian radio station",
-      "Balkan radio stream",
+      "Macedonia radio stream",
     ],
     alternates: {
       canonical: pagePath,
@@ -90,7 +90,7 @@ export default async function StationSeoPage({ params }: StationPageProps) {
     name: stationName,
     alternateName: stationNameMk,
     url: absoluteUrl(pagePath),
-    areaServed: "North Macedonia",
+    areaServed: "Macedonia",
     inLanguage: ["mk", "en"],
     sameAs: station.website ? [station.website] : undefined,
     image: absoluteUrl(`/logos/${pickStationLogoName(station)}.webp`),

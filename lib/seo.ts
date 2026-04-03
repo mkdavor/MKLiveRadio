@@ -10,8 +10,6 @@ export const SEO_KEYWORDS = [
   "Macedonian radio",
   "Macedonian radios",
   "Macedonian radio stations",
-  "Balkan radio",
-  "Balkan radios",
   "radio Macedonia",
   "македонски радија",
   "македонско радио",

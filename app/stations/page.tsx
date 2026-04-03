@@ -25,7 +25,6 @@ export const metadata: Metadata = {
     ...SEO_KEYWORDS,
     "Macedonian radio stations list",
     "Macedonian FM stations",
-    "Balkan online radio directory",
     "Skopje radio stations",
     "Bitola radio stations",
   ],
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/stations"),
     title: "MK Live Radio Station Directory",
     description:
-      "Explore 75+ Macedonian and Balkan radio streams with direct station pages and one-click web playback.",
+      "Explore 75+ Macedonian radio streams with direct station pages and one-click web playback.",
     images: [{ url: DEFAULT_OG_IMAGE, alt: "MK Live Radio station directory" }],
   },
 };
@@ -79,10 +78,10 @@ export default function StationsPage() {
       },
       {
         "@type": "Question",
-        name: "Does MK Live Radio include Balkan music and genre stations?",
+        name: "Does MK Live Radio include music and genre stations?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. The station list includes Macedonian and Balkan-focused stations, including pop, folk, talk, jazz, and genre channels.",
+          text: "Yes. The station list includes Macedonian stations across pop, folk, talk, jazz, and genre channels.",
         },
       },
       {
@@ -106,13 +105,13 @@ export default function StationsPage() {
       <div className="mx-auto w-full max-w-6xl">
         <h1 className="text-3xl font-bold sm:text-5xl">Macedonian Radio Stations Directory</h1>
         <p className="mt-4 max-w-4xl text-base text-gray-300 sm:text-lg">
-          Browse live Macedonian radio stations and Balkan radio channels in one place. This
-          directory helps listeners discover stations by city, music style, and station name, then
-          continue in the MK Live Radio web player or mobile app.
+          Browse live Macedonian radio stations in one place. This directory helps listeners
+          discover stations by city, music style, and station name, then continue in the MK Live
+          Radio web player or mobile app.
         </p>
         <p className="mt-3 max-w-4xl text-sm text-gray-400 sm:text-base">
-          Keywords covered: Macedonian radios, Balkan radios, online radio Macedonia, MK Live Radio
-          app, free radio streaming, and local FM stations from cities across North Macedonia.
+          Keywords covered: Macedonian radios, online radio Macedonia, MK Live Radio app, free
+          radio streaming, and local FM stations from cities across Macedonia.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3 text-sm">

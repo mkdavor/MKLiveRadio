@@ -60,7 +60,7 @@ export default function MacedonianRadiosPage() {
         <h1 className="text-4xl font-bold sm:text-5xl">Macedonian Radios Online</h1>
         <p className="mt-4 max-w-3xl text-gray-300">
           MK Live Radio is a Macedonian radio directory and streaming platform. Listen to music,
-          news, folk, pop, and talk radio from stations across North Macedonia.
+          news, folk, pop, and talk radio from stations across Macedonia.
         </p>
         <p className="mt-2 max-w-3xl text-gray-300">
           Available on web player and official mobile radio apps for iPhone and Android.

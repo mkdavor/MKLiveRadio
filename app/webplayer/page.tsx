@@ -12,7 +12,7 @@ import { getStationPath, stations } from "@/lib/stations";
 export const metadata: Metadata = {
   title: "Web Player",
   description:
-    "Listen to Macedonian and Balkan radio stations live in your browser. Search stations by city and share direct station links.",
+    "Listen to Macedonian radio stations live in your browser. Search stations by city and share direct station links.",
   keywords: [
     ...SEO_KEYWORDS,
     "web radio player",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MK Live Radio Web Player",
-    description: "Listen to Macedonian and Balkan stations live in one web player.",
+    description: "Listen to Macedonian stations live in one web player.",
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
   },
 };

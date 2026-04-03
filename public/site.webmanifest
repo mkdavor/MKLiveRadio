@@ -1,7 +1,7 @@
 {
   "name": "MK Live Radio",
   "short_name": "MK Radio",
-  "description": "Listen to Macedonian and Balkan radio stations live on web, iOS, and Android.",
+  "description": "Listen to Macedonian radio stations live on web, iOS, and Android.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

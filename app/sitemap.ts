@@ -31,12 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: absoluteUrl("/balkan-radios"),
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.85,
-    },
-    {
       url: absoluteUrl("/privacy"),
       lastModified: now,
       changeFrequency: "monthly",

@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "MK Live Radio",
   description:
-    "Listen to Macedonian and Balkan radio stations live for free on web, iOS, and Android.",
+    "Listen to Macedonian radio stations live for free on web, iOS, and Android.",
   keywords: SEO_KEYWORDS,
   alternates: {
     canonical: "/",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_URL,
-    title: "MK Live Radio | Macedonian & Balkan Radio Stations Live",
+    title: "MK Live Radio | Macedonian Radio Stations Live",
     description:
       "Stream Macedonian radio stations live and free. Available on web, iOS, and Android.",
     images: [{ url: DEFAULT_OG_IMAGE, alt: "MK Live Radio" }],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MK Live Radio",
-    description: "Macedonian and Balkan radio stations live.",
+    description: "Macedonian radio stations live.",
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
   },
 };
