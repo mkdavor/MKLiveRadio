@@ -6,13 +6,14 @@ export type Station = {
   name_en?: string;
   logoDefault: string;
   url: string;
+  isVisible?: boolean;
   shouldParseUrl?: boolean;
   website?: string;
   city?: string;
   city_en?: string;
 };
 
-export const stations = stationsData as Station[];
+export const stations = (stationsData as Station[]).filter((station) => station.isVisible !== false);
 
 function normalizeSlugPart(value: string) {
   const normalized = value

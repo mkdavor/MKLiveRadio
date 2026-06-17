@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import stations from "../../data/stations.json";
+import { stations } from "@/lib/stations";
 
 const APP_STORE_URL = "https://apps.apple.com/de/app/mk-live-radio/id6748603781";
 const PLAY_STORE_URL =

@@ -8,7 +8,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://www.antenna5.com.mk/"
+        "website": "https://www.antenna5.com.mk/",
+        "isVisible": true
     },
     {
         "id": 5,
@@ -19,7 +20,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://jazzfm.mk"
+        "website": "https://jazzfm.mk",
+        "isVisible": true
     },
     {
         "id": 10,
@@ -30,7 +32,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": true,
-        "website": "https://www.mrt.com.mk"
+        "website": "https://www.mrt.com.mk",
+        "isVisible": true
     },
     {
         "id": 20,
@@ -48,7 +51,8 @@
                 "icon": "tikTakZorka",
                 "url": "https://tiktakizorka.buzzsprout.com"
             }
-        ]
+        ],
+        "isVisible": true
     },
     {
         "id": 30,
@@ -59,7 +63,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": true,
-        "website": "https://www.mrt.com.mk"
+        "website": "https://www.mrt.com.mk",
+        "isVisible": true
     },
     {
         "id": 40,
@@ -70,7 +75,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": true,
-        "website": "https://www.mrt.com.mk"
+        "website": "https://www.mrt.com.mk",
+        "isVisible": true
     },
     {
         "id": 50,
@@ -81,7 +87,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://kanal77.mk"
+        "website": "https://kanal77.mk",
+        "isVisible": true
     },
     {
         "id": 60,
@@ -92,7 +99,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "http://www.metropolisradio.com.mk"
+        "website": "http://www.metropolisradio.com.mk",
+        "isVisible": true
     },
     {
         "id": 70,
@@ -103,18 +111,20 @@
         "city": "Битола",
         "city_en": "Bitola",
         "shouldParseUrl": false,
-        "website": "https://radio105bombarder.com"
+        "website": "https://radio105bombarder.com",
+        "isVisible": true
     },
     {
         "id": 80,
         "name": "Радио 106",
         "name_en": "Radio 106",
         "logoDefault": "radio106Logo",
-        "url": "http://stream.zemi.mk:8003/1",
+        "url": "http://streaming.zemi.mk:8003/1",
         "city": "Битола",
         "city_en": "Bitola",
         "shouldParseUrl": false,
-        "website": "https://www.106.com.mk"
+        "website": "https://www.106.com.mk",
+        "isVisible": true
     },
     {
         "id": 90,
@@ -125,29 +135,32 @@
         "city": "Кичево",
         "city_en": "Kichevo",
         "shouldParseUrl": false,
-        "website": "https://www.radioaleksandarmakedonski.com/?i=1"
+        "website": "https://www.radioaleksandarmakedonski.com/?i=1",
+        "isVisible": true
     },
     {
         "id": 100,
         "name": "Радио Бубамара",
         "name_en": "Radio Bubamara",
         "logoDefault": "bubamaraLogo",
-        "url": "https://stream.bubamara.com.mk/live-128.aac",
+        "url": "https://stream.bubamara.com.mk/live",
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://radiobubamara.mk"
+        "website": "https://radiobubamara.mk",
+        "isVisible": true
     },
     {
         "id": 110,
         "name": "City Радио",
         "name_en": "City Radio",
         "logoDefault": "cityRadioLogo",
-        "url": "http://srv1.mol.com.mk:9998/radio.mp3",
+        "url": "http://176.9.117.123:9998/live",
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "http://www.cityradio.com.mk"
+        "website": "http://www.cityradio.com.mk",
+        "isVisible": true
     },
     {
         "id": 120,
@@ -158,7 +171,8 @@
         "city": "Струмица",
         "city_en": "Strumica",
         "shouldParseUrl": false,
-        "website": "https://www.ekspresradio.com.mk"
+        "website": "https://www.ekspresradio.com.mk",
+        "isVisible": true
     },
     {
         "id": 130,
@@ -169,7 +183,8 @@
         "city": "Битола",
         "city_en": "Bitola",
         "shouldParseUrl": false,
-        "website": "https://www.radiovmro.mk"
+        "website": "https://www.radiovmro.mk",
+        "isVisible": true
     },
     {
         "id": 140,
@@ -180,7 +195,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://skyradio.com.mk"
+        "website": "https://skyradio.com.mk",
+        "isVisible": true
     },
     {
         "id": 150,
@@ -191,7 +207,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://radiofortuna.com.mk"
+        "website": "https://radiofortuna.com.mk",
+        "isVisible": true
     },
     {
         "id": 170,
@@ -202,7 +219,8 @@
         "city": "Кавадарци",
         "city_en": "Kavadarci",
         "shouldParseUrl": false,
-        "website": "https://radiokavadarci.mk/"
+        "website": "https://radiokavadarci.mk/",
+        "isVisible": true
     },
     {
         "id": 180,
@@ -213,7 +231,8 @@
         "city": "Прилеп",
         "city_en": "Prilep",
         "shouldParseUrl": false,
-        "website": "https://radiomeff.mk"
+        "website": "https://radiomeff.mk",
+        "isVisible": true
     },
     {
         "id": 190,
@@ -224,7 +243,8 @@
         "city": "Струга",
         "city_en": "Struga",
         "shouldParseUrl": false,
-        "website": "https://www.playfm.mk"
+        "website": "https://www.playfm.mk",
+        "isVisible": true
     },
     {
         "id": 200,
@@ -235,7 +255,8 @@
         "city": "Неготино",
         "city_en": "Negotino",
         "shouldParseUrl": false,
-        "website": "http://pulsradio.mk"
+        "website": "http://pulsradio.mk",
+        "isVisible": true
     },
     {
         "id": 210,
@@ -246,18 +267,20 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://sportskoradio903.com.mk"
+        "website": "https://sportskoradio903.com.mk",
+        "isVisible": true
     },
     {
         "id": 220,
         "name": "Club FM",
         "name_en": "Club FM",
         "logoDefault": "clubFMLogo",
-        "url": "http://srv1.mol.com.mk:9996/radio.mp3",
+        "url": "http://176.9.117.123:9996/;stream/1",
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://clubfm.mk"
+        "website": "https://clubfm.mk",
+        "isVisible": true
     },
     {
         "id": 230,
@@ -268,7 +291,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "http://kanal103.com.mk"
+        "website": "http://kanal103.com.mk",
+        "isVisible": true
     },
     {
         "id": 240,
@@ -279,7 +303,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://lider.mk"
+        "website": "https://lider.mk",
+        "isVisible": true
     },
     {
         "id": 250,
@@ -290,7 +315,8 @@
         "city": "Охрид",
         "city_en": "Ohrid",
         "shouldParseUrl": false,
-        "website": "https://superradio.com.mk"
+        "website": "https://superradio.com.mk",
+        "isVisible": true
     },
     {
         "id": 260,
@@ -301,29 +327,32 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://urbanfm.mk"
+        "website": "https://urbanfm.mk",
+        "isVisible": true
     },
     {
         "id": 270,
         "name": "Браво",
         "name_en": "Bravo",
         "logoDefault": "bravoRadioLogo",
-        "url": "http://80.77.157.10:8000/stream/2/;",
+        "url": "https://radiomk-portal.com/listen/bravo_radio_macedonia/radio.mp3",
         "city": "Куманово",
         "city_en": "Kumanovo",
         "shouldParseUrl": false,
-        "website": "https://bravoradio.mk"
+        "website": "https://bravoradio.mk",
+        "isVisible": true
     },
     {
         "id": 280,
         "name": "Galaxy",
         "name_en": "Galaxy",
         "logoDefault": "galaxyRadioLogo",
-        "url": "http://galaxy.mk:8000/;",
+        "url": "https://galaxy.mk:8080/;stream.mp3",
         "city": "Кавадарци",
         "city_en": "Kavadarci",
         "shouldParseUrl": false,
-        "website": "https://galaxy.mk"
+        "website": "https://galaxy.mk",
+        "isVisible": true
     },
     {
         "id": 290,
@@ -334,29 +363,32 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://radiohit.com.mk"
+        "website": "https://radiohit.com.mk",
+        "isVisible": true
     },
     {
         "id": 300,
         "name": "Life Радио",
         "name_en": "Life Radio",
         "logoDefault": "radioLifeLogo",
-        "url": "http://liferadio.ddns.net:8000/;",
+        "url": "https://radio.life.com.mk",
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://life.com.mk"
+        "website": "https://life.com.mk",
+        "isVisible": true
     },
     {
         "id": 310,
         "name": "Зона М1",
         "name_en": "Zona M1",
         "logoDefault": "zonam1logo",
-        "url": "https://zonam1.ddns.net:8300/;",
+        "url": "https://zonam1.ddns.net:8400/;",
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk"
+        "website": "https://zonam1radio.com.mk",
+        "isVisible": true
     },
     {
         "id": 320,
@@ -367,7 +399,8 @@
         "city": "Струмица",
         "city_en": "Strumica",
         "shouldParseUrl": false,
-        "website": "https://radiomarija.mk"
+        "website": "https://radiomarija.mk",
+        "isVisible": true
     },
     {
         "id": 330,
@@ -378,7 +411,8 @@
         "city": "Свети Николе",
         "city_en": "Sveti Nikole",
         "shouldParseUrl": false,
-        "website": "https://radios.mk"
+        "website": "https://radios.mk",
+        "isVisible": true
     },
     {
         "id": 340,
@@ -389,7 +423,8 @@
         "city": "Штип",
         "city_en": "Shtip",
         "shouldParseUrl": false,
-        "website": "https://ugdfm.ugd.edu.mk"
+        "website": "https://ugdfm.ugd.edu.mk",
+        "isVisible": true
     },
     {
         "id": 350,
@@ -400,7 +435,8 @@
         "city": "Прилеп",
         "city_en": "Prilep",
         "shouldParseUrl": false,
-        "website": "https://radiopela.mk/"
+        "website": "https://radiopela.mk/",
+        "isVisible": true
     },
     {
         "id": 360,
@@ -411,18 +447,20 @@
         "city": "Велес",
         "city_en": "Veles",
         "shouldParseUrl": false,
-        "website": "https://5fm.mk"
+        "website": "https://5fm.mk",
+        "isVisible": true
     },
     {
         "id": 370,
         "name": "Бум",
         "name_en": "Bum",
         "logoDefault": "radioBumLogo",
-        "url": "http://hyades.shoutca.st:8533/;",
+        "url": "http://iandonov.radioca.st/;stream/1",
         "city": "Куманово",
         "city_en": "Kumanovo",
         "shouldParseUrl": false,
-        "website": "https://radiobum.com.mk"
+        "website": "https://radiobum.com.mk",
+        "isVisible": true
     },
     {
         "id": 380,
@@ -433,7 +471,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://justmusicradio.mk/?lang=mk"
+        "website": "https://justmusicradio.mk/?lang=mk",
+        "isVisible": true
     },
     {
         "id": 390,
@@ -444,7 +483,8 @@
         "city": "Битола",
         "city_en": "Bitola",
         "shouldParseUrl": false,
-        "website": "https://rtvorbis.mk"
+        "website": "https://rtvorbis.mk",
+        "isVisible": true
     },
     {
         "id": 400,
@@ -455,7 +495,8 @@
         "city": "Битола",
         "city_en": "Bitola",
         "shouldParseUrl": false,
-        "website": "https://rtvorbis.mk"
+        "website": "https://rtvorbis.mk",
+        "isVisible": true
     },
     {
         "id": 410,
@@ -466,7 +507,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://samomk.mk"
+        "website": "https://samomk.mk",
+        "isVisible": true
     },
     {
         "id": 420,
@@ -477,7 +519,8 @@
         "city": "Гевгелија",
         "city_en": "Gevgelija",
         "shouldParseUrl": false,
-        "website": "https://www.timefm.mk"
+        "website": "https://www.timefm.mk",
+        "isVisible": true
     },
     {
         "id": 430,
@@ -488,7 +531,8 @@
         "city": "Прилеп",
         "city_en": "Prilep",
         "shouldParseUrl": false,
-        "website": "https://radio22prilep.wixsite.com/radio22"
+        "website": "https://radio22prilep.wixsite.com/radio22",
+        "isVisible": true
     },
     {
         "id": 440,
@@ -499,7 +543,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://radiobar.mk"
+        "website": "https://radiobar.mk",
+        "isVisible": true
     },
     {
         "id": 450,
@@ -510,7 +555,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://diamondradio4.wixsite.com/diamondradio"
+        "website": "https://diamondradio4.wixsite.com/diamondradio",
+        "isVisible": true
     },
     {
         "id": 460,
@@ -521,7 +567,8 @@
         "city": "Битола",
         "city_en": "Bitola",
         "shouldParseUrl": false,
-        "website": "https://radiotim.radioca.st/radiotim/"
+        "website": "https://radiotim.radioca.st/radiotim/",
+        "isVisible": true
     },
     {
         "id": 464,
@@ -532,7 +579,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://jazzfm.mk"
+        "website": "https://jazzfm.mk",
+        "isVisible": false
     },
     {
         "id": 465,
@@ -543,7 +591,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://jazzfm.mk"
+        "website": "https://jazzfm.mk",
+        "isVisible": true
     },
     {
         "id": 466,
@@ -554,7 +603,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://jazzfm.mk"
+        "website": "https://jazzfm.mk",
+        "isVisible": true
     },
     {
         "id": 470,
@@ -565,7 +615,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 480,
@@ -576,7 +627,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 490,
@@ -587,7 +639,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 500,
@@ -598,7 +651,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 510,
@@ -609,7 +663,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 520,
@@ -620,7 +675,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 530,
@@ -631,7 +687,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 540,
@@ -642,7 +699,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 550,
@@ -653,7 +711,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 560,
@@ -664,7 +723,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 570,
@@ -675,7 +735,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 580,
@@ -686,7 +747,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 590,
@@ -697,7 +759,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 600,
@@ -708,7 +771,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 610,
@@ -719,7 +783,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 620,
@@ -730,7 +795,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 630,
@@ -741,7 +807,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 640,
@@ -752,7 +819,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 650,
@@ -763,7 +831,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 660,
@@ -774,7 +843,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 670,
@@ -785,7 +855,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 680,
@@ -796,7 +867,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 690,
@@ -807,7 +879,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 700,
@@ -818,7 +891,8 @@
         "city": "Скопје",
         "city_en": "Skopje",
         "shouldParseUrl": false,
-        "website": "https://zonam1radio.com.mk/"
+        "website": "https://zonam1radio.com.mk/",
+        "isVisible": false
     },
     {
         "id": 710,
@@ -829,6 +903,7 @@
         "city": "Охрид",
         "city_en": "Ohrid",
         "shouldParseUrl": false,
-        "website": "https://radiolav.mk"
+        "website": "https://radiolav.mk",
+        "isVisible": true
     }
 ]
