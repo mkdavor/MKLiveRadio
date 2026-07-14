@@ -161,7 +161,11 @@ export default function HomePage() {
         <span>@mkliveradio</span>
       </a>
 
-      <footer className="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-500">
+      <footer className="absolute bottom-4 left-0 right-0 px-4 text-center text-sm text-gray-500">
+        <Link href="/stations" className="transition hover:text-white">
+          Радио станици
+        </Link>
+        <span className="mx-2">·</span>
         © {new Date().getFullYear()} MK Live Radio · Made with ❤️ in Macedonia
       </footer>
     </main>

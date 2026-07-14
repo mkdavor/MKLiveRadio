@@ -57,6 +57,19 @@ export default function MacedonianRadiosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(stationListSchema) }}
       />
       <div className="mx-auto max-w-5xl">
+        <header className="mb-10 flex flex-col items-start gap-4">
+          <Link href="/" className="flex items-center gap-3 transition hover:opacity-80">
+            <Image
+              src="/logo.png"
+              alt="MK Live Radio"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-xl shadow"
+            />
+            <span className="hidden text-lg font-semibold sm:block">MK Live Radio</span>
+          </Link>
+        </header>
+
         <h1 className="text-4xl font-bold sm:text-5xl">Macedonian Radios Online</h1>
         <p className="mt-4 max-w-3xl text-gray-300">
           MK Live Radio is a Macedonian radio directory and streaming platform. Listen to music,
@@ -126,6 +139,10 @@ export default function MacedonianRadiosPage() {
             ))}
           </ul>
         </section>
+
+        <footer className="mt-12 border-t border-white/10 pt-6 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} MK Live Radio · Made with ❤️ in Macedonia
+        </footer>
       </div>
     </main>
   );

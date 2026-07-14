@@ -7,8 +7,10 @@ import {
   APP_STORE_URL,
   DEFAULT_OG_IMAGE,
   PLAY_STORE_URL,
+  SEO_KEYWORDS,
   SITE_NAME,
 } from "@/lib/seo";
+import { getStationArticle, resolveStationArticleLanguage } from "@/lib/station-articles";
 import {
   findStationBySlug,
   getStationDisplayCity,
@@ -23,14 +25,22 @@ type StationPageProps = {
   params: Promise<{
     slug: string;
   }>;
+  searchParams?: Promise<{
+    lang?: string;
+  }>;
 };
 
 export function generateStaticParams() {
   return stations.map((station) => ({ slug: getStationSlug(station) }));
 }
 
-export async function generateMetadata({ params }: StationPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: StationPageProps): Promise<Metadata> {
   const { slug } = await params;
+  const { lang } = (await searchParams) ?? {};
+  const language = resolveStationArticleLanguage(lang);
   const station = findStationBySlug(slug);
 
   if (!station) {
@@ -44,34 +54,49 @@ export async function generateMetadata({ params }: StationPageProps): Promise<Me
   }
 
   const stationName = getStationDisplayName(station, "en");
-  const stationCity = getStationDisplayCity(station, "en");
   const pagePath = getStationPath(station);
+  const article = getStationArticle(station, language);
+  const canonicalPath = language === "mk" ? article.alternatePathMk : article.alternatePathEn;
 
   return {
-    title: `${stationName} Live Radio`,
-    description: `Listen to ${stationName}${stationCity ? ` from ${stationCity}` : ""} live on MK Live Radio. Open in web player, iOS app, or Android app.`,
-    keywords: [
-      `${stationName} live`,
-      `${stationName} online`,
-      `${stationName} radio stream`,
-      "Macedonian radio station",
-      "Macedonia radio stream",
-    ],
+    title: article.title,
+    description: article.description,
+    keywords: [...SEO_KEYWORDS, ...article.keywords],
     alternates: {
-      canonical: pagePath,
+      canonical: canonicalPath,
+      languages: {
+        en: `${pagePath}?lang=en`,
+        mk: pagePath,
+        "x-default": pagePath,
+      },
     },
     openGraph: {
       type: "music.radio_station",
-      url: absoluteUrl(pagePath),
-      title: `${stationName} Live Stream | ${SITE_NAME}`,
-      description: `Stream ${stationName} on MK Live Radio and open the station in web or mobile apps.`,
+      locale: language === "mk" ? "mk_MK" : "en_US",
+      alternateLocale: language === "mk" ? ["en_US"] : ["mk_MK"],
+      url: absoluteUrl(canonicalPath),
+      title: article.title,
+      description: article.description,
       images: [{ url: DEFAULT_OG_IMAGE, alt: `${stationName} live on MK Live Radio` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description,
+      images: [absoluteUrl(DEFAULT_OG_IMAGE)],
+    },
+    other: {
+      "content-language": language,
+      "article:section": "Macedonian radio stations",
+      "article:tag": article.keywords.slice(0, 8).join(", "),
     },
   };
 }
 
-export default async function StationSeoPage({ params }: StationPageProps) {
+export default async function StationSeoPage({ params, searchParams }: StationPageProps) {
   const { slug } = await params;
+  const { lang } = (await searchParams) ?? {};
+  const language = resolveStationArticleLanguage(lang);
   const station = findStationBySlug(slug);
 
   if (!station) {
@@ -81,14 +106,19 @@ export default async function StationSeoPage({ params }: StationPageProps) {
   const stationName = getStationDisplayName(station, "en");
   const stationNameMk = getStationDisplayName(station, "mk");
   const stationCity = getStationDisplayCity(station, "en");
+  const stationCityMk = getStationDisplayCity(station, "mk");
   const pagePath = getStationPath(station);
+  const article = getStationArticle(station, language);
+  const directoryPath = language === "en" ? "/stations?lang=en" : "/stations";
   const listenUrl = `/webplayer?id=${station.id}`;
   const pageUrl = absoluteUrl(pagePath);
+  const localizedPageUrl = absoluteUrl(language === "en" ? article.alternatePathEn : pagePath);
   const listenAbsoluteUrl = absoluteUrl(listenUrl);
   const pageId = `${pageUrl}#webpage`;
   const stationId = `${pageUrl}#radiostation`;
   const streamId = `${pageUrl}#stream`;
   const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const articleId = `${pageUrl}#article-${language}`;
   const stationLogoUrl = absoluteUrl(`/logos/${pickStationLogoName(station)}.webp`);
 
   const radioStationSchema = {
@@ -101,7 +131,7 @@ export default async function StationSeoPage({ params }: StationPageProps) {
       "@id": pageId,
     },
     areaServed: "Macedonia",
-    inLanguage: ["mk", "en"],
+    inLanguage: language,
     sameAs: station.website ? [station.website] : undefined,
     image: stationLogoUrl,
     potentialAction: {
@@ -116,7 +146,7 @@ export default async function StationSeoPage({ params }: StationPageProps) {
     name: `${stationName} live stream`,
     contentUrl: station.url,
     embedUrl: listenAbsoluteUrl,
-    inLanguage: ["mk", "en"],
+    inLanguage: language,
     regionAllowed: "Macedonia",
     isPartOf: {
       "@id": stationId,
@@ -126,8 +156,9 @@ export default async function StationSeoPage({ params }: StationPageProps) {
   const webPageSchema = {
     "@type": "WebPage",
     "@id": pageId,
-    url: pageUrl,
-    name: `${stationName} Live Radio`,
+    url: localizedPageUrl,
+    name: article.title,
+    description: article.description,
     isPartOf: {
       "@type": "WebSite",
       "@id": absoluteUrl("/#website"),
@@ -147,7 +178,33 @@ export default async function StationSeoPage({ params }: StationPageProps) {
     about: {
       "@id": streamId,
     },
-    inLanguage: ["mk", "en"],
+    inLanguage: language,
+  };
+
+  const articleSchema = {
+    "@type": "Article",
+    "@id": articleId,
+    headline: article.title,
+    description: article.description,
+    image: stationLogoUrl,
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: absoluteUrl("/"),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/logo.png"),
+      },
+    },
+    mainEntityOfPage: {
+      "@id": pageId,
+    },
+    inLanguage: language,
+    keywords: article.keywords.join(", "),
   };
 
   const breadcrumbSchema = {
@@ -182,22 +239,70 @@ export default async function StationSeoPage({ params }: StationPageProps) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@graph": [webPageSchema, radioStationSchema, streamSchema, breadcrumbSchema],
+            "@graph": [
+              webPageSchema,
+              articleSchema,
+              radioStationSchema,
+              streamSchema,
+              breadcrumbSchema,
+            ],
           }),
         }}
       />
 
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-8">
+        <header className="flex flex-col items-start gap-4">
+          <Link href="/" className="flex items-center gap-3 transition hover:opacity-80">
+            <Image
+              src="/logo.png"
+              alt="MK Live Radio"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-xl shadow"
+            />
+            <span className="hidden text-lg font-semibold sm:block">MK Live Radio</span>
+          </Link>
+
+          <div className="flex items-center gap-2">
+            <Link
+              href={pagePath}
+              hrefLang="mk"
+              aria-label="Switch to Macedonian"
+              className={`flex items-center gap-2 rounded-full border px-3 py-1 transition ${
+                language === "mk"
+                  ? "border-white bg-white text-black"
+                  : "border-white/20 text-gray-300 hover:border-white/50 hover:text-white"
+              }`}
+            >
+              <Image src="https://flagcdn.com/w40/mk.png" alt="MK" width={16} height={12} />
+              MK
+            </Link>
+            <Link
+              href={`${pagePath}?lang=en`}
+              hrefLang="en"
+              aria-label="Switch to English"
+              className={`flex items-center gap-2 rounded-full border px-3 py-1 transition ${
+                language === "en"
+                  ? "border-white bg-white text-black"
+                  : "border-white/20 text-gray-300 hover:border-white/50 hover:text-white"
+              }`}
+            >
+              <Image src="https://flagcdn.com/w40/gb.png" alt="EN" width={16} height={12} />
+              EN
+            </Link>
+          </div>
+        </header>
+
         <nav className="text-sm text-gray-400">
           <Link
-            href="/stations"
+            href={directoryPath}
             className="underline decoration-white/20 underline-offset-4 transition hover:decoration-white/70"
           >
-            Macedonian Radio Directory
+            {language === "mk" ? "Македонски радио станици" : "Macedonian Radio Directory"}
           </Link>
         </nav>
 
-        <article className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+        <article className="rounded-lg border border-white/10 bg-white/[0.03] p-6 sm:p-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
             <Image
               src={`/logos/${pickStationLogoName(station)}.webp`}
@@ -208,19 +313,44 @@ export default async function StationSeoPage({ params }: StationPageProps) {
               priority
             />
             <div>
-              <h1 className="text-3xl font-bold sm:text-4xl">{stationName} Live Radio</h1>
+              <h1 className="text-3xl font-bold sm:text-4xl">{article.title}</h1>
               <p className="mt-2 text-sm text-gray-300">
-                {stationCity ? `City: ${stationCity}` : "Macedonian radio station"} · Online live
-                stream
+                {language === "mk"
+                  ? `${stationCityMk ? `Град: ${stationCityMk}` : "Македонска радио станица"} · Онлајн live стрим`
+                  : `${stationCity ? `City: ${stationCity}` : "Macedonian radio station"} · Online live stream`}
               </p>
             </div>
           </div>
 
-          <p className="mt-6 text-base text-gray-200">
-            Listen to {stationNameMk} ({stationName}) online with MK Live Radio. Open the station
-            in the browser web player, or continue in the MK Live Radio mobile app for iPhone and
-            Android.
-          </p>
+          <div className="mt-6 space-y-4 text-base leading-8 text-gray-200">
+            {article.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <dl className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {article.facts.map((fact) => (
+              <div key={fact.labelEn} className="rounded-lg border border-white/10 bg-black/35 p-4">
+                <dt className="text-xs font-semibold uppercase text-gray-500">
+                  {language === "mk" ? fact.labelMk : fact.labelEn}
+                </dt>
+                <dd className="mt-1 break-words text-sm text-gray-200">
+                  {fact.labelEn === "Official website" ? (
+                    <a
+                      href={fact.valueEn}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white underline decoration-white/30 underline-offset-4 transition hover:text-[#e26156] hover:decoration-[#e26156]"
+                    >
+                      {language === "mk" ? fact.valueMk : fact.valueEn}
+                    </a>
+                  ) : (
+                    language === "mk" ? fact.valueMk : fact.valueEn
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
 
           <div className="mt-6 flex flex-col items-start gap-4">
             <Link
@@ -228,7 +358,7 @@ export default async function StationSeoPage({ params }: StationPageProps) {
               className="group inline-flex items-center gap-2 rounded-full border border-[#c63a2e]/45 bg-gradient-to-r from-[#c63a2e]/26 via-[#d14a3f]/22 to-[#8f2018]/24 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(198,58,46,0.28)] transition duration-300 hover:scale-[1.03] hover:border-[#e26156]/75 hover:shadow-[0_0_38px_rgba(198,58,46,0.48)]"
             >
               <span className="h-2 w-2 rounded-full bg-[#e26156] transition group-hover:bg-[#ff8478]" />
-              Open Web Player
+              {language === "mk" ? "Отвори web player" : "Open Web Player"}
             </Link>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
@@ -250,18 +380,12 @@ export default async function StationSeoPage({ params }: StationPageProps) {
                 />
               </a>
             </div>
-            {station.website && (
-              <a
-                href={station.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-white/15 px-5 py-2 text-gray-300 transition hover:border-white/50 hover:text-white"
-              >
-                Official Station Site
-              </a>
-            )}
           </div>
         </article>
+
+        <footer className="border-t border-white/10 pt-6 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} MK Live Radio · Made with ❤️ in Macedonia
+        </footer>
       </div>
     </main>
   );

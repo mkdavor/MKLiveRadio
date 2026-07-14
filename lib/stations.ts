@@ -79,5 +79,5 @@ export function getCityStats(locale: "mk" | "en" = "en") {
 
   return Array.from(cityCounts.entries())
     .map(([city, count]) => ({ city, count }))
-    .sort((a, b) => a.city.localeCompare(b.city, locale));
+    .sort((a, b) => b.count - a.count || a.city.localeCompare(b.city, locale));
 }
