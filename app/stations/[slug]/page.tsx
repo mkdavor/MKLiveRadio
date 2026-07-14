@@ -110,15 +110,14 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
   const pagePath = getStationPath(station);
   const article = getStationArticle(station, language);
   const directoryPath = language === "en" ? "/stations?lang=en" : "/stations";
+  const homePath = language === "en" ? "/en" : "/";
+  const canonicalPath = language === "en" ? article.alternatePathEn : article.alternatePathMk;
   const listenUrl = `/webplayer?id=${station.id}`;
-  const pageUrl = absoluteUrl(pagePath);
-  const localizedPageUrl = absoluteUrl(language === "en" ? article.alternatePathEn : pagePath);
-  const listenAbsoluteUrl = absoluteUrl(listenUrl);
-  const pageId = `${pageUrl}#webpage`;
-  const stationId = `${pageUrl}#radiostation`;
-  const streamId = `${pageUrl}#stream`;
-  const breadcrumbId = `${pageUrl}#breadcrumb`;
-  const articleId = `${pageUrl}#article-${language}`;
+  const canonicalUrl = absoluteUrl(canonicalPath);
+  const pageId = `${canonicalUrl}#webpage`;
+  const stationId = `${canonicalUrl}#radiostation`;
+  const breadcrumbId = `${canonicalUrl}#breadcrumb`;
+  const faqId = `${canonicalUrl}#faq`;
   const stationLogoUrl = absoluteUrl(`/logos/${pickStationLogoName(station)}.webp`);
 
   const radioStationSchema = {
@@ -126,37 +125,24 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
     "@id": stationId,
     name: stationName,
     alternateName: stationNameMk,
-    url: pageUrl,
+    url: station.website ?? canonicalUrl,
     mainEntityOfPage: {
       "@id": pageId,
     },
-    areaServed: "Macedonia",
+    areaServed: stationCity
+      ? {
+          "@type": "City",
+          name: stationCity,
+        }
+      : "Macedonia",
     inLanguage: language,
-    sameAs: station.website ? [station.website] : undefined,
     image: stationLogoUrl,
-    potentialAction: {
-      "@type": "ListenAction",
-      target: listenAbsoluteUrl,
-    },
-  };
-
-  const streamSchema = {
-    "@type": "AudioObject",
-    "@id": streamId,
-    name: `${stationName} live stream`,
-    contentUrl: station.url,
-    embedUrl: listenAbsoluteUrl,
-    inLanguage: language,
-    regionAllowed: "Macedonia",
-    isPartOf: {
-      "@id": stationId,
-    },
   };
 
   const webPageSchema = {
     "@type": "WebPage",
     "@id": pageId,
-    url: localizedPageUrl,
+    url: canonicalUrl,
     name: article.title,
     description: article.description,
     isPartOf: {
@@ -175,36 +161,7 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
     mainEntity: {
       "@id": stationId,
     },
-    about: {
-      "@id": streamId,
-    },
     inLanguage: language,
-  };
-
-  const articleSchema = {
-    "@type": "Article",
-    "@id": articleId,
-    headline: article.title,
-    description: article.description,
-    image: stationLogoUrl,
-    author: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: absoluteUrl("/"),
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteUrl("/logo.png"),
-      },
-    },
-    mainEntityOfPage: {
-      "@id": pageId,
-    },
-    inLanguage: language,
-    keywords: article.keywords.join(", "),
   };
 
   const breadcrumbSchema = {
@@ -214,22 +171,35 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
-        item: absoluteUrl("/"),
+        name: "MK Live Radio",
+        item: absoluteUrl(homePath),
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Stations",
-        item: absoluteUrl("/stations"),
+        name: language === "mk" ? "Македонски радио станици" : "Macedonian Radio Stations",
+        item: absoluteUrl(directoryPath),
       },
       {
         "@type": "ListItem",
         position: 3,
-        name: stationName,
-        item: absoluteUrl(pagePath),
+        name: language === "mk" ? stationNameMk : stationName,
+        item: canonicalUrl,
       },
     ],
+  };
+
+  const faqSchema = {
+    "@type": "FAQPage",
+    "@id": faqId,
+    mainEntity: article.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 
   return (
@@ -239,13 +209,7 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@graph": [
-              webPageSchema,
-              articleSchema,
-              radioStationSchema,
-              streamSchema,
-              breadcrumbSchema,
-            ],
+            "@graph": [webPageSchema, radioStationSchema, breadcrumbSchema, faqSchema],
           }),
         }}
       />
@@ -293,13 +257,28 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
           </div>
         </header>
 
-        <nav className="text-sm text-gray-400">
-          <Link
-            href={directoryPath}
-            className="underline decoration-white/20 underline-offset-4 transition hover:decoration-white/70"
-          >
-            {language === "mk" ? "Македонски радио станици" : "Macedonian Radio Directory"}
-          </Link>
+        <nav aria-label="Breadcrumb" className="text-sm text-gray-400">
+          <ol className="flex flex-wrap items-center gap-2">
+            <li>
+              <Link
+                href={homePath}
+                className="underline decoration-white/20 underline-offset-4 transition hover:decoration-white/70"
+              >
+                MK Live Radio
+              </Link>
+            </li>
+            <li aria-hidden>›</li>
+            <li>
+              <Link
+                href={directoryPath}
+                className="underline decoration-white/20 underline-offset-4 transition hover:decoration-white/70"
+              >
+                {language === "mk" ? "Македонски радио станици" : "Macedonian Radio Stations"}
+              </Link>
+            </li>
+            <li aria-hidden>›</li>
+            <li className="text-gray-200">{language === "mk" ? stationNameMk : stationName}</li>
+          </ol>
         </nav>
 
         <article className="rounded-lg border border-white/10 bg-white/[0.03] p-6 sm:p-8">
@@ -322,9 +301,16 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
             </div>
           </div>
 
-          <div className="mt-6 space-y-4 text-base leading-8 text-gray-200">
-            {article.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+          <div className="mt-6 space-y-6 text-base leading-8 text-gray-200">
+            {article.sections.map((section) => (
+              <section key={section.heading}>
+                <h2 className="text-xl font-semibold text-white">{section.heading}</h2>
+                <div className="mt-2 space-y-3">
+                  {section.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
 
@@ -381,6 +367,20 @@ export default async function StationSeoPage({ params, searchParams }: StationPa
               </a>
             </div>
           </div>
+
+          <section className="mt-8 border-t border-white/10 pt-6">
+            <h2 className="text-xl font-semibold">
+              {language === "mk" ? "Често поставувани прашања" : "Frequently Asked Questions"}
+            </h2>
+            <dl className="mt-4 space-y-4">
+              {article.faq.map((item) => (
+                <div key={item.question}>
+                  <dt className="font-semibold text-white">{item.question}</dt>
+                  <dd className="mt-1 text-sm leading-6 text-gray-300">{item.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
         </article>
 
         <footer className="border-t border-white/10 pt-6 text-center text-sm text-gray-500">

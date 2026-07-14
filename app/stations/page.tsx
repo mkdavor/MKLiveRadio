@@ -62,6 +62,14 @@ export async function generateMetadata({
         : "Македонски радио стримови групирани по град, со брзо пуштање преку web player.",
       images: [{ url: DEFAULT_OG_IMAGE, alt: "MK Live Radio station directory" }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: isEn ? "MK Live Radio Station Directory" : "Македонски радио станици",
+      description: isEn
+        ? "Browse Macedonian radio stations by city and open each live station page."
+        : "Прегледај македонски радио станици по град и отвори ја страницата на секоја станица.",
+      images: [absoluteUrl(DEFAULT_OG_IMAGE)],
+    },
     other: {
       "content-language": language,
     },
@@ -83,6 +91,23 @@ const pageCopy = {
     listenNow: "Слушај",
     cardDescription: (stationName: string, city: string) =>
       `${stationName} од ${city}. Отвори ја станицата или пушти ја веднаш во web player.`,
+    faq: [
+      {
+        question: "Како се организирани македонските радио станици?",
+        answer:
+          "Станиците на оваа страница се групирани по град според податоците во тековната листа на MK Live Radio.",
+      },
+      {
+        question: "Може ли да отворам посебна страница за секоја станица?",
+        answer:
+          "Да. Секоја видлива станица има сопствена страница со стабилен URL, факти од постојните податоци и линк до web player.",
+      },
+      {
+        question: "Дали English верзијата е посебна страница?",
+        answer:
+          "Да. English верзијата се отвора со параметарот lang=en и има сопствен canonical и hreflang сигнал.",
+      },
+    ],
   },
   en: {
     title: "Macedonian Radio Stations Directory",
@@ -94,6 +119,23 @@ const pageCopy = {
     listenNow: "Listen",
     cardDescription: (stationName: string, city: string) =>
       `${stationName} from ${city}. Open the station page or start listening in the web player.`,
+    faq: [
+      {
+        question: "How are Macedonian radio stations organized?",
+        answer:
+          "Stations on this page are grouped by city using the current MK Live Radio station data.",
+      },
+      {
+        question: "Can I open a dedicated page for each station?",
+        answer:
+          "Yes. Every visible station has its own stable URL, station facts from the existing data, and a web player link.",
+      },
+      {
+        question: "Is the English version an independent page?",
+        answer:
+          "Yes. The English version uses the lang=en parameter and has its own canonical and hreflang signals.",
+      },
+    ],
   },
 };
 
@@ -132,34 +174,53 @@ export default async function StationsPage({ searchParams }: StationsPageProps) 
     (a, b) => groupedByCity[b].length - groupedByCity[a].length || a.localeCompare(b, language),
   );
   const cityStats = getCityStats(language);
+  const pagePath = language === "en" ? "/stations?lang=en" : "/stations";
+  const homePath = language === "en" ? "/en" : "/";
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
+    "@id": `${absoluteUrl(pagePath)}#faq`,
+    mainEntity: copy.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  const stationListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${absoluteUrl(pagePath)}#station-list`,
+    name: copy.title,
+    numberOfItems: stations.length,
+    itemListElement: stations.map((station, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: getStationDisplayName(station, language),
+      url: absoluteUrl(localizedPath(getStationPath(station), language)),
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${absoluteUrl(pagePath)}#breadcrumb`,
+    itemListElement: [
       {
-        "@type": "Question",
-        name: "Can I listen to Macedonian radio stations online for free?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. MK Live Radio provides free access to publicly available Macedonian radio streams through web, iOS, and Android.",
-        },
+        "@type": "ListItem",
+        position: 1,
+        name: "MK Live Radio",
+        item: absoluteUrl(homePath),
       },
       {
-        "@type": "Question",
-        name: "Does MK Live Radio include music and genre stations?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. The station list includes Macedonian stations across pop, folk, talk, jazz, and genre channels.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Is there a mobile radio app for MK Live Radio?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. MK Live Radio is available as a mobile app for iOS and Android and also works in a browser web player.",
-        },
+        "@type": "ListItem",
+        position: 2,
+        name: copy.title,
+        item: absoluteUrl(pagePath),
       },
     ],
   };
@@ -170,10 +231,18 @@ export default async function StationsPage({ searchParams }: StationsPageProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(stationListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <div className="mx-auto flex w-full max-w-6xl flex-col">
         <header className="mb-10 flex flex-col items-start gap-4">
-          <Link href="/" className="flex items-center gap-3 transition hover:opacity-80">
+          <Link href={homePath} className="flex items-center gap-3 transition hover:opacity-80">
             <Image
               src="/logo.png"
               alt="MK Live Radio"
@@ -311,6 +380,20 @@ export default async function StationsPage({ searchParams }: StationsPageProps) 
               </ul>
             </div>
           ))}
+        </section>
+
+        <section className="mt-12 border-t border-white/10 pt-8">
+          <h2 className="text-xl font-semibold">
+            {language === "mk" ? "Често поставувани прашања" : "Frequently Asked Questions"}
+          </h2>
+          <dl className="mt-4 grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {copy.faq.map((item) => (
+              <div key={item.question}>
+                <dt className="font-semibold text-white">{item.question}</dt>
+                <dd className="mt-2 text-sm leading-6 text-gray-300">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
         <footer className="mt-12 border-t border-white/10 pt-6 text-center text-sm text-gray-500">

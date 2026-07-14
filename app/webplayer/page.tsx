@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/webplayer"),
     title: "MK Live Radio Web Player",
     description:
-      "Play Macedonian radio online instantly. Browse 75+ live stations from Skopje, Bitola, Ohrid, Strumica, and more.",
+      `Play Macedonian radio online instantly. Browse ${stations.length} live stations from cities across Macedonia.`,
     images: [{ url: DEFAULT_OG_IMAGE, alt: "MK Live Radio Web Player" }],
   },
   twitter: {

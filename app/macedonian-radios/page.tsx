@@ -5,6 +5,7 @@ import { absoluteUrl, APP_STORE_URL, DEFAULT_OG_IMAGE, PLAY_STORE_URL } from "@/
 import {
   getStationDisplayCity,
   getStationDisplayName,
+  getStationPath,
   pickStationLogoName,
   stations,
 } from "@/lib/stations";
@@ -46,7 +47,7 @@ export default function MacedonianRadiosPage() {
       "@type": "ListItem",
       position: index + 1,
       name: getStationDisplayName(station, "en"),
-      url: absoluteUrl(`/webplayer?id=${station.id}`),
+      url: absoluteUrl(`${getStationPath(station)}?lang=en`),
     })),
   };
 
@@ -101,11 +102,11 @@ export default function MacedonianRadiosPage() {
             </a>
           </div>
           <Link
-            href="/webplayer"
+            href="/stations?lang=en"
             className="group inline-flex items-center gap-2 rounded-full border border-[#c63a2e]/45 bg-gradient-to-r from-[#c63a2e]/26 via-[#d14a3f]/22 to-[#8f2018]/24 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(198,58,46,0.28)] transition duration-300 hover:scale-[1.03] hover:border-[#e26156]/75 hover:shadow-[0_0_38px_rgba(198,58,46,0.48)]"
           >
             <span className="h-2 w-2 rounded-full bg-[#e26156] transition group-hover:bg-[#ff8478]" />
-            Listen in Web Player
+            Browse Station Directory
           </Link>
         </div>
 
@@ -115,7 +116,7 @@ export default function MacedonianRadiosPage() {
             {allStations.map((station) => (
               <li key={station.id}>
                 <Link
-                  href={`/webplayer?id=${station.id}`}
+                  href={`${getStationPath(station)}?lang=en`}
                   className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-white/30 hover:bg-white/[0.06]"
                 >
                   <Image

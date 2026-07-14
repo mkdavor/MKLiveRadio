@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FiCheckCircle, FiGlobe, FiPause, FiPlay, FiShare2, FiXCircle } from "react-icons/fi";
 import { resolveStationStream } from "../../lib/resolve-station-stream";
-import { pickStationLogoName, stations } from "@/lib/stations";
+import { getStationPath, pickStationLogoName, stations } from "@/lib/stations";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/seo";
 import {
   grantAnalyticsConsent,
@@ -44,6 +45,7 @@ const copy = {
     unmute: "Вклучи",
     openWebsite: "Отвори веб-страница",
     shareStation: "Сподели станица",
+    stationPage: "Страница на станицата",
     play: "Пушти во живо",
     pause: "Пауза",
     status: {
@@ -75,6 +77,7 @@ const copy = {
     unmute: "Unmute",
     openWebsite: "Open station website",
     shareStation: "Share station",
+    stationPage: "Station page",
     play: "Play live stream",
     pause: "Pause live stream",
     status: {
@@ -171,6 +174,8 @@ export default function WebPlayerPage() {
   const stationDisplayName =
     locale === "en" ? selectedStation.name_en ?? selectedStation.name : selectedStation.name;
   const stationDisplayCity = locale === "en" ? selectedStation.city_en ?? selectedStation.city : selectedStation.city;
+  const selectedStationPagePath =
+    locale === "en" ? `${getStationPath(selectedStation)}?lang=en` : getStationPath(selectedStation);
   const statusText =
     statusKey === "selected" ? `${t.status.selected}${stationDisplayName}` : t.status[statusKey];
   const normalizedQuery = searchQuery.trim().toLocaleLowerCase();
@@ -585,7 +590,7 @@ export default function WebPlayerPage() {
   };
 
   const shareStation = async () => {
-    const shareUrl = `${window.location.origin}/webplayer?id=${selectedStation.id}`;
+    const shareUrl = `${window.location.origin}${selectedStationPagePath}`;
 
     try {
       if (navigator.share) {
@@ -781,6 +786,9 @@ export default function WebPlayerPage() {
             </div>
 
             <p className={styles.status}>{statusText}</p>
+            <Link href={selectedStationPagePath} className={styles.stationPageLink}>
+              {t.stationPage}
+            </Link>
           </section>
 
           <div className={styles.downloadBadges}>

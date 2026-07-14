@@ -302,21 +302,27 @@ export function getStationArticle(station: Station, language: StationArticleLang
   const seed = RESEARCH_SEEDS[station.id] ?? {};
   const stationNameEn = getStationDisplayName(station, "en");
   const stationNameMk = getStationDisplayName(station, "mk");
-  const cityEn = getStationDisplayCity(station, "en") ?? "Macedonia";
-  const cityMk = getStationDisplayCity(station, "mk") ?? "Македонија";
+  const cityEn = getStationDisplayCity(station, "en");
+  const cityMk = getStationDisplayCity(station, "mk");
+  const factCityEn = cityEn ?? "Macedonia";
+  const factCityMk = cityMk ?? "Македонија";
   const cityPhraseEn = cityEn === "Macedonia" ? "Macedonia" : cityEn;
   const cityPhraseMk = cityMk === "Македонија" ? "Македонија" : cityMk;
   const pagePath = getStationPath(station);
   const title =
     language === "mk"
-      ? seed.titleMk ?? `${stationNameMk} радио во живо`
-      : seed.titleEn ?? `${stationNameEn} live radio`;
+      ? `${stationNameMk} во живо`
+      : `Listen to ${stationNameEn} Live`;
   const description =
     language === "mk"
       ? seed.descriptionMk ??
-        `Слушај ${stationNameMk} во живо преку MK Live Radio, во web player или преку iOS и Android апликациите.`
+        `Слушај ${stationNameMk} во живо преку MK Live Radio.${
+          cityMk ? ` Радио станица од ${cityMk}.` : ""
+        }`
       : seed.descriptionEn ??
-        `Listen to ${stationNameEn} from ${cityPhraseEn} live on MK Live Radio in the web player or mobile apps.`;
+        `Listen to ${stationNameEn} live on MK Live Radio.${
+          cityEn ? ` A Macedonian radio station from ${cityEn}.` : ""
+        }`;
   const keywords = [
     ...(seed.keywords ?? []),
     `${stationNameEn} live`,
@@ -328,7 +334,7 @@ export function getStationArticle(station: Station, language: StationArticleLang
   ];
 
   const facts = [
-    { labelEn: "City", labelMk: "Град", valueEn: cityEn, valueMk: cityMk },
+    { labelEn: "City", labelMk: "Град", valueEn: factCityEn, valueMk: factCityMk },
     seed.formatEn || seed.formatMk
       ? {
           labelEn: "Format",
@@ -368,23 +374,92 @@ export function getStationArticle(station: Station, language: StationArticleLang
     valueMk: string;
   }>;
 
-  const paragraphs =
+  const sections =
     language === "mk"
       ? [
-          `На MK Live Radio можеш да слушаш ${stationNameMk} во живо. Стримот се отвора директно во web player-от, а истата станица е достапна и преку iOS и Android апликациите.`,
-          seed.highlightMk ??
-            `${stationNameMk} е македонска радио станица од ${cityPhraseMk}, со програма што можеш да ја пуштиш дома, на работа или во движење.`,
-          station.website
-            ? `За повеќе информации можеш да ја отвориш и официјалната веб-страница на станицата, а за слушање остани на MK Live Radio.`
-            : `На оваа страница е поставен директниот стрим за слушање, без дополнително пребарување по други извори.`,
+          {
+            heading: `За ${stationNameMk}`,
+            paragraphs: [
+              seed.highlightMk ??
+                `${stationNameMk} е македонска радио станица${
+                  cityPhraseMk ? ` од ${cityPhraseMk}` : ""
+                }.`,
+            ],
+          },
+          seed.formatMk || seed.formatEn
+            ? {
+                heading: "Програма и музички формат",
+                paragraphs: [seed.formatMk ?? seed.formatEn ?? ""],
+              }
+            : undefined,
+          seed.frequency
+            ? {
+                heading: "Фреквенција",
+                paragraphs: [seed.frequency],
+              }
+            : undefined,
+          {
+            heading: "Слушај онлајн",
+            paragraphs: [
+              `На MK Live Radio можеш да слушаш ${stationNameMk} во живо преку web player, iPhone и Android апликација.`,
+            ],
+          },
+        ].filter(Boolean)
+      : [
+          {
+            heading: `About ${stationNameEn}`,
+            paragraphs: [
+              seed.highlightEn ??
+                `${stationNameEn} is a Macedonian radio station${
+                  cityPhraseEn ? ` from ${cityPhraseEn}` : ""
+                }.`,
+            ],
+          },
+          seed.formatEn || seed.formatMk
+            ? {
+                heading: "Programming and Music Format",
+                paragraphs: [seed.formatEn ?? seed.formatMk ?? ""],
+              }
+            : undefined,
+          seed.frequency
+            ? {
+                heading: "Frequencies",
+                paragraphs: [seed.frequency],
+              }
+            : undefined,
+          {
+            heading: "Listen Online",
+            paragraphs: [
+              `You can listen to ${stationNameEn} live on MK Live Radio through the web player, iPhone app, and Android app.`,
+            ],
+          },
+        ].filter(Boolean);
+
+  const faq =
+    language === "mk"
+      ? [
+          {
+            question: `Како да слушам ${stationNameMk} во живо?`,
+            answer: `Отвори ја страницата на ${stationNameMk} и избери web player, или слушај преку iPhone и Android апликациите на MK Live Radio.`,
+          },
+          {
+            question: `Дали ${stationNameMk} има официјална веб-страница?`,
+            answer: station.website
+              ? `Да. Официјалниот линк е прикажан во фактите за станицата.`
+              : `Во моменталните податоци нема официјален линк за оваа станица.`,
+          },
         ]
       : [
-          `You can listen to ${stationNameEn} live through MK Live Radio. The stream opens directly in the web player and is also available in the iOS and Android apps.`,
-          seed.highlightEn ??
-            `${stationNameEn} is a Macedonian radio station from ${cityPhraseEn}, with programming you can play at home, at work, or on the move.`,
-          station.website
-            ? `For more station details, you can also visit the official website. For listening, the MK Live Radio player keeps the stream one tap away.`
-            : `This page keeps the live stream available in one place, without making you search through other sources.`,
+          {
+            question: `How can I listen to ${stationNameEn} live?`,
+            answer: `Open the ${stationNameEn} station page and choose the web player, or listen through the MK Live Radio iPhone and Android apps.`,
+          },
+          {
+            question: `Does ${stationNameEn} have an official website?`,
+            answer: station.website
+              ? `Yes. The official link is shown in the station facts on this page.`
+              : `The current station data does not include an official website link for this station.`,
+          },
         ];
 
   return {
@@ -393,7 +468,8 @@ export function getStationArticle(station: Station, language: StationArticleLang
     description,
     keywords: Array.from(new Set(keywords)),
     facts,
-    paragraphs,
+    sections: sections as Array<{ heading: string; paragraphs: string[] }>,
+    faq,
     alternatePathEn: `${pagePath}?lang=en`,
     alternatePathMk: pagePath,
   };

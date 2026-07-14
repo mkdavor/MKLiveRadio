@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/validate-seo.mjs",
+    "test:seo": "node scripts/validate-seo.mjs",
     "build:isolated": "NEXT_DIST_DIR=.next-build next build",
     "start:isolated": "NEXT_DIST_DIR=.next-build next start"
   },

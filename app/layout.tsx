@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | MK Live Radio",
   },
   description:
-    "Listen to Macedonian radio stations live for free. Stream 75+ online stations from Macedonia on web, iOS, and Android.",
+    "Listen to Macedonian radio stations live for free on web, iOS, and Android.",
   keywords: SEO_KEYWORDS,
   alternates: {
     canonical: "/",
@@ -102,6 +102,7 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": absoluteUrl("/#organization"),
     name: SITE_NAME,
     url: SITE_URL,
     logo: absoluteUrl("/logo.png"),
