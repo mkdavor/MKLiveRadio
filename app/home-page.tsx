@@ -34,11 +34,15 @@ const copy = {
     webPlayer: "Слушај без апликација",
     stationSection: "Избрани станици",
     citySection: "Преглед по град",
-    platforms: "Достапно на",
+    mobileCta: "Симни ја MK Live Radio",
+    mobileCtaText:
+      "App Store и Google Play се најбрзиот пат до македонските радио станици на телефон.",
+    mobileSection: "Апликација за телефон",
+    mobileSectionText:
+      "Отвори ја апликацијата директно од iPhone или Android и слушај без пребарување.",
     benefits: "Што добиваш",
     faq: "Често поставувани прашања",
     languageLabel: "English",
-    platformItems: ["Web player", "iPhone", "Android"],
     benefitItems: [
       "Брз пристап до македонски FM и онлајн радио станици.",
       "Станиците се организирани по град за полесно пребарување.",
@@ -72,11 +76,15 @@ const copy = {
     webPlayer: "Open Web Player",
     stationSection: "Selected Stations",
     citySection: "Browse by City",
-    platforms: "Available On",
+    mobileCta: "Download MK Live Radio",
+    mobileCtaText:
+      "The App Store and Google Play are the fastest way to keep Macedonian radio stations on your phone.",
+    mobileSection: "Mobile App",
+    mobileSectionText:
+      "Open MK Live Radio directly from iPhone or Android and start listening without searching.",
     benefits: "Benefits",
     faq: "Frequently Asked Questions",
     languageLabel: "Македонски",
-    platformItems: ["Web player", "iPhone", "Android"],
     benefitItems: [
       "Quick access to Macedonian FM and online radio stations.",
       "Stations are organized by city for easier browsing.",
@@ -114,6 +122,50 @@ function cityAnchor(city: string) {
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/[^\p{L}\p{N}]+/gu, "-")
       .replace(/^-+|-+$/g, "") || "city"
+  );
+}
+
+function StoreBadges({ className = "" }: { className?: string }) {
+  const classes = [
+    "flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <div className={classes}>
+      <a
+        href={APP_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex transition hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        aria-label="Download MK Live Radio on the App Store"
+      >
+        <Image
+          src="/appstore.svg"
+          alt="Download on the App Store"
+          width={168}
+          height={56}
+          className="h-16 w-auto max-w-full"
+        />
+      </a>
+      <a
+        href={PLAY_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex transition hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        aria-label="Get MK Live Radio on Google Play"
+      >
+        <Image
+          src="/playstore.svg"
+          alt="Get it on Google Play"
+          width={189}
+          height={56}
+          className="h-16 w-auto max-w-full"
+        />
+      </a>
+    </div>
   );
 }
 
@@ -277,18 +329,25 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
             <p className="mt-5 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
               {pageCopy.intro}
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href={stationsPath}
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-black transition hover:bg-gray-200"
-              >
-                {pageCopy.stationsLink}
-              </Link>
+            <div className="mt-8">
+              <p className="text-base font-semibold text-white">{pageCopy.mobileCta}</p>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-gray-300">
+                {pageCopy.mobileCtaText}
+              </p>
+              <StoreBadges className="mt-4" />
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/webplayer"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#c63a2e]/50 bg-[#c63a2e]/20 px-6 text-sm font-semibold text-white transition hover:border-[#ff8176]/80 hover:bg-[#c63a2e]/30"
               >
                 {pageCopy.webPlayer}
+              </Link>
+              <Link
+                href={stationsPath}
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-6 text-sm font-semibold text-gray-100 transition hover:border-white/35 hover:bg-white/[0.08]"
+              >
+                {pageCopy.stationsLink}
               </Link>
             </div>
           </div>
@@ -351,35 +410,12 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-2xl font-semibold">{pageCopy.platforms}</h2>
-            <ul className="mt-4 grid grid-cols-3 gap-2 text-center text-sm text-gray-200">
-              {pageCopy.platformItems.map((item) => (
-                <li key={item} className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-3">
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/appstore.svg"
-                  alt="Download on the App Store"
-                  width={168}
-                  height={56}
-                  className="h-14 w-auto transition hover:scale-105"
-                />
-              </a>
-              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/playstore.svg"
-                  alt="Get it on Google Play"
-                  width={189}
-                  height={56}
-                  className="h-14 w-auto transition hover:scale-105"
-                />
-              </a>
-            </div>
+          <div className="rounded-lg border border-white/10 bg-white/[0.03] p-5">
+            <h2 className="text-2xl font-semibold">{pageCopy.mobileSection}</h2>
+            <p className="mt-3 text-sm leading-6 text-gray-300">
+              {pageCopy.mobileSectionText}
+            </p>
+            <StoreBadges className="mt-4" />
           </div>
         </section>
 

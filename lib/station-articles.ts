@@ -401,7 +401,7 @@ export function getStationArticle(station: Station, language: StationArticleLang
           {
             heading: "Слушај онлајн",
             paragraphs: [
-              `На MK Live Radio можеш да слушаш ${stationNameMk} во живо преку web player, iPhone и Android апликација.`,
+              `На MK Live Radio можеш да слушаш ${stationNameMk} во живо преку Android или iOS апликацијата, или алтернативно преку web player-от на страницата.`,
             ],
           },
         ].filter(Boolean)
@@ -430,7 +430,7 @@ export function getStationArticle(station: Station, language: StationArticleLang
           {
             heading: "Listen Online",
             paragraphs: [
-              `You can listen to ${stationNameEn} live on MK Live Radio through the web player, iPhone app, and Android app.`,
+              `You can listen to ${stationNameEn} live on MK Live Radio through the Android or iOS app, or alternatively through the web player on the page.`,
             ],
           },
         ].filter(Boolean);
@@ -440,25 +440,13 @@ export function getStationArticle(station: Station, language: StationArticleLang
       ? [
           {
             question: `Како да слушам ${stationNameMk} во живо?`,
-            answer: `Отвори ја страницата на ${stationNameMk} и избери web player, или слушај преку iPhone и Android апликациите на MK Live Radio.`,
-          },
-          {
-            question: `Дали ${stationNameMk} има официјална веб-страница?`,
-            answer: station.website
-              ? `Да. Официјалниот линк е прикажан во фактите за станицата.`
-              : `Во моменталните податоци нема официјален линк за оваа станица.`,
+            answer: `${stationNameMk} можеш да ја слушаш во живо на MK Live Radio. Најубаво искуство е преку Android или iOS апликацијата, а алтернативно можеш да слушаш и преку web player-от на страницата.`,
           },
         ]
       : [
           {
             question: `How can I listen to ${stationNameEn} live?`,
-            answer: `Open the ${stationNameEn} station page and choose the web player, or listen through the MK Live Radio iPhone and Android apps.`,
-          },
-          {
-            question: `Does ${stationNameEn} have an official website?`,
-            answer: station.website
-              ? `Yes. The official link is shown in the station facts on this page.`
-              : `The current station data does not include an official website link for this station.`,
+            answer: `You can listen to ${stationNameEn} live on MK Live Radio. The best experience is on the Android or iOS app, and you can alternatively listen through the web player on the page.`,
           },
         ];
 
