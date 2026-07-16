@@ -111,7 +111,7 @@ const copy = {
 } as const;
 
 function localizedPath(path: string, language: "mk" | "en") {
-  return language === "en" ? `${path}?lang=en` : path;
+  return language === "en" ? `/en${path}` : path;
 }
 
 function cityAnchor(city: string) {
@@ -277,7 +277,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
   };
 
   return (
-    <main className="min-h-screen bg-black px-5 py-8 text-white sm:px-8">
+    <main lang={language} className="min-h-screen bg-black px-5 py-8 text-white sm:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -312,7 +312,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
             <Link href={stationsPath} className="transition hover:text-white">
               {pageCopy.stationsLink}
             </Link>
-            <Link href="/webplayer" className="transition hover:text-white">
+            <Link href={localizedPath("/webplayer", language)} className="transition hover:text-white">
               Web Player
             </Link>
             <Link href={alternatePath} hrefLang={language === "en" ? "mk" : "en"} className="transition hover:text-white">
@@ -338,7 +338,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/webplayer"
+                href={localizedPath("/webplayer", language)}
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#c63a2e]/50 bg-[#c63a2e]/20 px-6 text-sm font-semibold text-white transition hover:border-[#ff8176]/80 hover:bg-[#c63a2e]/30"
               >
                 {pageCopy.webPlayer}
@@ -446,7 +446,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
         </section>
 
         <footer className="border-t border-white/10 pt-6 text-center text-sm text-gray-500">
-          <Link href="/privacy" className="transition hover:text-white">
+          <Link href={localizedPath("/privacy", language)} className="transition hover:text-white">
             {language === "mk" ? "Политика за приватност" : "Privacy Policy"}
           </Link>
           <span className="mx-2">·</span>

@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     "MK Live Radio",
   ],
   alternates: {
-    canonical: "/macedonian-radios",
+    canonical: "/en/macedonian-radios",
   },
   openGraph: {
     type: "website",
-    url: absoluteUrl("/macedonian-radios"),
+    url: absoluteUrl("/en/macedonian-radios"),
     title: "Macedonian Radios Online | MK Live Radio",
     description: "Free online streaming for Macedonian radio stations with web player and apps.",
     images: [{ url: DEFAULT_OG_IMAGE, alt: "Macedonian radios online" }],
@@ -47,7 +47,7 @@ export default function MacedonianRadiosPage() {
       "@type": "ListItem",
       position: index + 1,
       name: getStationDisplayName(station, "en"),
-      url: absoluteUrl(`${getStationPath(station)}?lang=en`),
+      url: absoluteUrl(`/en${getStationPath(station)}`),
     })),
   };
 
@@ -59,7 +59,7 @@ export default function MacedonianRadiosPage() {
       />
       <div className="mx-auto max-w-5xl">
         <header className="mb-10 flex flex-col items-start gap-4">
-          <Link href="/" className="flex items-center gap-3 transition hover:opacity-80">
+          <Link href="/en" className="flex items-center gap-3 transition hover:opacity-80">
             <Image
               src="/logo.png"
               alt="MK Live Radio"
@@ -102,7 +102,7 @@ export default function MacedonianRadiosPage() {
             </a>
           </div>
           <Link
-            href="/stations?lang=en"
+            href="/en/stations"
             className="group inline-flex items-center gap-2 rounded-full border border-[#c63a2e]/45 bg-gradient-to-r from-[#c63a2e]/26 via-[#d14a3f]/22 to-[#8f2018]/24 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(198,58,46,0.28)] transition duration-300 hover:scale-[1.03] hover:border-[#e26156]/75 hover:shadow-[0_0_38px_rgba(198,58,46,0.48)]"
           >
             <span className="h-2 w-2 rounded-full bg-[#e26156] transition group-hover:bg-[#ff8478]" />
@@ -116,7 +116,7 @@ export default function MacedonianRadiosPage() {
             {allStations.map((station) => (
               <li key={station.id}>
                 <Link
-                  href={`${getStationPath(station)}?lang=en`}
+                  href={`/en${getStationPath(station)}`}
                   className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-white/30 hover:bg-white/[0.06]"
                 >
                   <Image

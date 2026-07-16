@@ -55,17 +55,19 @@ assert.equal(visibleStations.length, visibleSlugs.size, "Visible station slug co
 
 const stationUrls = visibleStations.flatMap((station) => [
   `${SITE_URL}/stations/${station.slug}`,
-  `${SITE_URL}/stations/${station.slug}?lang=en`,
+  `${SITE_URL}/en/stations/${station.slug}`,
 ]);
 
 for (const url of stationUrls) {
   const parsed = new URL(url);
-  const slug = parsed.pathname.replace("/stations/", "");
+  const slug = parsed.pathname.replace(/^\/en/, "").replace("/stations/", "");
   assert.ok(visibleSlugs.has(slug), `Sitemap station URL does not map to a visible station: ${url}`);
 }
 
 const sourceFiles = ["app", "lib"].flatMap(walk).filter((file) => /\.(ts|tsx|css)$/.test(file));
 const source = sourceFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+
+assert.ok(!source.includes("?lang=en"), "English routes must use the /en path prefix");
 
 assert.ok(
   !source.includes("slug.match(/-(\\d+)$/)") && !source.includes("slug.match(/-(\\d+)$/"),

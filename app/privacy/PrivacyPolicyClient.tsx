@@ -1,19 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 type Lang = "mk" | "en";
 
-export default function PrivacyPolicyPage() {
-  const [lang, setLang] = useState<Lang>("mk");
-
+export default function PrivacyPolicyClient({ lang }: { lang: Lang }) {
   return (
     <main className="flex min-h-screen flex-col justify-between bg-black text-white">
       <header className="mx-auto flex w-full max-w-4xl flex-col items-start gap-4 px-6 py-6">
         <Link
-          href="/"
+          href={lang === "en" ? "/en" : "/"}
           className="flex items-center gap-3 transition hover:opacity-80"
         >
           <Image
@@ -27,8 +24,9 @@ export default function PrivacyPolicyPage() {
         </Link>
 
         <div className="flex flex-row items-end gap-2">
-          <button
-            onClick={() => setLang("mk")}
+          <Link
+            href="/privacy"
+            hrefLang="mk"
             aria-label="Switch to Macedonian"
             className={`flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition ${
               lang === "mk" ? "bg-white text-black" : "border-gray-600 text-white"
@@ -36,9 +34,10 @@ export default function PrivacyPolicyPage() {
           >
             <Image src="https://flagcdn.com/w40/mk.png" alt="MK" width={16} height={12} />
             MK
-          </button>
-          <button
-            onClick={() => setLang("en")}
+          </Link>
+          <Link
+            href="/en/privacy"
+            hrefLang="en"
             aria-label="Switch to English"
             className={`flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition ${
               lang === "en" ? "bg-white text-black" : "border-gray-600 text-white"
@@ -46,7 +45,7 @@ export default function PrivacyPolicyPage() {
           >
             <Image src="https://flagcdn.com/w40/gb.png" alt="EN" width={16} height={12} />
             EN
-          </button>
+          </Link>
         </div>
       </header>
 

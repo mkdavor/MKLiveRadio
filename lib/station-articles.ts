@@ -19,6 +19,12 @@ type ResearchSeed = {
   founded?: string;
   formatEn?: string;
   formatMk?: string;
+  sectionsEn?: Array<{ heading: string; paragraphs: string[] }>;
+  sectionsMk?: Array<{ heading: string; paragraphs: string[] }>;
+  principlesEn?: Array<{ title: string; description: string }>;
+  principlesMk?: Array<{ title: string; description: string }>;
+  team?: Array<{ nameEn: string; nameMk: string; roleEn: string; roleMk: string }>;
+  contacts?: Array<{ labelEn: string; labelMk: string; value: string; href?: string }>;
 };
 
 const RESEARCH_SEEDS: Record<number, ResearchSeed> = {
@@ -48,12 +54,118 @@ const RESEARCH_SEEDS: Record<number, ResearchSeed> = {
       "Слушај Jazz FM Скопје во живо на 100.8 FM и онлајн, со џез емисии, groove селекција и сродни Jazz FM стримови.",
     keywords: ["Jazz FM Skopje", "Jazz FM 100.8", "Macedonian jazz radio"],
     highlightEn:
-      "Jazz FM keeps a clear jazz identity, with curated shows, presenters, and sister streams for listeners who want a focused music choice.",
+      "Jazz FM is a Skopje radio station dedicated to jazz and related styles. Its carefully curated programming celebrates authentic artistic expression while helping listeners discover the evolution, movements, and artists of jazz.",
     highlightMk:
-      "Jazz FM има јасен џез идентитет, со авторски емисии, водители и сестрински стримови за слушатели што сакаат фокусирана музичка селекција.",
+      "Џез ФМ е скопско радио посветено на џез музиката и сродните џез стилови. Преку грижливо осмислена програма го слави автентичниот уметнички израз и ги запознава слушателите со еволуцијата, правците и уметниците на џезот.",
     frequency: "100.8 FM Skopje",
     formatEn: "jazz and groove programming",
     formatMk: "џез и groove програма",
+    sectionsEn: [
+      {
+        heading: "A home for the local jazz scene",
+        paragraphs: [
+          "The station supports quality music and education from the Macedonian and regional jazz scene, helping jazz remain a meaningful part of the country's cultural life. It presents emerging talent, works with musicians, and connects listeners around a shared love of the genre.",
+        ],
+      },
+      {
+        heading: "Vision",
+        paragraphs: [
+          "Jazz FM wants jazz to become an essential and accessible part of Macedonia's media and cultural landscape, while encouraging the growth and promotion of jazz musicians and regional production.",
+        ],
+      },
+      {
+        heading: "Jazz as a journey around the world",
+        paragraphs: [
+          "In her show Daily Session, author and host Jasna Nikolovska Ovcharovska takes listeners on a musical walk through different countries, exploring their distinctive jazz sound with a special focus on contemporary currents and younger generations of musicians.",
+          "The idea is to reveal the atmosphere, colour, and sound of different places through the way jazz develops inside their cultures — offering discovery, inspiration, and a fresh moment in the day.",
+        ],
+      },
+    ],
+    sectionsMk: [
+      {
+        heading: "Дом за локалната џез сцена",
+        paragraphs: [
+          "Радиото поддржува квалитетна музичка програма и едукација од домашната и регионалната џез сцена, со цел џезот да остане значаен дел од македонскиот културен живот. Претставува нови таленти, соработува со музичари и ги поврзува слушателите во заедница.",
+        ],
+      },
+      {
+        heading: "Визија",
+        paragraphs: [
+          "Визијата на Џез ФМ е џезот да стане суштински и достапен дел од македонскиот медиумски и културен пејзаж, а преку емитувањето да го поттикнува растежот на џез музичарите и регионалната продукција.",
+        ],
+      },
+      {
+        heading: "Џезот како патување низ светот",
+        paragraphs: [
+          "Во емисијата „Дневна сесија“, авторката и водителка Јасна Николовска Овчаровска ги носи слушателите на музичка прошетка низ различни земји и нивниот специфичен џез звук, со посебен фокус на современите текови и младата генерација музичари.",
+          "Целта е преку џезот да се откријат атмосферата, колоритот и звучниот амбиент на различни култури, нудејќи дневна инспирација и освежување во етерот.",
+        ],
+      },
+    ],
+    principlesEn: [
+      {
+        title: "Quality",
+        description: "Every selected feature and playlist is expected to meet the station's editorial and production standards.",
+      },
+      {
+        title: "Relevance",
+        description: "Verified stories, interviews, analysis, and playlists help explain jazz history, styles, development, and artists.",
+      },
+      {
+        title: "Accessibility",
+        description: "Jazz FM aims to remove barriers and make the world of jazz easy to discover for listeners of every age and profession.",
+      },
+      {
+        title: "Community",
+        description: "By supporting the local scene, collaborating with musicians, and staying close to listeners, the station builds a wider jazz network.",
+      },
+      {
+        title: "Local talent and young artists",
+        description: "New talent and Macedonian performers receive space on air, helping jazz reach and inspire a younger audience.",
+      },
+      {
+        title: "Innovation",
+        description: "New perspectives, experimentation, and developments in the genre keep the programming dynamic, relevant, and curious.",
+      },
+    ],
+    principlesMk: [
+      {
+        title: "Квалитет",
+        description: "Секоја избрана содржина и плејлиста треба да ги задоволи уредувачките и продукциските стандарди на радиото.",
+      },
+      {
+        title: "Релевантност",
+        description: "Проверени информации, интервјуа, анализи и плејлисти ги доближуваат историјата, развојот, стиловите и уметниците на џезот.",
+      },
+      {
+        title: "Достапност",
+        description: "Jazz FM ги разбива бариерите и го прави светот на џезот лесен за откривање од слушатели од сите возрасти и професии.",
+      },
+      {
+        title: "Заедништво",
+        description: "Со поддршка на локалната сцена, соработка со музичарите и поврзување со слушателите, радиото гради широка џез заедница.",
+      },
+      {
+        title: "Домашна сцена и млади",
+        description: "Новите таленти и домашните изведувачи добиваат простор во програмата, со што џезот се доближува и до помладата публика.",
+      },
+      {
+        title: "Иновативност",
+        description: "Нови перспективи, експериментирање и следење на развојот на жанрот ја одржуваат програмата динамична и релевантна.",
+      },
+    ],
+    team: [
+      { nameEn: "Kostadin Shurbanovski", nameMk: "Костадин Шурбановски", roleEn: "Editor", roleMk: "Уредник" },
+      { nameEn: "Marijan Grijaković", nameMk: "Маријан Гријаковиќ", roleEn: "Technical team", roleMk: "Техника" },
+      { nameEn: "Jasna Nikolovska Ovcharovska", nameMk: "Јасна Николовска Овчаровска", roleEn: "Daytime host", roleMk: "Водител – дневна програма" },
+      { nameEn: "Darko Markovski", nameMk: "Дарко Марковски", roleEn: "Host", roleMk: "Водител" },
+      { nameEn: "Jez Nelson & Chris Philips", nameMk: "Jez Nelson & Chris Philips", roleEn: "Contributors", roleMk: "Соработници" },
+    ],
+    contacts: [
+      { labelEn: "Email", labelMk: "Е-пошта", value: "jazzfm@jazz.mk", href: "mailto:jazzfm@jazz.mk" },
+      { labelEn: "Telephone", labelMk: "Телефон", value: "+389 2 615 5150", href: "tel:+38926155150" },
+      { labelEn: "Mobile", labelMk: "Мобилен", value: "+389 70 342 376", href: "tel:+38970342376" },
+    ],
   },
   10: {
     titleEn: "Radio Skopje MRT live",
@@ -294,10 +406,6 @@ const RESEARCH_SEEDS: Record<number, ResearchSeed> = {
   },
 };
 
-export function resolveStationArticleLanguage(value?: string): StationArticleLanguage {
-  return value === "en" ? "en" : "mk";
-}
-
 export function getStationArticle(station: Station, language: StationArticleLanguage) {
   const seed = RESEARCH_SEEDS[station.id] ?? {};
   const stationNameEn = getStationDisplayName(station, "en");
@@ -404,6 +512,7 @@ export function getStationArticle(station: Station, language: StationArticleLang
               `На MK Live Radio можеш да слушаш ${stationNameMk} во живо преку Android или iOS апликацијата, или алтернативно преку web player-от на страницата.`,
             ],
           },
+          ...(seed.sectionsMk ?? []),
         ].filter(Boolean)
       : [
           {
@@ -433,6 +542,7 @@ export function getStationArticle(station: Station, language: StationArticleLang
               `You can listen to ${stationNameEn} live on MK Live Radio through the Android or iOS app, or alternatively through the web player on the page.`,
             ],
           },
+          ...(seed.sectionsEn ?? []),
         ].filter(Boolean);
 
   const faq =
@@ -458,7 +568,17 @@ export function getStationArticle(station: Station, language: StationArticleLang
     facts,
     sections: sections as Array<{ heading: string; paragraphs: string[] }>,
     faq,
-    alternatePathEn: `${pagePath}?lang=en`,
+    principles: language === "mk" ? seed.principlesMk : seed.principlesEn,
+    team: seed.team?.map((member) => ({
+      name: language === "mk" ? member.nameMk : member.nameEn,
+      role: language === "mk" ? member.roleMk : member.roleEn,
+    })),
+    contacts: seed.contacts?.map((contact) => ({
+      label: language === "mk" ? contact.labelMk : contact.labelEn,
+      value: contact.value,
+      href: contact.href,
+    })),
+    alternatePathEn: `/en${pagePath}`,
     alternatePathMk: pagePath,
   };
 }

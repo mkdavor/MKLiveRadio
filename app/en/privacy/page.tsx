@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PrivacyPolicyClient from "./PrivacyPolicyClient";
+import PrivacyPolicyClient from "../../privacy/PrivacyPolicyClient";
 import { absoluteUrl, SEO_KEYWORDS } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Read the MK Live Radio privacy policy, data handling details, and station rights information for the mobile and web radio platform.",
   keywords: [...SEO_KEYWORDS, "privacy policy", "radio app privacy", "MK Live Radio privacy"],
   alternates: {
-    canonical: "/privacy",
+    canonical: "/en/privacy",
     languages: {
       mk: "/privacy",
       en: "/en/privacy",
@@ -17,17 +17,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "article",
-    url: absoluteUrl("/privacy"),
+    url: absoluteUrl("/en/privacy"),
     title: "MK Live Radio Privacy Policy",
     description:
       "Privacy, streaming source, and rights information for MK Live Radio and its Macedonian radio station directory.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
+  other: { "content-language": "en" },
 };
 
-export default function PrivacyPolicyPage() {
-  return <PrivacyPolicyClient lang="mk" />;
+export default function EnglishPrivacyPolicyPage() {
+  return <PrivacyPolicyClient lang="en" />;
 }

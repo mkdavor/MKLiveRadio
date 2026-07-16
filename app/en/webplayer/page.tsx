@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import WebPlayerClient from "./WebPlayerClient";
+import WebPlayerClient from "../../webplayer/WebPlayerClient";
 import {
   absoluteUrl,
   DEFAULT_OG_IMAGE,
@@ -13,14 +13,9 @@ export const metadata: Metadata = {
   title: "Web Player",
   description:
     "Listen to Macedonian radio stations live in your browser. Search stations by city and share direct station links.",
-  keywords: [
-    ...SEO_KEYWORDS,
-    "web radio player",
-    "live radio stream",
-    "listen Macedonian radio online",
-  ],
+  keywords: [...SEO_KEYWORDS, "web radio player", "live radio stream", "listen Macedonian radio online"],
   alternates: {
-    canonical: "/webplayer",
+    canonical: "/en/webplayer",
     languages: {
       mk: "/webplayer",
       en: "/en/webplayer",
@@ -29,10 +24,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: absoluteUrl("/webplayer"),
+    locale: "en_US",
+    alternateLocale: ["mk_MK"],
+    url: absoluteUrl("/en/webplayer"),
     title: "MK Live Radio Web Player",
-    description:
-      `Play Macedonian radio online instantly. Browse ${stations.length} live stations from cities across Macedonia.`,
+    description: `Play Macedonian radio online instantly. Browse ${stations.length} live stations from cities across Macedonia.`,
     images: [{ url: DEFAULT_OG_IMAGE, alt: "MK Live Radio Web Player" }],
   },
   twitter: {
@@ -41,9 +37,10 @@ export const metadata: Metadata = {
     description: "Listen to Macedonian stations live in one web player.",
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
   },
+  other: { "content-language": "en" },
 };
 
-export default function WebPlayerPage() {
+export default function EnglishWebPlayerPage() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -52,11 +49,10 @@ export default function WebPlayerPage() {
     inLanguage: ["mk", "en"],
     potentialAction: {
       "@type": "SearchAction",
-      target: `${absoluteUrl("/webplayer")}?q={search_term_string}`,
+      target: `${absoluteUrl("/en/webplayer")}?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };
-
   const stationListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -66,21 +62,15 @@ export default function WebPlayerPage() {
       "@type": "ListItem",
       position: index + 1,
       name: station.name_en ?? station.name,
-      url: absoluteUrl(getStationPath(station)),
+      url: absoluteUrl(`/en${getStationPath(station)}`),
     })),
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(stationListSchema) }}
-      />
-      <WebPlayerClient initialLocale="mk" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(stationListSchema) }} />
+      <WebPlayerClient initialLocale="en" />
     </>
   );
 }

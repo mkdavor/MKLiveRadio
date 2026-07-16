@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo";
 import { getStationPath, stations } from "@/lib/stations";
 
-const CONTENT_LAST_MODIFIED = new Date("2026-07-14");
+const CONTENT_LAST_MODIFIED = new Date("2026-07-16");
 
 function languageAlternates(mkPath: string, enPath: string) {
   return {
@@ -35,23 +35,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "daily",
       priority: 0.95,
+      alternates: languageAlternates("/webplayer", "/en/webplayer"),
+    },
+    {
+      url: absoluteUrl("/en/webplayer"),
+      lastModified: CONTENT_LAST_MODIFIED,
+      changeFrequency: "daily",
+      priority: 0.9,
+      alternates: languageAlternates("/webplayer", "/en/webplayer"),
     },
     {
       url: absoluteUrl("/stations"),
       lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "daily",
       priority: 0.9,
-      alternates: languageAlternates("/stations", "/stations?lang=en"),
+      alternates: languageAlternates("/stations", "/en/stations"),
     },
     {
-      url: absoluteUrl("/stations?lang=en"),
+      url: absoluteUrl("/en/stations"),
       lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "daily",
       priority: 0.85,
-      alternates: languageAlternates("/stations", "/stations?lang=en"),
+      alternates: languageAlternates("/stations", "/en/stations"),
     },
     {
-      url: absoluteUrl("/macedonian-radios"),
+      url: absoluteUrl("/en/macedonian-radios"),
       lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "daily",
       priority: 0.85,
@@ -61,12 +69,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.4,
+      alternates: languageAlternates("/privacy", "/en/privacy"),
+    },
+    {
+      url: absoluteUrl("/en/privacy"),
+      lastModified: CONTENT_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.35,
+      alternates: languageAlternates("/privacy", "/en/privacy"),
     },
   ];
 
   const stationRoutes: MetadataRoute.Sitemap = stations.flatMap((station) => {
     const stationPath = getStationPath(station);
-    const englishPath = `${stationPath}?lang=en`;
+    const englishPath = `/en${stationPath}`;
     const alternates = languageAlternates(stationPath, englishPath);
 
     return [

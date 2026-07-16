@@ -142,14 +142,14 @@ function readListenSessionCheckpoint(): SessionCheckpoint | null {
   }
 }
 
-export default function WebPlayerPage() {
+export default function WebPlayerClient({ initialLocale }: { initialLocale: Locale }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const selectedStationRef = useRef(fallbackStation);
   const sessionStartedAtRef = useRef<number | null>(null);
   const sessionStationRef = useRef<{ id: number; name: string } | null>(null);
   const checkpointTimerRef = useRef<number | null>(null);
   const analyticsConsentRef = useRef(false);
-  const [locale, setLocale] = useState<Locale>("mk");
+  const locale = initialLocale;
   const [selectedStationId, setSelectedStationId] = useState<number>(fallbackStation.id);
   const [searchQuery, setSearchQuery] = useState("");
   const [cityFilter, setCityFilter] = useState("all");
@@ -175,7 +175,7 @@ export default function WebPlayerPage() {
     locale === "en" ? selectedStation.name_en ?? selectedStation.name : selectedStation.name;
   const stationDisplayCity = locale === "en" ? selectedStation.city_en ?? selectedStation.city : selectedStation.city;
   const selectedStationPagePath =
-    locale === "en" ? `${getStationPath(selectedStation)}?lang=en` : getStationPath(selectedStation);
+    locale === "en" ? `/en${getStationPath(selectedStation)}` : getStationPath(selectedStation);
   const statusText =
     statusKey === "selected" ? `${t.status.selected}${stationDisplayName}` : t.status[statusKey];
   const normalizedQuery = searchQuery.trim().toLocaleLowerCase();
@@ -610,28 +610,28 @@ export default function WebPlayerPage() {
   };
 
   return (
-    <main className={styles.page}>
+    <main lang={locale} className={styles.page}>
       <div className={styles.bgOrbA} aria-hidden />
       <div className={styles.bgOrbB} aria-hidden />
       <div className={styles.languageSwitch}>
-        <button
-          type="button"
+        <Link
+          href={`/webplayer?id=${selectedStationId}`}
+          hrefLang="mk"
           className={`${styles.langButton} ${locale === "mk" ? styles.langButtonActive : ""}`}
-          onClick={() => setLocale("mk")}
           aria-label="Македонски"
           title="Македонски"
         >
           <Image src="https://flagcdn.com/w40/mk.png" alt="MK flag" width={24} height={16} />
-        </button>
-        <button
-          type="button"
+        </Link>
+        <Link
+          href={`/en/webplayer?id=${selectedStationId}`}
+          hrefLang="en"
           className={`${styles.langButton} ${locale === "en" ? styles.langButtonActive : ""}`}
-          onClick={() => setLocale("en")}
           aria-label="English"
           title="English"
         >
           <Image src="https://flagcdn.com/w40/gb.png" alt="EN flag" width={24} height={16} />
-        </button>
+        </Link>
       </div>
 
       <div className={styles.layout}>
