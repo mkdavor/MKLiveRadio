@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { APP_STORE_URL, INSTAGRAM_URL, PLAY_STORE_URL } from "@/lib/seo";
+import { MobileMenu } from "@/app/components/mobile-menu";
 
 export type SiteLanguage = "mk" | "en";
 
@@ -90,6 +91,14 @@ export function SiteHeader({
           {isEn ? "Download MK Live Radio" : "Симни MK Live Radio"}
           <span aria-hidden>↓</span>
         </Link>
+
+        <MobileMenu
+          isEn={isEn}
+          stationsPath={pathFor(language, "/stations")}
+          playerPath={pathFor(language, "/webplayer")}
+          downloadPath={`${pathFor(language, "/")}#download-app`}
+          active={active}
+        />
       </nav>
     </header>
   );
