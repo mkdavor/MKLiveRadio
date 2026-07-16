@@ -84,8 +84,7 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
   const displayCity = language === "mk" ? stationCityMk : stationCity;
 
   const relatedStations = stations
-    .filter((candidate) => candidate.id !== station.id && candidate.city === station.city)
-    .slice(0, 3);
+    .filter((candidate) => candidate.slug !== station.slug && candidate.city === station.city);
 
   const radioStationSchema = {
     "@type": "RadioStation", "@id": stationId, name: stationName, alternateName: stationNameMk,
@@ -176,7 +175,7 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
             </section>
           ) : null}
 
-          <dl className="facts-grid">
+          <dl className="facts-grid station-facts">
             {article.facts.map((fact) => (
               <div className="fact-item" key={fact.labelEn}>
                 <dt>{language === "mk" ? fact.labelMk : fact.labelEn}</dt>
@@ -192,7 +191,7 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
           {article.team?.length ? (
             <section>
               <div className="section-heading"><div><span className="eyebrow">{language === "mk" ? "Во етер" : "On air"}</span><h2>{language === "mk" ? "Луѓето зад микрофонот" : "People behind the microphone"}</h2></div></div>
-              <div className="detail-grid">
+              <div className="detail-grid station-roster">
                 {article.team.map((member) => <div className="detail-card" key={member.name}><strong>{member.name}</strong><p>{member.role}</p></div>)}
               </div>
             </section>
@@ -201,7 +200,7 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
           {article.contacts?.length ? (
             <section>
               <div className="section-heading"><div><span className="eyebrow">Contact</span><h2>{language === "mk" ? "Контакт со Jazz FM" : "Contact Jazz FM"}</h2></div></div>
-              <div className="detail-grid">
+              <div className="detail-grid station-contacts">
                 {article.contacts.map((contact) => (
                   <a className="detail-card" key={contact.label} href={contact.href}>
                     <small>{contact.label}</small><strong>{contact.value}</strong>
@@ -219,7 +218,7 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
 
           <section id="faq">
             <div className="section-heading"><div><span className="eyebrow">FAQ</span><h2>{language === "mk" ? "Често поставувани прашања" : "Frequently asked questions"}</h2></div></div>
-            <dl className="faq-grid">
+            <dl className="faq-grid station-faq">
               {article.faq.map((item) => <div className="faq-item" key={item.question}><dt>{item.question}</dt><dd>{item.answer}</dd></div>)}
             </dl>
           </section>
@@ -227,12 +226,12 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
           {relatedStations.length ? (
             <section className="section-block">
               <div className="section-heading"><div><span className="eyebrow">{displayCity}</span><h2>{language === "mk" ? "Уште станици од градот" : "More stations from the city"}</h2></div></div>
-              <div className="station-showcase">
+              <div className="station-showcase station-showcase--city">
                 {relatedStations.map((related, index) => (
                   <Link className="station-tile" href={`${language === "en" ? "/en" : ""}${getStationPath(related)}`} key={related.id}>
                     <span className="station-tile__top">
                       <Image src={`/logos/${pickStationLogoName(related)}.webp`} alt={`${getStationDisplayName(related, language)} logo`} width={72} height={72} />
-                      <span className="station-tile__index">0{index + 1}</span>
+                      <span className="station-tile__index">{String(index + 1).padStart(2, "0")}</span>
                     </span>
                     <span><strong>{getStationDisplayName(related, language)}</strong><small>{getStationDisplayCity(related, language)}</small></span>
                     <span className="station-tile__arrow" aria-hidden>↗</span>
