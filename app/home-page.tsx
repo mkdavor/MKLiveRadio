@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { SiteFooter, SiteHeader, StoreButtons } from "@/app/components/site-chrome";
 import {
   absoluteUrl,
   APP_STORE_URL,
   DEFAULT_OG_IMAGE,
-  INSTAGRAM_URL,
   PLAY_STORE_URL,
   SEO_KEYWORDS,
   SITE_URL,
@@ -21,43 +21,47 @@ import {
 
 type HomeLanguage = "mk" | "en";
 
-const featuredStationIds = [0, 5, 50, 100, 140, 260];
+const featuredStationIds = [0, 5, 50, 100, 20, 260];
 
 const copy = {
   mk: {
     title: "Македонски радио станици во живо",
+    heroLineOne: "Сите македонски радија.",
+    heroLineTwo: "Една апликација.",
     description:
       "Слушај македонски радио станици во живо и бесплатно преку web, iPhone и Android. Најди радија од Скопје, Битола, Охрид и цела Македонија.",
     intro:
-      "MK Live Radio ги собира македонските радио станици во едноставен web player и мобилни апликации за iPhone и Android.",
-    stationsLink: "Сите радио станици",
-    webPlayer: "Слушај без апликација",
-    stationSection: "Избрани станици",
-    citySection: "Преглед по град",
-    mobileCta: "Симни ја MK Live Radio",
-    mobileCtaText:
-      "App Store и Google Play се најбрзиот пат до македонските радио станици на телефон.",
-    mobileSection: "Апликација за телефон",
-    mobileSectionText:
-      "Отвори ја апликацијата директно од iPhone или Android и слушај без пребарување.",
-    benefits: "Што добиваш",
-    faq: "Често поставувани прашања",
-    languageLabel: "English",
-    benefitItems: [
+      "Симни ја MK Live Radio и носи ги омилените македонски станици со себе — на iPhone, iPad и Android.",
+    stationsLink: "Истражи ги станиците",
+    webPlayer: "Продолжи во web player",
+    stationSection: "Гласови од цела Македонија",
+    stationIntro:
+      "Од локални фреквенции до национални фаворити — брзо најди го звукот што го бараш.",
+    citySection: "Најди радио по град",
+    appTitle: "Направена за секојдневно слушање.",
+    appText:
+      "Апликацијата е најдобриот начин да ја користиш MK Live Radio: брза, едноставна и секогаш подготвена кога ти треба познат звук.",
+    benefits: [
       "Брз пристап до македонски FM и онлајн радио станици.",
       "Станиците се организирани по град за полесно пребарување.",
-      "Истото слушање е достапно во browser и преку мобилните апликации.",
+      "Еден допир до радиото што го сакаш, каде и да си.",
     ],
+    faqTitle: "Добро е да знаеш",
+    eyebrow: "Твојата Македонија. Секогаш во етер.",
+    appEyebrow: "MK Live Radio за iOS и Android",
+    metricStations: "активни станици",
+    metricCities: "градови во директориумот",
+    metricPlatforms: "мобилни платформи",
     faqItems: [
       {
         question: "Дали MK Live Radio е бесплатен?",
         answer:
-          "Да. Можеш бесплатно да слушаш јавно достапни македонски радио стримови преку web player, iPhone и Android.",
+          "Да. Можеш бесплатно да слушаш јавно достапни македонски радио стримови преку iPhone, Android и web player.",
       },
       {
         question: "Каде можам да најдам радио станици по град?",
         answer:
-          "Отвори ја страницата со радио станици и избери град како Скопје, Битола, Охрид, Прилеп или друг град од тековната листа.",
+          "Отвори го директориумот и избери град како Скопје, Битола, Охрид, Прилеп или друг град од тековната листа.",
       },
       {
         question: "Дали MK Live Radio ги поседува радио станиците?",
@@ -68,38 +72,42 @@ const copy = {
   },
   en: {
     title: "Macedonian Radio Stations Live",
+    heroLineOne: "Every Macedonian station.",
+    heroLineTwo: "One app.",
     description:
       "Listen to Macedonian radio stations live and free on the web, iPhone and Android. Browse stations from Skopje, Bitola, Ohrid and across Macedonia.",
     intro:
-      "MK Live Radio brings Macedonian radio stations into a simple web player and mobile apps for iPhone and Android.",
-    stationsLink: "All Radio Stations",
-    webPlayer: "Open Web Player",
-    stationSection: "Selected Stations",
-    citySection: "Browse by City",
-    mobileCta: "Download MK Live Radio",
-    mobileCtaText:
-      "The App Store and Google Play are the fastest way to keep Macedonian radio stations on your phone.",
-    mobileSection: "Mobile App",
-    mobileSectionText:
-      "Open MK Live Radio directly from iPhone or Android and start listening without searching.",
-    benefits: "Benefits",
-    faq: "Frequently Asked Questions",
-    languageLabel: "Македонски",
-    benefitItems: [
+      "Download MK Live Radio and take your favorite Macedonian stations everywhere — on iPhone, iPad and Android.",
+    stationsLink: "Explore the stations",
+    webPlayer: "Continue in the web player",
+    stationSection: "Voices from across Macedonia",
+    stationIntro:
+      "From local frequencies to national favorites — quickly find the sound you are looking for.",
+    citySection: "Find radio by city",
+    appTitle: "Made for everyday listening.",
+    appText:
+      "The app is the best way to experience MK Live Radio: fast, focused and always ready when you need a familiar sound.",
+    benefits: [
       "Quick access to Macedonian FM and online radio stations.",
-      "Stations are organized by city for easier browsing.",
-      "The same listening experience is available in the browser and mobile apps.",
+      "Stations organized by city for effortless discovery.",
+      "One tap to the radio you love, wherever you are.",
     ],
+    faqTitle: "Good to know",
+    eyebrow: "Your Macedonia. Always on.",
+    appEyebrow: "MK Live Radio for iOS and Android",
+    metricStations: "active stations",
+    metricCities: "cities in the directory",
+    metricPlatforms: "mobile platforms",
     faqItems: [
       {
         question: "Is MK Live Radio free?",
         answer:
-          "Yes. You can listen to publicly available Macedonian radio streams for free through the web player, iPhone app, and Android app.",
+          "Yes. You can listen to publicly available Macedonian radio streams for free through the iPhone app, Android app and web player.",
       },
       {
         question: "Where can I find radio stations by city?",
         answer:
-          "Open the radio stations page and choose a city such as Skopje, Bitola, Ohrid, Prilep, or another city from the current list.",
+          "Open the directory and choose Skopje, Bitola, Ohrid, Prilep, or another city from the current list.",
       },
       {
         question: "Does MK Live Radio own the radio stations?",
@@ -110,7 +118,7 @@ const copy = {
   },
 } as const;
 
-function localizedPath(path: string, language: "mk" | "en") {
+function localizedPath(path: string, language: HomeLanguage) {
   return language === "en" ? `/en${path}` : path;
 }
 
@@ -125,50 +133,6 @@ function cityAnchor(city: string) {
   );
 }
 
-function StoreBadges({ className = "" }: { className?: string }) {
-  const classes = [
-    "flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap",
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  return (
-    <div className={classes}>
-      <a
-        href={APP_STORE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex transition hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-        aria-label="Download MK Live Radio on the App Store"
-      >
-        <Image
-          src="/appstore.svg"
-          alt="Download on the App Store"
-          width={168}
-          height={56}
-          className="h-16 w-auto max-w-full"
-        />
-      </a>
-      <a
-        href={PLAY_STORE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex transition hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-        aria-label="Get MK Live Radio on Google Play"
-      >
-        <Image
-          src="/playstore.svg"
-          alt="Get it on Google Play"
-          width={189}
-          height={56}
-          className="h-16 w-auto max-w-full"
-        />
-      </a>
-    </div>
-  );
-}
-
 export function createHomeMetadata(language: HomeLanguage): Metadata {
   const isEn = language === "en";
   const pageCopy = copy[language];
@@ -180,11 +144,7 @@ export function createHomeMetadata(language: HomeLanguage): Metadata {
     keywords: SEO_KEYWORDS,
     alternates: {
       canonical: absoluteUrl(canonicalPath),
-      languages: {
-        mk: absoluteUrl("/"),
-        en: absoluteUrl("/en"),
-        "x-default": absoluteUrl("/"),
-      },
+      languages: { mk: absoluteUrl("/"), en: absoluteUrl("/en"), "x-default": absoluteUrl("/") },
     },
     openGraph: {
       type: "website",
@@ -201,9 +161,7 @@ export function createHomeMetadata(language: HomeLanguage): Metadata {
       description: pageCopy.description,
       images: [absoluteUrl(DEFAULT_OG_IMAGE)],
     },
-    other: {
-      "content-language": language,
-    },
+    other: { "content-language": language },
   };
 }
 
@@ -213,10 +171,11 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
     .map((id) => stations.find((station) => station.id === id))
     .filter(Boolean)
     .slice(0, 6) as typeof stations;
-  const cityStats = getCityStats(language).slice(0, 8);
+  const allCityStats = getCityStats(language);
+  const cityStats = allCityStats.slice(0, 10);
   const canonicalPath = language === "en" ? "/en" : "/";
-  const alternatePath = language === "en" ? "/" : "/en";
   const stationsPath = localizedPath("/stations", language);
+  const playerPath = localizedPath("/webplayer", language);
 
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -226,7 +185,6 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
     url: SITE_URL,
     inLanguage: ["mk", "en"],
   };
-
   const mobileAppSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -248,7 +206,6 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
       },
     ],
   };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -256,13 +213,9 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
     mainEntity: pageCopy.faqItems.map((item) => ({
       "@type": "Question",
       name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
     })),
   };
-
   const stationListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -277,186 +230,174 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
   };
 
   return (
-    <main lang={language} className="min-h-screen bg-black px-5 py-8 text-white sm:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(mobileAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(stationListSchema) }}
-      />
+    <main lang={language} className="site-page">
+      {[websiteSchema, mobileAppSchema, faqSchema, stationListSchema].map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
 
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-12">
-        <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <Link href={canonicalPath} className="flex items-center gap-3 transition hover:opacity-80">
-            <Image
-              src="/logo.png"
-              alt="MK Live Radio"
-              width={48}
-              height={48}
-              className="h-12 w-12 rounded-2xl shadow-lg"
-              priority
-            />
-            <span className="text-lg font-semibold">MK Live Radio</span>
-          </Link>
-          <nav className="flex flex-wrap items-center gap-4 text-sm text-gray-300">
-            <Link href={stationsPath} className="transition hover:text-white">
-              {pageCopy.stationsLink}
-            </Link>
-            <Link href={localizedPath("/webplayer", language)} className="transition hover:text-white">
-              Web Player
-            </Link>
-            <Link href={alternatePath} hrefLang={language === "en" ? "mk" : "en"} className="transition hover:text-white">
-              {pageCopy.languageLabel}
-            </Link>
-          </nav>
-        </header>
+      <SiteHeader language={language} active="home" />
 
-        <section className="grid items-center gap-8 lg:grid-cols-[1fr_280px]">
+      <div className="site-shell">
+        <section className="hero">
           <div>
-            <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-normal sm:text-6xl">
-              {pageCopy.title}
+            <span className="eyebrow">{pageCopy.eyebrow}</span>
+            <h1>
+              {pageCopy.heroLineOne}<br />
+              <em>{pageCopy.heroLineTwo}</em>
             </h1>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
-              {pageCopy.intro}
-            </p>
-            <div className="mt-8">
-              <p className="text-base font-semibold text-white">{pageCopy.mobileCta}</p>
-              <p className="mt-2 max-w-xl text-sm leading-6 text-gray-300">
-                {pageCopy.mobileCtaText}
-              </p>
-              <StoreBadges className="mt-4" />
-            </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href={localizedPath("/webplayer", language)}
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#c63a2e]/50 bg-[#c63a2e]/20 px-6 text-sm font-semibold text-white transition hover:border-[#ff8176]/80 hover:bg-[#c63a2e]/30"
-              >
-                {pageCopy.webPlayer}
-              </Link>
-              <Link
-                href={stationsPath}
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-6 text-sm font-semibold text-gray-100 transition hover:border-white/35 hover:bg-white/[0.08]"
-              >
-                {pageCopy.stationsLink}
-              </Link>
+            <p className="hero-copy">{pageCopy.intro}</p>
+            <div className="hero-actions">
+              <StoreButtons />
+              <div className="secondary-links">
+                <Link href={stationsPath} className="secondary-link">
+                  {pageCopy.stationsLink} <span aria-hidden>→</span>
+                </Link>
+                <Link href={playerPath} className="secondary-link secondary-link--muted">
+                  {pageCopy.webPlayer}
+                </Link>
+              </div>
             </div>
           </div>
-          <Image
-            src="/logo.png"
-            alt="MK Live Radio Logo"
-            width={280}
-            height={280}
-            className="mx-auto h-44 w-44 rounded-[2rem] shadow-[0_28px_90px_rgba(198,58,46,0.28)] sm:h-64 sm:w-64"
-            priority
-          />
+
+          <div className="product-visual" aria-label="MK Live Radio mobile app preview">
+            {featuredStations[1] ? (
+              <div className="visual-chip visual-chip--one" aria-hidden>
+                <Image
+                  src={`/logos/${pickStationLogoName(featuredStations[1])}.webp`}
+                  alt=""
+                  width={38}
+                  height={38}
+                />
+                {getStationDisplayName(featuredStations[1], language)}
+              </div>
+            ) : null}
+            <div className="phone" aria-hidden>
+              <div className="phone-screen">
+                <div className="phone-topline"><span>MK LIVE</span><span>ON AIR</span></div>
+                <div className="phone-logo">
+                  <Image src="/logo.png" alt="" width={118} height={118} priority />
+                </div>
+                <div className="phone-now">
+                  <small>{language === "en" ? "NOW PLAYING" : "СЕГА ВО ЕТЕР"}</small>
+                  <strong>MK Live Radio</strong>
+                </div>
+                <div className="waveform">
+                  {Array.from({ length: 18 }).map((_, index) => <span key={index} />)}
+                </div>
+                <div className="phone-play">▶</div>
+              </div>
+            </div>
+            {featuredStations[4] ? (
+              <div className="visual-chip visual-chip--two" aria-hidden>
+                <Image
+                  src={`/logos/${pickStationLogoName(featuredStations[4])}.webp`}
+                  alt=""
+                  width={38}
+                  height={38}
+                />
+                {getStationDisplayName(featuredStations[4], language)}
+              </div>
+            ) : null}
+          </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold">{pageCopy.stationSection}</h2>
-          <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredStations.map((station) => {
-              const stationName = getStationDisplayName(station, language);
-              const stationCity = getStationDisplayCity(station, language);
+        <section className="metrics-strip" aria-label="Platform overview">
+          <div className="metric"><strong>{stations.length}</strong><span>{pageCopy.metricStations}</span></div>
+          <div className="metric"><strong>{allCityStats.length}</strong><span>{pageCopy.metricCities}</span></div>
+          <div className="metric"><strong>iOS + Android</strong><span>{pageCopy.metricPlatforms}</span></div>
+        </section>
 
+        <section className="section-block">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">{language === "en" ? "Discover" : "Откриј"}</span>
+              <h2>{pageCopy.stationSection}</h2>
+            </div>
+            <p>{pageCopy.stationIntro}</p>
+          </div>
+          <div className="station-showcase">
+            {featuredStations.map((station, index) => {
+              const stationName = getStationDisplayName(station, language);
               return (
-                <li key={station.id}>
-                  <Link
-                    href={localizedPath(getStationPath(station), language)}
-                    className="flex h-full items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-4 transition hover:border-white/30 hover:bg-white/[0.06]"
-                  >
+                <Link
+                  href={localizedPath(getStationPath(station), language)}
+                  className="station-tile"
+                  key={station.id}
+                >
+                  <span className="station-tile__top">
                     <Image
                       src={`/logos/${pickStationLogoName(station)}.webp`}
                       alt={`${stationName} logo`}
-                      width={52}
-                      height={52}
-                      className="h-[52px] w-[52px] rounded-lg bg-white/10 object-contain p-1"
+                      width={72}
+                      height={72}
                     />
-                    <span className="min-w-0">
-                      <span className="block truncate font-medium">{stationName}</span>
-                      {stationCity && (
-                        <span className="mt-1 block text-sm text-gray-400">{stationCity}</span>
-                      )}
-                    </span>
-                  </Link>
-                </li>
+                    <span className="station-tile__index">0{index + 1}</span>
+                  </span>
+                  <span>
+                    <strong>{stationName}</strong>
+                    <small>{getStationDisplayCity(station, language) ?? "Macedonia"}</small>
+                  </span>
+                  <span className="station-tile__arrow" aria-hidden>↗</span>
+                </Link>
               );
             })}
-          </ul>
+          </div>
+          <div className="secondary-links">
+            <Link href={stationsPath} className="secondary-link">{pageCopy.stationsLink} →</Link>
+          </div>
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-2">
+        <section className="app-pitch" id="download-app">
           <div>
-            <h2 className="text-2xl font-semibold">{pageCopy.citySection}</h2>
-            <div className="mt-4 flex flex-wrap gap-2 text-sm">
-              {cityStats.map(({ city, count }) => (
-                <Link
-                  key={city}
-                  href={`${stationsPath}#city-${cityAnchor(city)}`}
-                  className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-gray-200 transition hover:border-white/30 hover:bg-white/10"
-                >
-                  {city} ({count})
-                </Link>
-              ))}
+            <span className="eyebrow">{pageCopy.appEyebrow}</span>
+            <h2>{pageCopy.appTitle}</h2>
+            <p>{pageCopy.appText}</p>
+            <StoreButtons compact />
+          </div>
+          <div className="benefit-list">
+            {pageCopy.benefits.map((benefit, index) => (
+              <div className="benefit-item" key={benefit}>
+                <span>0{index + 1}</span><p>{benefit}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section-block">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">{language === "en" ? "Across the country" : "Низ целата земја"}</span>
+              <h2>{pageCopy.citySection}</h2>
             </div>
           </div>
-
-          <div className="rounded-lg border border-white/10 bg-white/[0.03] p-5">
-            <h2 className="text-2xl font-semibold">{pageCopy.mobileSection}</h2>
-            <p className="mt-3 text-sm leading-6 text-gray-300">
-              {pageCopy.mobileSectionText}
-            </p>
-            <StoreBadges className="mt-4" />
+          <div className="city-cloud">
+            {cityStats.map(({ city, count }) => (
+              <Link key={city} href={`${stationsPath}#city-${cityAnchor(city)}`} className="city-chip">
+                {city} <span>{count}</span>
+              </Link>
+            ))}
           </div>
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-semibold">{pageCopy.benefits}</h2>
-            <ul className="mt-4 space-y-3 text-gray-300">
-              {pageCopy.benefitItems.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-2 w-2 flex-none rounded-full bg-[#e26156]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+        <section className="section-block" id="faq">
+          <div className="section-heading">
+            <div><span className="eyebrow">FAQ</span><h2>{pageCopy.faqTitle}</h2></div>
           </div>
-
-          <div>
-            <h2 className="text-2xl font-semibold">{pageCopy.faq}</h2>
-            <dl className="mt-4 space-y-4">
-              {pageCopy.faqItems.map((item) => (
-                <div key={item.question}>
-                  <dt className="font-semibold text-white">{item.question}</dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-300">{item.answer}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <dl className="faq-grid">
+            {pageCopy.faqItems.map((item) => (
+              <div className="faq-item" key={item.question}>
+                <dt>{item.question}</dt><dd>{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
-
-        <footer className="border-t border-white/10 pt-6 text-center text-sm text-gray-500">
-          <Link href={localizedPath("/privacy", language)} className="transition hover:text-white">
-            {language === "mk" ? "Политика за приватност" : "Privacy Policy"}
-          </Link>
-          <span className="mx-2">·</span>
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">
-            @mkliveradio
-          </a>
-          <span className="mx-2">·</span>
-          © {new Date().getFullYear()} MK Live Radio
-        </footer>
       </div>
+
+      <SiteFooter language={language} />
     </main>
   );
 }

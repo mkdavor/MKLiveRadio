@@ -2,14 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  absoluteUrl,
-  APP_STORE_URL,
-  DEFAULT_OG_IMAGE,
-  PLAY_STORE_URL,
-  SEO_KEYWORDS,
-  SITE_NAME,
-} from "@/lib/seo";
+import { SiteFooter, SiteHeader, StoreButtons } from "@/app/components/site-chrome";
+import { absoluteUrl, DEFAULT_OG_IMAGE, SEO_KEYWORDS, SITE_NAME } from "@/lib/seo";
 import { getStationArticle, type StationArticleLanguage } from "@/lib/station-articles";
 import {
   findStationBySlug,
@@ -25,20 +19,10 @@ export function generateStationStaticParams() {
   return stations.map((station) => ({ slug: getStationSlug(station) }));
 }
 
-export async function generateStationMetadata(
-  slug: string,
-  language: StationArticleLanguage,
-): Promise<Metadata> {
+export async function generateStationMetadata(slug: string, language: StationArticleLanguage): Promise<Metadata> {
   const station = findStationBySlug(slug);
-
   if (!station) {
-    return {
-      title: "Station Not Found",
-      robots: {
-        index: false,
-        follow: false,
-      },
-    };
+    return { title: "Station Not Found", robots: { index: false, follow: false } };
   }
 
   const stationName = getStationDisplayName(station, "en");
@@ -52,11 +36,7 @@ export async function generateStationMetadata(
     keywords: [...SEO_KEYWORDS, ...article.keywords],
     alternates: {
       canonical: canonicalPath,
-      languages: {
-        en: `/en${pagePath}`,
-        mk: pagePath,
-        "x-default": pagePath,
-      },
+      languages: { en: `/en${pagePath}`, mk: pagePath, "x-default": pagePath },
     },
     openGraph: {
       type: "music.radio_station",
@@ -81,24 +61,14 @@ export async function generateStationMetadata(
   };
 }
 
-export default function StationDetailPage({
-  slug,
-  language,
-}: {
-  slug: string;
-  language: StationArticleLanguage;
-}) {
+export default function StationDetailPage({ slug, language }: { slug: string; language: StationArticleLanguage }) {
   const station = findStationBySlug(slug);
-
-  if (!station) {
-    notFound();
-  }
+  if (!station) notFound();
 
   const stationName = getStationDisplayName(station, "en");
   const stationNameMk = getStationDisplayName(station, "mk");
   const stationCity = getStationDisplayCity(station, "en");
   const stationCityMk = getStationDisplayCity(station, "mk");
-  const pagePath = getStationPath(station);
   const article = getStationArticle(station, language);
   const directoryPath = language === "en" ? "/en/stations" : "/stations";
   const homePath = language === "en" ? "/en" : "/";
@@ -110,331 +80,170 @@ export default function StationDetailPage({
   const breadcrumbId = `${canonicalUrl}#breadcrumb`;
   const faqId = `${canonicalUrl}#faq`;
   const stationLogoUrl = absoluteUrl(`/logos/${pickStationLogoName(station)}.webp`);
+  const displayName = language === "mk" ? stationNameMk : stationName;
+  const displayCity = language === "mk" ? stationCityMk : stationCity;
+
+  const relatedStations = stations
+    .filter((candidate) => candidate.id !== station.id && candidate.city === station.city)
+    .slice(0, 3);
 
   const radioStationSchema = {
-    "@type": "RadioStation",
-    "@id": stationId,
-    name: stationName,
-    alternateName: stationNameMk,
-    url: station.website ?? canonicalUrl,
-    mainEntityOfPage: {
-      "@id": pageId,
-    },
-    areaServed: stationCity
-      ? {
-          "@type": "City",
-          name: stationCity,
-        }
-      : "Macedonia",
-    inLanguage: language,
-    image: stationLogoUrl,
+    "@type": "RadioStation", "@id": stationId, name: stationName, alternateName: stationNameMk,
+    url: station.website ?? canonicalUrl, mainEntityOfPage: { "@id": pageId },
+    areaServed: stationCity ? { "@type": "City", name: stationCity } : "Macedonia",
+    inLanguage: language, image: stationLogoUrl,
   };
-
   const webPageSchema = {
-    "@type": "WebPage",
-    "@id": pageId,
-    url: canonicalUrl,
-    name: article.title,
-    description: article.description,
-    isPartOf: {
-      "@type": "WebSite",
-      "@id": absoluteUrl("/#website"),
-      name: SITE_NAME,
-      url: absoluteUrl("/"),
-    },
-    primaryImageOfPage: {
-      "@type": "ImageObject",
-      url: stationLogoUrl,
-    },
-    breadcrumb: {
-      "@id": breadcrumbId,
-    },
-    mainEntity: {
-      "@id": stationId,
-    },
-    inLanguage: language,
+    "@type": "WebPage", "@id": pageId, url: canonicalUrl, name: article.title, description: article.description,
+    isPartOf: { "@type": "WebSite", "@id": absoluteUrl("/#website"), name: SITE_NAME, url: absoluteUrl("/") },
+    primaryImageOfPage: { "@type": "ImageObject", url: stationLogoUrl },
+    breadcrumb: { "@id": breadcrumbId }, mainEntity: { "@id": stationId }, inLanguage: language,
   };
-
   const breadcrumbSchema = {
-    "@type": "BreadcrumbList",
-    "@id": breadcrumbId,
+    "@type": "BreadcrumbList", "@id": breadcrumbId,
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "MK Live Radio",
-        item: absoluteUrl(homePath),
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: language === "mk" ? "Македонски радио станици" : "Macedonian Radio Stations",
-        item: absoluteUrl(directoryPath),
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: language === "mk" ? stationNameMk : stationName,
-        item: canonicalUrl,
-      },
+      { "@type": "ListItem", position: 1, name: "MK Live Radio", item: absoluteUrl(homePath) },
+      { "@type": "ListItem", position: 2, name: language === "mk" ? "Македонски радио станици" : "Macedonian Radio Stations", item: absoluteUrl(directoryPath) },
+      { "@type": "ListItem", position: 3, name: displayName, item: canonicalUrl },
     ],
   };
-
   const faqSchema = {
-    "@type": "FAQPage",
-    "@id": faqId,
-    mainEntity: article.faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    "@type": "FAQPage", "@id": faqId,
+    mainEntity: article.faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })),
   };
 
   return (
-    <main lang={language} className="min-h-screen bg-black px-5 py-12 text-white sm:px-8">
+    <main lang={language} className="site-page">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [webPageSchema, radioStationSchema, breadcrumbSchema, faqSchema],
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [webPageSchema, radioStationSchema, breadcrumbSchema, faqSchema] }) }}
       />
+      <SiteHeader language={language} active="stations" />
 
-      <div className="mx-auto flex w-full max-w-4xl flex-col gap-8">
-        <header className="flex flex-col items-start gap-4">
-          <Link href="/" className="flex items-center gap-3 transition hover:opacity-80">
-            <Image
-              src="/logo.png"
-              alt="MK Live Radio"
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-xl shadow"
-            />
-            <span className="hidden text-lg font-semibold sm:block">MK Live Radio</span>
-          </Link>
-
-          <div className="flex items-center gap-2">
-            <Link
-              href={pagePath}
-              hrefLang="mk"
-              aria-label="Switch to Macedonian"
-              className={`flex items-center gap-2 rounded-full border px-3 py-1 transition ${
-                language === "mk"
-                  ? "border-white bg-white text-black"
-                  : "border-white/20 text-gray-300 hover:border-white/50 hover:text-white"
-              }`}
-            >
-              <Image src="https://flagcdn.com/w40/mk.png" alt="MK" width={16} height={12} />
-              MK
-            </Link>
-            <Link
-              href={`/en${pagePath}`}
-              hrefLang="en"
-              aria-label="Switch to English"
-              className={`flex items-center gap-2 rounded-full border px-3 py-1 transition ${
-                language === "en"
-                  ? "border-white bg-white text-black"
-                  : "border-white/20 text-gray-300 hover:border-white/50 hover:text-white"
-              }`}
-            >
-              <Image src="https://flagcdn.com/w40/gb.png" alt="EN" width={16} height={12} />
-              EN
-            </Link>
-          </div>
-        </header>
-
-        <nav aria-label="Breadcrumb" className="text-sm text-gray-400">
-          <ol className="flex flex-wrap items-center gap-2">
-            <li>
-              <Link
-                href={homePath}
-                className="underline decoration-white/20 underline-offset-4 transition hover:decoration-white/70"
-              >
-                MK Live Radio
-              </Link>
-            </li>
-            <li aria-hidden>›</li>
-            <li>
-              <Link
-                href={directoryPath}
-                className="underline decoration-white/20 underline-offset-4 transition hover:decoration-white/70"
-              >
-                {language === "mk" ? "Македонски радио станици" : "Macedonian Radio Stations"}
-              </Link>
-            </li>
-            <li aria-hidden>›</li>
-            <li className="text-gray-200">{language === "mk" ? stationNameMk : stationName}</li>
+      <div className="site-shell">
+        <nav aria-label="Breadcrumb" className="breadcrumb">
+          <ol>
+            <li><Link href={homePath}>MK Live Radio</Link></li><li aria-hidden>›</li>
+            <li><Link href={directoryPath}>{language === "mk" ? "Радио станици" : "Radio stations"}</Link></li><li aria-hidden>›</li>
+            <li>{displayName}</li>
           </ol>
         </nav>
 
-        <article className="rounded-lg border border-white/10 bg-white/[0.03] p-6 sm:p-8">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-            <Image
-              src={`/logos/${pickStationLogoName(station)}.webp`}
-              alt={`${stationName} logo`}
-              width={96}
-              height={96}
-              className="h-24 w-24 rounded-xl bg-white/5 object-contain p-2"
-              priority
-            />
-            <div>
-              <h1 className="text-3xl font-bold sm:text-4xl">{article.title}</h1>
-              <p className="mt-2 text-sm text-gray-300">
-                {language === "mk"
-                  ? `${stationCityMk ? `Град: ${stationCityMk}` : "Македонска радио станица"} · Онлајн live стрим`
-                  : `${stationCity ? `City: ${stationCity}` : "Macedonian radio station"} · Online live stream`}
-              </p>
+        <section className="station-hero">
+          <div className="station-artwork">
+            <Image src={`/logos/${pickStationLogoName(station)}.webp`} alt={`${stationName} logo`} width={320} height={320} priority />
+          </div>
+          <div>
+            <span className="eyebrow">{language === "mk" ? "Македонско радио во живо" : "Macedonian radio live"}</span>
+            <h1>{displayName}</h1>
+            <p className="station-hero__meta">
+              {displayCity ? `${displayCity} · ` : ""}{language === "mk" ? "Достапно во MK Live Radio" : "Available in MK Live Radio"}
+            </p>
+            <StoreButtons compact />
+            <div className="secondary-links">
+              <Link href={listenUrl} className="secondary-link secondary-link--muted">
+                {language === "mk" ? "Отвори web player" : "Open the web player"} →
+              </Link>
             </div>
           </div>
+        </section>
+      </div>
 
-          <div className="mt-6 space-y-6 text-base leading-8 text-gray-200">
-            {article.sections.map((section) => (
-              <section key={section.heading}>
-                <h2 className="text-xl font-semibold text-white">{section.heading}</h2>
-                <div className="mt-2 space-y-3">
-                  {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
+      <div className="site-shell">
+        <article className="editorial-article">
+          {article.sections.map((section) => (
+            <section className="editorial-section" key={section.heading}>
+              <h2>{section.heading}</h2>
+              <div className="editorial-section__copy">
+                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
+            </section>
+          ))}
 
           {article.principles?.length ? (
-            <section className="mt-8 rounded-2xl border border-amber-300/15 bg-gradient-to-br from-amber-300/[0.08] via-white/[0.03] to-transparent p-5 sm:p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-200/70">
-                {language === "mk" ? "Програмски вредности" : "Programming values"}
-              </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <section>
+              <div className="section-heading">
+                <div><span className="eyebrow">{language === "mk" ? "Програмски вредности" : "Programming values"}</span><h2>{displayName}</h2></div>
+              </div>
+              <div className="detail-grid">
                 {article.principles.map((principle) => (
-                  <div
-                    key={principle.title}
-                    className="rounded-xl border border-amber-100/15 bg-black/25 p-4"
-                  >
-                    <h3 className="font-semibold text-amber-50">{principle.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-gray-300">{principle.description}</p>
+                  <div className="detail-card" key={principle.title}>
+                    <small>{language === "mk" ? "Вредност" : "Value"}</small>
+                    <strong>{principle.title}</strong><p>{principle.description}</p>
                   </div>
                 ))}
               </div>
             </section>
           ) : null}
 
-          <dl className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <dl className="facts-grid">
             {article.facts.map((fact) => (
-              <div key={fact.labelEn} className="rounded-lg border border-white/10 bg-black/35 p-4">
-                <dt className="text-xs font-semibold uppercase text-gray-500">
-                  {language === "mk" ? fact.labelMk : fact.labelEn}
-                </dt>
-                <dd className="mt-1 break-words text-sm text-gray-200">
+              <div className="fact-item" key={fact.labelEn}>
+                <dt>{language === "mk" ? fact.labelMk : fact.labelEn}</dt>
+                <dd>
                   {fact.labelEn === "Official website" ? (
-                    <a
-                      href={fact.valueEn}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white underline decoration-white/30 underline-offset-4 transition hover:text-[#e26156] hover:decoration-[#e26156]"
-                    >
-                      {language === "mk" ? fact.valueMk : fact.valueEn}
-                    </a>
-                  ) : (
-                    language === "mk" ? fact.valueMk : fact.valueEn
-                  )}
+                    <a href={fact.valueEn} target="_blank" rel="noopener noreferrer">{language === "mk" ? fact.valueMk : fact.valueEn}</a>
+                  ) : language === "mk" ? fact.valueMk : fact.valueEn}
                 </dd>
               </div>
             ))}
           </dl>
 
           {article.team?.length ? (
-            <section className="mt-8 border-t border-white/10 pt-7">
-              <h2 className="text-xl font-semibold">
-                {language === "mk" ? "Луѓето зад микрофонот" : "People behind the microphone"}
-              </h2>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {article.team.map((member) => (
-                  <div key={member.name} className="rounded-xl border border-white/10 bg-white/[0.025] p-4">
-                    <p className="font-medium text-white">{member.name}</p>
-                    <p className="mt-1 text-sm text-gray-400">{member.role}</p>
-                  </div>
-                ))}
+            <section>
+              <div className="section-heading"><div><span className="eyebrow">{language === "mk" ? "Во етер" : "On air"}</span><h2>{language === "mk" ? "Луѓето зад микрофонот" : "People behind the microphone"}</h2></div></div>
+              <div className="detail-grid">
+                {article.team.map((member) => <div className="detail-card" key={member.name}><strong>{member.name}</strong><p>{member.role}</p></div>)}
               </div>
             </section>
           ) : null}
 
           {article.contacts?.length ? (
-            <section className="mt-8 border-t border-white/10 pt-7">
-              <h2 className="text-xl font-semibold">
-                {language === "mk" ? "Контакт со Jazz FM" : "Contact Jazz FM"}
-              </h2>
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <section>
+              <div className="section-heading"><div><span className="eyebrow">Contact</span><h2>{language === "mk" ? "Контакт со Jazz FM" : "Contact Jazz FM"}</h2></div></div>
+              <div className="detail-grid">
                 {article.contacts.map((contact) => (
-                  <a
-                    key={contact.label}
-                    href={contact.href}
-                    className="rounded-xl border border-white/10 bg-black/30 p-4 transition hover:border-amber-200/30 hover:bg-amber-200/[0.05]"
-                  >
-                    <span className="block text-xs font-semibold uppercase tracking-wider text-gray-500">
-                      {contact.label}
-                    </span>
-                    <span className="mt-1 block text-sm text-gray-200">{contact.value}</span>
+                  <a className="detail-card" key={contact.label} href={contact.href}>
+                    <small>{contact.label}</small><strong>{contact.value}</strong>
                   </a>
                 ))}
               </div>
             </section>
           ) : null}
 
-          <div className="mt-6 flex flex-col items-start gap-4">
-            <Link
-              href={listenUrl}
-              className="group inline-flex items-center gap-2 rounded-full border border-[#c63a2e]/45 bg-gradient-to-r from-[#c63a2e]/26 via-[#d14a3f]/22 to-[#8f2018]/24 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(198,58,46,0.28)] transition duration-300 hover:scale-[1.03] hover:border-[#e26156]/75 hover:shadow-[0_0_38px_rgba(198,58,46,0.48)]"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#e26156] transition group-hover:bg-[#ff8478]" />
-              {language === "mk" ? "Отвори web player" : "Open Web Player"}
-            </Link>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/appstore.svg"
-                  alt="Download on the App Store"
-                  width={168}
-                  height={56}
-                  className="h-14 w-auto transition hover:scale-105"
-                />
-              </a>
-              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/playstore.svg"
-                  alt="Get it on Google Play"
-                  width={189}
-                  height={56}
-                  className="h-14 w-auto transition hover:scale-105"
-                />
-              </a>
-            </div>
-          </div>
+          <aside className="inline-app-cta">
+            <h2>{language === "mk" ? `Слушај ${displayName} во апликацијата.` : `Listen to ${displayName} in the app.`}</h2>
+            <p>{language === "mk" ? "Најбрзиот пат до оваа и сите други македонски радио станици." : "The fastest way to this station and every other Macedonian radio station."}</p>
+            <StoreButtons compact />
+          </aside>
 
-          <section className="mt-8 border-t border-white/10 pt-6">
-            <h2 className="text-xl font-semibold">
-              {language === "mk" ? "Често поставувани прашања" : "Frequently Asked Questions"}
-            </h2>
-            <dl className="mt-4 space-y-4">
-              {article.faq.map((item) => (
-                <div key={item.question}>
-                  <dt className="font-semibold text-white">{item.question}</dt>
-                  <dd className="mt-1 text-sm leading-6 text-gray-300">{item.answer}</dd>
-                </div>
-              ))}
+          <section id="faq">
+            <div className="section-heading"><div><span className="eyebrow">FAQ</span><h2>{language === "mk" ? "Често поставувани прашања" : "Frequently asked questions"}</h2></div></div>
+            <dl className="faq-grid">
+              {article.faq.map((item) => <div className="faq-item" key={item.question}><dt>{item.question}</dt><dd>{item.answer}</dd></div>)}
             </dl>
           </section>
-        </article>
 
-        <footer className="border-t border-white/10 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} MK Live Radio · Made with ❤️ in Macedonia
-        </footer>
+          {relatedStations.length ? (
+            <section className="section-block">
+              <div className="section-heading"><div><span className="eyebrow">{displayCity}</span><h2>{language === "mk" ? "Уште станици од градот" : "More stations from the city"}</h2></div></div>
+              <div className="station-showcase">
+                {relatedStations.map((related, index) => (
+                  <Link className="station-tile" href={`${language === "en" ? "/en" : ""}${getStationPath(related)}`} key={related.id}>
+                    <span className="station-tile__top">
+                      <Image src={`/logos/${pickStationLogoName(related)}.webp`} alt={`${getStationDisplayName(related, language)} logo`} width={72} height={72} />
+                      <span className="station-tile__index">0{index + 1}</span>
+                    </span>
+                    <span><strong>{getStationDisplayName(related, language)}</strong><small>{getStationDisplayCity(related, language)}</small></span>
+                    <span className="station-tile__arrow" aria-hidden>↗</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ) : null}
+        </article>
       </div>
+      <SiteFooter language={language} />
     </main>
   );
 }

@@ -48,6 +48,8 @@ const copy = {
     stationPage: "Страница на станицата",
     play: "Пушти во живо",
     pause: "Пауза",
+    appPitchTitle: "Сакаш подобро искуство?",
+    appPitchText: "Симни ја апликацијата за најбрз пристап до сите македонски станици.",
     status: {
       ready: "Подготвено за слушање во живо",
       live: "Во живо",
@@ -80,6 +82,8 @@ const copy = {
     stationPage: "Station page",
     play: "Play live stream",
     pause: "Pause live stream",
+    appPitchTitle: "Want the better experience?",
+    appPitchText: "Download the app for the fastest access to every Macedonian station.",
     status: {
       ready: "Ready for live playback",
       live: "Live now",
@@ -634,6 +638,13 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
         </Link>
       </div>
 
+      <div className={styles.playerBrand}>
+        <Link href={locale === "en" ? "/en" : "/"} aria-label="MK Live Radio home">
+          <Image src="/logo.png" alt="" width={42} height={42} priority />
+          <span><strong>MK Live Radio</strong><small>WEB PLAYER</small></span>
+        </Link>
+      </div>
+
       <div className={styles.layout}>
         <aside className={styles.stationPanel}>
           <p className={styles.stationLabel}>{t.stations}</p>
@@ -791,6 +802,12 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
             </Link>
           </section>
 
+          <div className={styles.appPitch}>
+            <div>
+              <strong>{t.appPitchTitle}</strong>
+              <span>{t.appPitchText}</span>
+            </div>
+          </div>
           <div className={styles.downloadBadges}>
             <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className={styles.storeBadgeLink}>
               <Image

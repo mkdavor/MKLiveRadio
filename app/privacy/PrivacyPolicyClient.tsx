@@ -1,61 +1,17 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
+import { SiteFooter, SiteHeader } from "@/app/components/site-chrome";
 
 type Lang = "mk" | "en";
 
 export default function PrivacyPolicyClient({ lang }: { lang: Lang }) {
   return (
-    <main className="flex min-h-screen flex-col justify-between bg-black text-white">
-      <header className="mx-auto flex w-full max-w-4xl flex-col items-start gap-4 px-6 py-6">
-        <Link
-          href={lang === "en" ? "/en" : "/"}
-          className="flex items-center gap-3 transition hover:opacity-80"
-        >
-          <Image
-            src="/logo.png"
-            alt="MK Live Radio"
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-xl shadow"
-          />
-          <span className="hidden text-lg font-semibold sm:block">MK Live Radio</span>
-        </Link>
-
-        <div className="flex flex-row items-end gap-2">
-          <Link
-            href="/privacy"
-            hrefLang="mk"
-            aria-label="Switch to Macedonian"
-            className={`flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition ${
-              lang === "mk" ? "bg-white text-black" : "border-gray-600 text-white"
-            }`}
-          >
-            <Image src="https://flagcdn.com/w40/mk.png" alt="MK" width={16} height={12} />
-            MK
-          </Link>
-          <Link
-            href="/en/privacy"
-            hrefLang="en"
-            aria-label="Switch to English"
-            className={`flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition ${
-              lang === "en" ? "bg-white text-black" : "border-gray-600 text-white"
-            }`}
-          >
-            <Image src="https://flagcdn.com/w40/gb.png" alt="EN" width={16} height={12} />
-            EN
-          </Link>
-        </div>
-      </header>
-
-      <section className="mx-auto w-full max-w-4xl space-y-4 px-6 pb-10">
-        {lang === "mk" ? <ContentMK /> : <ContentEN />}
+    <main className="site-page">
+      <SiteHeader language={lang} />
+      <section className="site-shell legal-page">
+        <div className="legal-content">{lang === "mk" ? <ContentMK /> : <ContentEN />}</div>
       </section>
-
-      <footer className="pb-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} MK Live Radio · Made with ❤️ in Macedonia
-      </footer>
+      <SiteFooter language={lang} />
     </main>
   );
 }
@@ -63,8 +19,9 @@ export default function PrivacyPolicyClient({ lang }: { lang: Lang }) {
 function ContentEN() {
   return (
     <>
-      <h1 className="mb-4 text-4xl font-bold">Privacy Policy</h1>
-      <p className="mb-8 text-gray-400">
+      <span className="eyebrow">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p className="legal-date">
         Effective Date: <strong>29.09.2025</strong>
       </p>
 
@@ -135,8 +92,9 @@ function ContentEN() {
 function ContentMK() {
   return (
     <>
-      <h1 className="mb-4 text-4xl font-bold">Политика за приватност</h1>
-      <p className="mb-8 text-gray-400">
+      <span className="eyebrow">Правни информации</span>
+      <h1>Политика за приватност</h1>
+      <p className="legal-date">
         Стапува во сила: <strong>29.09.2025</strong>
       </p>
 

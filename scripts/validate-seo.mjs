@@ -84,4 +84,26 @@ assert.ok(source.includes("alternates") && source.includes("x-default"), "Metada
 assert.ok(source.includes("BreadcrumbList"), "Structured data should include BreadcrumbList");
 assert.ok(source.includes("FAQPage"), "Structured data should include visible FAQ content");
 
+const deepLinkClient = readFileSync("app/station/StationDeepLinkClient.tsx", "utf8");
+assert.ok(
+  deepLinkClient.includes("/iPhone|iPad|iPod/i") &&
+    deepLinkClient.includes("navigator.maxTouchPoints > 1") &&
+    deepLinkClient.includes("/Macintosh|Mac OS X/i"),
+  "Apple and iPadOS platform detection must remain present",
+);
+assert.ok(
+  deepLinkClient.includes("/Android/i") &&
+    deepLinkClient.includes("package=app.mkliveradio.android"),
+  "Android intent detection and package targeting must remain present",
+);
+assert.ok(
+  deepLinkClient.includes("mkliveradio://station?id=${id}") &&
+    deepLinkClient.includes("intent://station?id=${id}#Intent;scheme=mkliveradio"),
+  "Native station deep links must preserve the requested station id",
+);
+assert.ok(
+  deepLinkClient.includes("/webplayer${stationId !== null ? `?id=${stationId}` : \"\"}"),
+  "Web-player fallback must preserve the requested station id",
+);
+
 console.log(`SEO validation passed for ${stations.length} station records and ${visibleStations.length} visible station URLs.`);
