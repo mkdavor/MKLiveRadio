@@ -171,8 +171,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
     .map((id) => stations.find((station) => station.id === id))
     .filter(Boolean)
     .slice(0, 6) as typeof stations;
-  const allCityStats = getCityStats(language);
-  const cityStats = allCityStats.slice(0, 10);
+  const cityStats = getCityStats(language);
   const canonicalPath = language === "en" ? "/en" : "/";
   const stationsPath = localizedPath("/stations", language);
   const playerPath = localizedPath("/webplayer", language);
@@ -307,7 +306,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
 
         <section className="metrics-strip" aria-label="Platform overview">
           <div className="metric"><strong>{stations.length}</strong><span>{pageCopy.metricStations}</span></div>
-          <div className="metric"><strong>{allCityStats.length}</strong><span>{pageCopy.metricCities}</span></div>
+          <div className="metric"><strong>{cityStats.length}</strong><span>{pageCopy.metricCities}</span></div>
           <div className="metric"><strong>iOS + Android</strong><span>{pageCopy.metricPlatforms}</span></div>
         </section>
 
@@ -367,7 +366,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
           </div>
         </section>
 
-        <section className="section-block">
+        <section className="section-block city-directory-block">
           <div className="section-heading">
             <div>
               <span className="eyebrow">{language === "en" ? "Across the country" : "Низ целата земја"}</span>
@@ -383,7 +382,7 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
           </div>
         </section>
 
-        <section className="section-block" id="faq">
+        <section className="section-block faq-section-block" id="faq">
           <div className="section-heading">
             <div><span className="eyebrow">FAQ</span><h2>{pageCopy.faqTitle}</h2></div>
           </div>

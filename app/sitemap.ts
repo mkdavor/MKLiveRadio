@@ -72,6 +72,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: languageAlternates("/privacy", "/en/privacy"),
     },
     {
+      url: absoluteUrl("/about"),
+      lastModified: CONTENT_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.6,
+      alternates: languageAlternates("/about", "/en/about"),
+    },
+    {
+      url: absoluteUrl("/en/about"),
+      lastModified: CONTENT_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.55,
+      alternates: languageAlternates("/about", "/en/about"),
+    },
+    {
       url: absoluteUrl("/en/privacy"),
       lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "monthly",

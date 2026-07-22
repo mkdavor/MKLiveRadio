@@ -493,6 +493,14 @@ select {
   padding: clamp(90px, 12vw, 155px) 0;
 }
 
+.city-directory-block {
+  padding-bottom: clamp(44px, 6vw, 76px);
+}
+
+.faq-section-block {
+  padding-top: clamp(44px, 6vw, 76px);
+}
+
 .section-heading {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 0.46fr);
@@ -912,6 +920,123 @@ select {
 .legal-content p,.legal-content li { color: #aaa89f; line-height: 1.8; }
 .legal-content a { color: var(--mk-yellow); }
 
+.about-page { padding: 0 0 130px; }
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .45fr);
+  gap: clamp(45px, 9vw, 130px);
+  align-items: end;
+  padding: clamp(75px, 10vw, 138px) 0 82px;
+}
+.about-hero h1 {
+  margin: 20px 0 0;
+  max-width: 850px;
+  font-size: clamp(3.5rem, 8vw, 7.6rem);
+  line-height: .9;
+  letter-spacing: -.075em;
+}
+.about-hero__lead {
+  margin: 0;
+  padding: 0 0 8px;
+  color: var(--paper-soft);
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  line-height: 1.72;
+}
+.about-hero__lead strong { color: var(--paper); }
+.about-hero__stores { margin-top: 34px; }
+.about-intro {
+  width: min(100%, 920px);
+  padding: 58px 0 78px;
+  border-top: 1px solid var(--line-strong);
+}
+.about-intro p {
+  margin: 0 0 22px;
+  color: #b8b5ab;
+  font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+  line-height: 1.82;
+}
+.about-sections { counter-reset: about-section; }
+.about-section {
+  counter-increment: about-section;
+  display: grid;
+  grid-template-columns: minmax(210px, .42fr) minmax(0, 1fr);
+  gap: clamp(35px, 7vw, 90px);
+  padding: clamp(48px, 7vw, 78px) 0;
+  border-top: 1px solid var(--line);
+}
+.about-section__heading { position: relative; }
+.about-section__heading::before {
+  content: counter(about-section, decimal-leading-zero);
+  display: block;
+  margin-bottom: 18px;
+  color: var(--mk-yellow);
+  font-family: ui-monospace, monospace;
+  font-size: .7rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+.about-section h2 {
+  position: sticky;
+  top: 28px;
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.about-section__content { max-width: 760px; }
+.about-section__content p {
+  margin: 0 0 20px;
+  color: #aaa89f;
+  line-height: 1.82;
+}
+.about-section__content .about-donation-promise {
+  position: relative;
+  margin: 38px 0;
+  padding: clamp(28px, 4vw, 42px);
+  border: 1px solid rgba(255, 212, 0, .36);
+  border-top: 4px solid var(--mk-yellow);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 212, 0, .12), transparent 18rem),
+    rgba(255, 212, 0, .035);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .24);
+  color: var(--paper);
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  font-weight: 720;
+  line-height: 1.5;
+  letter-spacing: -.025em;
+}
+.about-donation-promise__label {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--mk-yellow);
+  font-family: ui-monospace, monospace;
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .15em;
+}
+.about-list {
+  margin: 30px 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.about-list li {
+  position: relative;
+  padding: 15px 0 15px 30px;
+  border-bottom: 1px solid var(--line);
+  color: #c5c2b8;
+  line-height: 1.55;
+}
+.about-list li::before {
+  content: "↗";
+  position: absolute;
+  top: 15px;
+  left: 2px;
+  color: var(--mk-red);
+  font-weight: 800;
+}
+
 .deeplink-page {
   min-height: 100vh;
   padding: 40px 20px;
@@ -1022,6 +1147,7 @@ select {
   .metric { min-height: 105px; border-right: 0; border-bottom: 1px solid var(--line); }
   .metric:last-child { border-bottom: 0; }
   .section-heading,.app-pitch,.station-hero { grid-template-columns: 1fr; }
+  .about-hero { grid-template-columns: 1fr; }
   .station-tile,.station-tile:nth-child(n) { grid-column: span 6; }
   .station-showcase--city .station-tile,
   .station-showcase--city .station-tile:nth-child(n) { grid-column: auto; }
@@ -1070,6 +1196,11 @@ select {
   .station-faq .faq-item { grid-template-columns: 1fr; gap: 14px; }
   .page-hero { padding: 65px 0 60px; }
   .editorial-section { grid-template-columns: 1fr; gap: 16px; padding: 34px 0; }
+  .about-page { padding-bottom: 90px; }
+  .about-hero { padding: 64px 0 55px; gap: 28px; }
+  .about-intro { padding: 42px 0 55px; }
+  .about-section { grid-template-columns: 1fr; gap: 24px; }
+  .about-section h2 { position: static; }
   .inline-app-cta { padding: 28px 20px; }
   .site-footer { grid-template-columns: 1fr; }
   .site-footer__links { justify-content: flex-start; gap: 16px; }

@@ -45,9 +45,11 @@ export function StoreButtons({
 export function SiteHeader({
   language,
   active,
+  languagePath,
 }: {
   language: SiteLanguage;
-  active?: "home" | "stations" | "player";
+  active?: "home" | "stations" | "player" | "about";
+  languagePath?: string;
 }) {
   const isEn = language === "en";
 
@@ -75,7 +77,13 @@ export function SiteHeader({
           Web Player
         </Link>
         <Link
-          href={isEn ? "/" : "/en"}
+          href={pathFor(language, "/about")}
+          aria-current={active === "about" ? "page" : undefined}
+        >
+          {isEn ? "About" : "За нас"}
+        </Link>
+        <Link
+          href={languagePath ?? (isEn ? "/" : "/en")}
           hrefLang={isEn ? "mk" : "en"}
           className="language-link"
           aria-label={isEn ? "Македонски" : "English"}
@@ -96,6 +104,7 @@ export function SiteHeader({
           isEn={isEn}
           stationsPath={pathFor(language, "/stations")}
           playerPath={pathFor(language, "/webplayer")}
+          aboutPath={pathFor(language, "/about")}
           downloadPath={`${pathFor(language, "/")}#download-app`}
           active={active}
         />
@@ -119,6 +128,7 @@ export function SiteFooter({ language }: { language: SiteLanguage }) {
       <div className="site-footer__links">
         <Link href={pathFor(language, "/stations")}>{isEn ? "Stations" : "Станици"}</Link>
         <Link href={pathFor(language, "/webplayer")}>Web Player</Link>
+        <Link href={pathFor(language, "/about")}>{isEn ? "About" : "За нас"}</Link>
         <Link href={pathFor(language, "/privacy")}>{isEn ? "Privacy" : "Приватност"}</Link>
         <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>

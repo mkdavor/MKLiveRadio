@@ -7,14 +7,16 @@ export function MobileMenu({
   isEn,
   stationsPath,
   playerPath,
+  aboutPath,
   downloadPath,
   active,
 }: {
   isEn: boolean;
   stationsPath: string;
   playerPath: string;
+  aboutPath?: string;
   downloadPath: string;
-  active?: "home" | "stations" | "player";
+  active?: "home" | "stations" | "player" | "about";
 }) {
   const menuRef = useRef<HTMLDetailsElement>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -55,6 +57,16 @@ export function MobileMenu({
           <span>Web Player</span>
           <span aria-hidden>→</span>
         </Link>
+        {aboutPath && (
+          <Link
+            href={aboutPath}
+            aria-current={active === "about" ? "page" : undefined}
+            onClick={closeMenu}
+          >
+            <span>{isEn ? "About" : "За нас"}</span>
+            <span aria-hidden>→</span>
+          </Link>
+        )}
         <Link className="mobile-menu__download" href={downloadPath} onClick={closeMenu}>
           <span>{isEn ? "Download MK Live Radio" : "Симни MK Live Radio"}</span>
           <span aria-hidden>↓</span>
