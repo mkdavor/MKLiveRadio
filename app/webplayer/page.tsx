@@ -50,11 +50,6 @@ export default function WebPlayerPage() {
     name: SITE_NAME,
     url: SITE_URL,
     inLanguage: ["mk", "en"],
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${absoluteUrl("/webplayer")}?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 
   const stationListSchema = {

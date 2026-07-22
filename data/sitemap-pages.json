@@ -1,0 +1,13 @@
+[
+  { "path": "/", "sources": ["app/page.tsx", "app/home-page.tsx", "data/stations.json"] },
+  { "path": "/en", "sources": ["app/en/page.tsx", "app/home-page.tsx", "data/stations.json"] },
+  { "path": "/webplayer", "sources": ["app/webplayer/page.tsx", "app/webplayer/WebPlayerClient.tsx", "data/stations.json"] },
+  { "path": "/en/webplayer", "sources": ["app/en/webplayer/page.tsx", "app/webplayer/WebPlayerClient.tsx", "data/stations.json"] },
+  { "path": "/stations", "sources": ["app/stations/page.tsx", "app/stations/stations-directory.tsx", "data/stations.json"] },
+  { "path": "/en/stations", "sources": ["app/en/stations/page.tsx", "app/stations/stations-directory.tsx", "data/stations.json"] },
+  { "path": "/en/macedonian-radios", "sources": ["app/en/macedonian-radios/page.tsx", "data/stations.json"] },
+  { "path": "/privacy", "sources": ["app/privacy/page.tsx", "app/privacy/PrivacyPolicyClient.tsx"] },
+  { "path": "/en/privacy", "sources": ["app/en/privacy/page.tsx", "app/privacy/PrivacyPolicyClient.tsx"] },
+  { "path": "/about", "sources": ["app/about/page.tsx"] },
+  { "path": "/en/about", "sources": ["app/en/about/page.tsx"] }
+]

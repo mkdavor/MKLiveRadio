@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "prebuild": "npm run sitemap:lastmod",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -10,6 +11,9 @@
     "typecheck": "tsc --noEmit",
     "test": "node scripts/validate-seo.mjs",
     "test:seo": "node scripts/validate-seo.mjs",
+    "test:seo:production": "node scripts/validate-production-seo.mjs",
+    "test:seo:lastmod": "node scripts/test-sitemap-lastmod.mjs",
+    "sitemap:lastmod": "node scripts/generate-sitemap-lastmod.mjs",
     "build:isolated": "NEXT_DIST_DIR=.next-build next build",
     "start:isolated": "NEXT_DIST_DIR=.next-build next start"
   },
