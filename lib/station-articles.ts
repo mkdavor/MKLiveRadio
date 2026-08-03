@@ -426,8 +426,8 @@ const RESEARCH_SEEDS: Record<number, ResearchSeed> = {
     ],
     team: [
       {
-        nameEn: "Nikolina",
-        nameMk: "Николина",
+        nameEn: "Nikolina Petrovska",
+        nameMk: "Николина Петровска",
         roleEn: "Founder, educator, and radio host",
         roleMk: "Основач, едукатор и радио-водител",
       },

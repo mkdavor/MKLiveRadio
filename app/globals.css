@@ -814,6 +814,7 @@ select {
 .fact-item a { color: #fff; text-underline-offset: 4px; }
 .detail-card strong { display: block; margin-top: 8px; }
 .detail-card p { margin: 6px 0 0; color: #89877f; font-size: .84rem; line-height: 1.55; }
+.detail-grid > .detail-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
 .station-facts,
 .station-roster,
