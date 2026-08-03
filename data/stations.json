@@ -423,6 +423,19 @@
         "isVisible": true
     },
     {
+        "id": 315,
+        "name": "Бесконечно радио",
+        "name_en": "Beskonechno radio",
+        "slug": "beskonechno-radio",
+        "logoDefault": "beskonechnoRadioLogo",
+        "url": "https://radio.beskonechno-carstvo.mk/listen/beskonechno-carstvo/radio.mp3",
+        "city": "Виница",
+        "city_en": "Vinica",
+        "shouldParseUrl": false,
+        "website": "https://beskonechno-carstvo.mk",
+        "isVisible": true
+    },
+    {
         "id": 320,
         "name": "Марија",
         "name_en": "Marija",

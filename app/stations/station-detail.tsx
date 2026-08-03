@@ -199,7 +199,7 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
 
           {article.contacts?.length ? (
             <section>
-              <div className="section-heading"><div><span className="eyebrow">Contact</span><h2>{language === "mk" ? "Контакт со Jazz FM" : "Contact Jazz FM"}</h2></div></div>
+              <div className="section-heading"><div><span className="eyebrow">Contact</span><h2>{language === "mk" ? `Контакт со ${displayName}` : `Contact ${displayName}`}</h2></div></div>
               <div className="detail-grid station-contacts">
                 {article.contacts.map((contact) => (
                   <a className="detail-card" key={contact.label} href={contact.href}>

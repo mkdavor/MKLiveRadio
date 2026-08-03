@@ -335,6 +335,112 @@ const RESEARCH_SEEDS: Record<number, ResearchSeed> = {
     formatEn: "new Macedonian mainstream and pop music",
     formatMk: "нова македонска забавна и поп музика",
   },
+  315: {
+    titleEn: "Beskonechno Radio live",
+    titleMk: "Бесконечно радио во живо",
+    descriptionEn:
+      "Listen to Beskonechno Radio live from Vinica, with educational content for children, parents, media literacy, and healthier screen habits.",
+    descriptionMk:
+      "Слушај Бесконечно радио во живо од Виница, со едукативни содржини за деца, родители, медиумска писменост и поздрави навики пред екран.",
+    keywords: [
+      "Beskonechno Radio",
+      "Бесконечно радио",
+      "Beskonechno Carstvo",
+      "Бесконечно царство",
+      "children's educational radio Macedonia",
+      "медиумска едукација за деца",
+    ],
+    highlightEn:
+      "Beskonechno Radio grows from the Beskonechno Carstvo educational project in Vinica, created by Nikolina to bring thoughtful media, learning, and practical support closer to children and parents.",
+    highlightMk:
+      "Бесконечно радио произлегува од едукативниот проект Бесконечно царство од Виница, создаден од Николина за квалитетни медиумски содржини, учење и практична поддршка за децата и родителите.",
+    formatEn: "education, media literacy, children, and parenting",
+    formatMk: "едукација, медиумска писменост, деца и родителство",
+    sectionsEn: [
+      {
+        heading: "A story that began in 2013",
+        paragraphs: [
+          "The Beskonechno Carstvo story began in 2013 with a children's programme on local television. That first format developed into a wider educational mission rooted in Vinica and built around the way children experience media.",
+        ],
+      },
+      {
+        heading: "Expertise behind the microphone",
+        paragraphs: [
+          "Nikolina brings together journalism and public relations, postgraduate research in preschool pedagogy focused on media and children, and experience as an educator, curriculum creator, trainer, journalist, and radio host. More than twenty specialist courses have further shaped the project's practical approach.",
+        ],
+      },
+      {
+        heading: "A healthier relationship with media",
+        paragraphs: [
+          "Beskonechno Carstvo helps children and parents find a better balance between screens and everyday life. The radio extends that mission through an accessible audio format designed to inform, encourage curiosity, and support families.",
+        ],
+      },
+    ],
+    sectionsMk: [
+      {
+        heading: "Приказна што започна во 2013 година",
+        paragraphs: [
+          "Приказната на Бесконечно царство започна во 2013 година со детска емисија на локална телевизија. Првиот формат прерасна во поширока едукативна мисија со корени во Виница, посветена на начинот на кој децата ги доживуваат медиумите.",
+        ],
+      },
+      {
+        heading: "Знаење и искуство зад микрофонот",
+        paragraphs: [
+          "Николина ги спојува новинарството и односите со јавност, постдипломското истражување по предучилишна педагогија на тема медиуми и деца, како и искуството како едукатор, креатор на наставни програми, тренер, новинар и радио-водител. Практичниот пристап на проектот е надграден и со повеќе од дваесет специјализирани курсеви.",
+        ],
+      },
+      {
+        heading: "Поздрав однос со медиумите",
+        paragraphs: [
+          "Бесконечно царство им помага на децата и родителите да создадат подобар баланс меѓу времето пред екран и секојдневниот живот. Радиото ја продолжува таа мисија преку достапен аудио формат што информира, поттикнува љубопитност и ги поддржува семејствата.",
+        ],
+      },
+    ],
+    principlesEn: [
+      {
+        title: "Media literacy",
+        description: "Content helps children and parents understand media and use it with greater awareness.",
+      },
+      {
+        title: "Healthy balance",
+        description: "The project encourages a thoughtful balance between screen time and everyday experiences.",
+      },
+      {
+        title: "Learning with purpose",
+        description: "Research, education, and hands-on experience shape practical content for families.",
+      },
+    ],
+    principlesMk: [
+      {
+        title: "Медиумска писменост",
+        description: "Содржините им помагаат на децата и родителите посвесно да ги разбираат и користат медиумите.",
+      },
+      {
+        title: "Здрав баланс",
+        description: "Проектот поттикнува внимателна рамнотежа меѓу времето пред екран и секојдневните искуства.",
+      },
+      {
+        title: "Учење со цел",
+        description: "Истражувањето, едукацијата и практичното искуство создаваат корисни содржини за семејствата.",
+      },
+    ],
+    team: [
+      {
+        nameEn: "Nikolina",
+        nameMk: "Николина",
+        roleEn: "Founder, educator, and radio host",
+        roleMk: "Основач, едукатор и радио-водител",
+      },
+    ],
+    contacts: [
+      {
+        labelEn: "Email",
+        labelMk: "Е-пошта",
+        value: "info@beskonechno-carstvo.mk",
+        href: "mailto:info@beskonechno-carstvo.mk",
+      },
+    ],
+  },
   320: {
     titleEn: "Radio Marija Macedonia live",
     titleMk: "Радио Марија Македонија во живо",

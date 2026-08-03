@@ -129,7 +129,10 @@ try {
   writeFileSync(stationsPath, `${JSON.stringify(expandedData, null, 2)}\n`, "utf8");
   runGenerator();
   const expandedManifest = readManifest();
-  assert.equal(Object.keys(expandedManifest.entries).length, 1_111);
+  assert.equal(
+    Object.keys(expandedManifest.entries).length,
+    Object.keys(JSON.parse(baselineManifest).entries).length + 1_000,
+  );
   assert.ok(expandedData.filter((station) => station.isVisible !== false).length < 50_000);
 
   console.log("Sitemap lastmod stress tests passed: stable deploy, no-Git safety, semantic edits, stream-only edits, station removal, and +500 stations.");

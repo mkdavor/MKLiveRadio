@@ -2,448 +2,456 @@
   "version": 3,
   "entries": {
     "/": {
-      "fingerprint": "8352a5fa3d95a483bc0db7e500e8052d45ebd0081dd4117d51334c2ffb496aef",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "6343443083e9ce0027035d56c5d7fb3596e57d7bf9561457533cecdb85876ec8",
+      "lastmod": "2026-08-03T12:10:46.654Z"
     },
     "/about": {
       "fingerprint": "5e4674c4a4f5f63611411ccd8ab8ea3210b069ff2fd39493e2c7b0ee29354da7",
       "lastmod": "2026-07-22T12:25:53.000Z"
     },
     "/en": {
-      "fingerprint": "87c972a78e6397eb8750da2f1507554ee047ca47f60adabfde5fbf9ccfaee485",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "e85509ad8339783702f04cdca0a557b5ab34cfe4b3b9465b567217be7ab7b928",
+      "lastmod": "2026-08-03T12:10:46.665Z"
     },
     "/en/about": {
       "fingerprint": "2bf5262b04080e9dc4595252a5aabf939f9d0ee5d315b692e93106d9a228181a",
       "lastmod": "2026-07-22T12:25:53.000Z"
     },
     "/en/macedonian-radios": {
-      "fingerprint": "01573e0816df43b2aa45e82604107a73679613e341316d256b5820466e94c9d8",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "d88995b68b7af25c43f32bf3aaf422a6e49d1b106643815f53653d7d682a7c4c",
+      "lastmod": "2026-08-03T12:10:46.729Z"
     },
     "/en/privacy": {
       "fingerprint": "130121cfc9e3f2fb5265b18dfdaa39e8e3eb7ba9ef377a2feaa1f9b901e61852",
       "lastmod": "2026-07-22T12:25:53.000Z"
     },
     "/en/stations": {
-      "fingerprint": "00424dabb85918f8c67af5268c96b26c65fb922e627d97b83c5bc0ba6efd5593",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "8429d91c5b52828eaa89a789b81c20965575fa75040171f35af29ed808fa7c6a",
+      "lastmod": "2026-08-03T12:10:46.718Z"
     },
     "/en/stations/aleksandar-makedonski": {
-      "fingerprint": "aac37ade5ba1549255c2955d2fcc506e4e34dce5d7272d6d780bb3e819b4d328",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "e37bc199d516a0822551481a5c9533795464c30aa4bc286d8d1022515b3865ab",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/antenna-5": {
-      "fingerprint": "3b52495f1bda65faaf321f844d3b9d1fc36f478b0f819d3f7b3b9c04d5daa4d9",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "97ccb2ed3dedaf75474fa07cbad3149adf405e75af3b9a4a91198a453db63546",
+      "lastmod": "2026-08-03T12:10:46.748Z"
+    },
+    "/en/stations/beskonechno-radio": {
+      "fingerprint": "0b0e9ca6edead56e1e32f6402a9021943d341aa2cc7c0064480c5122262cf1de",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/bravo-radio": {
-      "fingerprint": "fda47f9457a798a9f5edd6c3afb8f8bb413160bd86f66bbd2df79b0c83705c7d",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ef1c6aeea3ebf0a194ac8ef98ff3c0a0c18c3018565f7fd4e06fe764324eb9f6",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/city-radio": {
-      "fingerprint": "b22e5614176ce743898b64d6cd8c99681ffc734ed38f3902cd26c2293a7e318d",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "f4f91b417427086518e3ac468799ce888f2dcf96262b66f9945c62dfc00a3095",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/club-fm": {
-      "fingerprint": "b57c91019262ad2003074fa275f1ecd6a43769545cf7624d86b28ed54f7a87ca",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "12dea040f64fe763f9aa287c2f04ae568c22f93d9d2af110ad5e4ac039ad00f7",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/diamond-radio": {
-      "fingerprint": "cd7320c34802c80ea7672a972f3e0154658ba30edd10ad75324fd7697c93e692",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ccd7c514a11cd5075474ed0fbc363f6e47dbade0556923e4e0a9a323e5a61002",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/ekspres-radio": {
-      "fingerprint": "d84528a7a7220ab882dc9d42d89933607c60448e1898153bb2f6b8f6658fa345",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "b803e9bbc99a8a406006ff8778a0e55192965f01c7e03109b2ec0fe5c91b883a",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/funk-soul-brother": {
-      "fingerprint": "882e398a3caa7bb341e4803e7e55695673975a2d4a4bd384241b1858cd61e805",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "a387c5f1f3bdd9b71f56f23ff074c253723ec6cf3a9f0d89c8b4c35618a9c54a",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/galaxy-radio": {
-      "fingerprint": "c010c1a6c5625704984d0e724f06e1b1b3124ad994609cb7b85d2081601676a3",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "66b6fdf2f3232b051734962c5382f622d16d49a52d11a8d6070fd0e8328c0c4b",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/hit-radio": {
-      "fingerprint": "c6ba152249da70e20a5256f0981041c960e14d3f0c7b4ff23e852abb069df1be",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "c98176649e37a9b4e095df5626ab997e17701757171c5ca00e48d7e8161f5b40",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/jazz-fm": {
-      "fingerprint": "98850dadce11a2d2294e1587df909d420559c654b550fb8a7c9daae4303a1eec",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "737d91b78b23b01a09b8367cc02783a563c412b7d6549f0c78c00c8308a0425e",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/jazz-fm-grooves": {
-      "fingerprint": "1631e0a1ab430483e84ae5a8778f2999c571ffe8d90c61b9ca450ee055c13a03",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "0bf1ba5788501b5f84b74f92a120c81525a431a280788b9a9594f38233cad0cc",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/just-music": {
-      "fingerprint": "10edb8e726ae0dbcac22079685faf4a832b5ceaeb82d53199ca18b82522510d0",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "80c3e0437261f14b1dc33479a2b916a20281f46f0aa147a40288245188f3b827",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/kanal-103": {
-      "fingerprint": "8866faa64ada4d0073d0ed8ec53c100b992279e38f7d3ce5f20e816f5df9bb94",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "1303540bac34016201abca4e701e6c4829f6570c3d8c7969ca5c9c3741122baf",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/kanal-77": {
-      "fingerprint": "a096f7ff486a4ddb4f1533fa8d7e718325fcb478715fb290ce05d3e6b94e2a22",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ec6524a0257279e836a1969eeb0d7f1374af79f4542a7d07f8f42a4c9ee602ce",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/life-radio": {
-      "fingerprint": "71ca498068fb7123b6903bad76ac6065c6068db0c2b2575e4f90928123dd7c29",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "45b6b1329c6ccb1f11eae981ef03a377742e520ef93624cd281d29aac45f5ba8",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/metropolis": {
-      "fingerprint": "fc76fe9459fc17722318f8c28ce644dbad08f4559ec7a47e6121a8c32ec51aa0",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "0703d1a07bf77a925ec7ddeda0fa2e43cc2c4d93a2a6e159c881a6a6f6cca653",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/play-fm": {
-      "fingerprint": "2d1946842a2b54c64c8c25ba01fd8a96050e263c56fd4c71050c371daf1db879",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "4f98e095ea0ba1bb0e160e9b5e4c5c2f164f2ecf96a3b03ebef7dba27e10afc8",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-105-bombarder": {
-      "fingerprint": "f8569b26034c31fcd97ba9a00fca5cd339ac6913ea1526eb5cc2331a7ad11da9",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "1544c9b2ea87287964607d49d4e77bd164efc56ef227c7be4975ff1993e86667",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-106": {
-      "fingerprint": "b7b356661b0e0a911425ffde0a48f9c8466ca82bbc47d7bc8e72ef841c63bb8b",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "0516d95c065b5e0d7f168abfde4fe269234e0228eb3fb552726e63f0326e58a5",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-2": {
-      "fingerprint": "4ecb21a82be48f8f9ab90343648872c5e4329729d0b7a9a207f0449625b7d5f9",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "335975fd7bef5a5f85f4a3b2d6db9a6468e851f6476bf9296cdeb6e67d1be7a5",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-22": {
-      "fingerprint": "0e45f8155ad925574f961fb9de90938e0d0b2695fd6f240a0f231b8d428d9e76",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "d51f9d38b3867a22183a5c0cabc8f7f15577993f613098bf3ce639461fece605",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-3": {
-      "fingerprint": "8651f99abc52289e6cfdef07e04fe458e0e6bf38247a768281ddbfd0b0f69eda",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "c40466f2b859f2c8a0a4c9d339d88f0e233f8fae992fe5154c8410ab8bfad37d",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-5": {
-      "fingerprint": "b9b642af2a73f26ba53fd28ec7d57f08c9a9b3fd9491807a98e93a3a216d4387",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "78168c3da0133ff2226df698c494cafa602275c8196d6421fc18092d955a563f",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-bar": {
-      "fingerprint": "85b0a9d731ca261ee70e5c69e9924aeefc088711cdaaf1aac8e7f939b10d0857",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "9b3838afc4375a539923ec262e072891fb2507c90590a91a77965d6df1a0a0e6",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-bubamara": {
-      "fingerprint": "4294555dd9525cf7ced2b9cbfcf67853598928949ac8a525dda5fa6e52aa9605",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "21a57b52a49e7dc8bf7f09cab101ef15d09e6a11f510facb8971468f72bb66e1",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-bum": {
-      "fingerprint": "523f43f708ac4bc6c40ec7640569a241dab682f0253c1ff6294badf6b12aeb87",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "e5739a9fb4588136e46c7c3b3fba5aca1423f7987a4ede8b94eefd08bffa8760",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-fortuna": {
-      "fingerprint": "72bf9e7ddb4ced14a665968234a50c1450d328437d3f7cac3d39fb2fc2bbc09c",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ac0ee704b332eadc7de6e032ebe06a18d0fcb03cf8b882df0617a065eb906040",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-kavadarci": {
-      "fingerprint": "72d1f717eabf2fb1a50fa30fbd92b8aa8f10cf27e09fc9ff73674b0f708f6b59",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "7162a118d232423a09738615aad2b238dbd484193eaee08c94df930b6f267d0e",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-lav": {
-      "fingerprint": "ac2a7de752c18e87ec0864a0a4feb172a6bd908a6eca5fc607990b49a6479ffa",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "55a0131a09252755d89b6ad067598b015f1aea316ef3c590dadd19cfbddf6dfe",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-lider": {
-      "fingerprint": "2fd4794512f6d16efb67ed11bfbe0434150986615f98be3790e75e46cb3f48e6",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "f12ee02a3bbb9366c84606a7e691a359fdf2180a88f00d3a093f71cb553a41d3",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-marija": {
-      "fingerprint": "7642a1d13f5578f25f6f1090b4724ab174315a8bca0fca0bebe6a6fa71452dc7",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "2d7c89e3fb6af8752deaee0c8490c00968b7c4cafce5d11f7a6735a26a71a372",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-meff": {
-      "fingerprint": "3dc48c67a22f6030e00ff5d79b193c12dae42bac2cf90f1c9ebff65e9acb40c7",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "77c6fdff4779fd7d02e3fe408dd7e97f626ea4026d6f18a1a195a4eecf21b35e",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-orbis": {
-      "fingerprint": "5834d3a528515ec3ae5e5066b4c60db561a1f9536515122f060ba5b5736dea7b",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "a82d2085ee0b029cd5cd36587737d1860c8ae09b1f2df40ef7e1436d3d96166d",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-orbis-2": {
-      "fingerprint": "3f508191a0510a95f18bced752d6662daee8fa57b29e328f09b2b4f6d3a2be17",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "1669519df43787baa88033230ea79a6e643d0687618a5d5cf29b032d8493c127",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-pela": {
-      "fingerprint": "928af025ad5e85f6f00ad3bdadb2c67f51dda03c2c51dfc38bf10b6a3f71bebd",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "7627181624ecb96bd5f906454573edb2e1791a5a519149446c1882b839e54caa",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-puls": {
-      "fingerprint": "0be38059f589510761f29ceece88e9eba2423a569caff3fb407431d23239ed20",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "918eb00939ef418a7489811994397e35ab277188de49e19e3ba9a300f9db6066",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-s": {
-      "fingerprint": "9478e0f936376d155e9e8b94dc84f59865b5a8680befecc665a0c61cf98049c4",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "275a573b34485dd0c0555012b9a6518c6676f9c46ad1261ed923f37010d8d6dd",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-sat": {
-      "fingerprint": "6fd0ca8cdf7714a558acf04cc8824a67f43e749ffe25ebe904375309be3dd129",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "f38b4134f98fde761a15fb0c2b33b2254a9ef668535ccd257a0200adfd14aca9",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-skopje": {
-      "fingerprint": "d04daab5a8abda93ae57f4d6ff11f99bd296a010db7153e002207df7f9e6b204",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "7c01fe84f5e5745af06a78f4146cab18fe08a7d8effb22709f2e233bc3e9d83b",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-tim": {
-      "fingerprint": "130290c082e3a7655dc8b39a88395de5b75ccb4e4b941954c97691a8a0443167",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "78a177b9d5a78ac1fb5ec91b87c55ef2974d272695393fad26d493620c24f57d",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/radio-vmro": {
-      "fingerprint": "f78faeea63d53a75f24b18218c47f2fd6a7a3877bc20356428e4cc13ce883001",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "98c91fe8ad051cc906de83e3b98eae318eeb183f94eb0d9680faa70dcf2d947e",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/samo-mk": {
-      "fingerprint": "fc1b1befe7e9697b8235032116bda466c9f5ec86ca8ea1a4fe59192a03c2b956",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "661695bdfdaf87e05678e074a68a093a921794dc28dc49c78b581f740d4d6229",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/sky-radio": {
-      "fingerprint": "767a8bad9b10e90b754fd9e15c2cf0fb8f8832540b930c1817d1e0ee26d702e5",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "642cd2841f5cac2d4935114fb443e0603ad1dfd2646f242d9f1b8450dcfa6224",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/sportsko-radio": {
-      "fingerprint": "34edda987a8f5a98a5e12628981fe0c3c85641c53fbbc27f24a34d4869522a0d",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "1bef4ac10a222476770999c7eb495fa6f2ac4720400cf7a21eeaa49f2c55425d",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/super-radio": {
-      "fingerprint": "86e1110a4677edcd2142312d0b4c7e05d954a8400fde7b50186620b12c6b94d3",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "d14644f651f10553ad17f47e8710d8570f33223204a3753f97fee6ea01aa465c",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/time-fm": {
-      "fingerprint": "f9ea9a0b9997568b186c306105e9b90215bb01dbdf3d8e1cb05938fd29231e83",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "3802aaedcf9ee99151ade85e70ba31dc70137920013a638bd2e4f8a5c6425298",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/ugd-fm": {
-      "fingerprint": "cb4714b16a8ae3899444ee97f9be0cae90d07512c6520b845a73b1006811a74b",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ef9af818c1b417e234fe6e4628c1b9d315d3893dfe01b7df9568c4376c3585ce",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/urban-fm": {
-      "fingerprint": "13d5a1a0f7f61691e11460a30b2143ee8434b131d9c068cb51f0e5ae15c72f4d",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ed0364fe20165c5e3018410a3d9e14015fde289a32fd493fedc2966f10100b69",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/stations/zona-m1": {
-      "fingerprint": "f9949084ba7b631f692a665e23e1c2c1c36ed65143235b0632bafea7bc0cdbfd",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ea7c66930e58b3f6e0ebb644f8783e229e931cebe2cb846ac58b11f753f3eeb4",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/en/webplayer": {
-      "fingerprint": "dba8d7811cf1867d054be0317743d1333079bc0cedf1643c09125d71adca120e",
-      "lastmod": "2026-07-22T18:44:57.684Z"
+      "fingerprint": "2932a1033b52fa21efc73347d074fdd3e514838d2ae3075b32463704f9770bac",
+      "lastmod": "2026-08-03T12:10:46.695Z"
     },
     "/privacy": {
       "fingerprint": "f1712d39ffd42096453f23256d1efeba4550493480c5edaa1fb2649781bca931",
       "lastmod": "2026-07-22T12:25:53.000Z"
     },
     "/stations": {
-      "fingerprint": "5d0b3c8a267059ab509b59c16b275ff3b3867da8f71d6862c4045a2ac761cd34",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "fb69465d9e359366d159072cae9aedc7a1032ad3e01bc5af53d05f5a3e686b22",
+      "lastmod": "2026-08-03T12:10:46.707Z"
     },
     "/stations/aleksandar-makedonski": {
-      "fingerprint": "200e4c040b06c018a40f79343459c3a1140d4cb18fa2ac6d821a5553fc0d4291",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "a8ab981bfecfe39f9cf5dfd259161da8239f9101891b3b864d321a5307356a34",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/antenna-5": {
-      "fingerprint": "5e53e45ce228a18da8470072888d5c38a847d8a22c943451b0d121eec3d0f417",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "d76c96346af180c3518e5f307e2ce2067755181280a298e7e6bc3f476e37f68f",
+      "lastmod": "2026-08-03T12:10:46.748Z"
+    },
+    "/stations/beskonechno-radio": {
+      "fingerprint": "07fc0d93e0d57977071d754e02bc307317958a40c2aa5f25b6cf9d2a9bfce6c2",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/bravo-radio": {
-      "fingerprint": "b7855ff1c767977d45bde01e6e684e4df843dfbe9dba68b1ecca99b2a165fa59",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "98900abefaf0d356241f5df927d7d3791b71a7d811a771ae2f80b9184fb560d2",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/city-radio": {
-      "fingerprint": "5af45b2fc6df572debd6a9e5d3e82d4f4032f64d2a91d42459a52ed21506ccd1",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "1ccf424f0dc56d10123e679d1dd4d4a1056fcc35b5949bd06a643bdd8b0d59a4",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/club-fm": {
-      "fingerprint": "fd47c2a1be9738b2f5b01cad3d0dbea27bab191751d90f84dc216bbf873055d9",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "238844530985e3c0e50a0247c53c29bbb078943327d6d27540b181a686d562dd",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/diamond-radio": {
-      "fingerprint": "97beb4fbb48979137c5bb3c01fd05ec5070c2c028ca13c1f08d2d0bdd2d95cdb",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "0c7509d7f3291890acc8d524e0cbdae5acfca4343ce407a518055c370be8f67b",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/ekspres-radio": {
-      "fingerprint": "274c6e2c2de1560c25d67771a70842f12b05d7ef1db1a0d72347902d474e5b88",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "25616c7ca8217a41702815020980639ba921a02320af3628f10dc30a8ae7c94f",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/funk-soul-brother": {
-      "fingerprint": "32141f1669bf33044af85cf1dcb052e6fd283896cfac57960e2636dc667cc352",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "795fac44395e2715198f76940f87d73d246e7496c3e72743e8874fb5d1229518",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/galaxy-radio": {
-      "fingerprint": "a9d5a3db1ff10195268b66b0f3e617ad56816782eab35ab0a215c04c5f111af2",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "163a3c48a87650153293a6722247010051663a90aafcbb84f2ea759d2340f221",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/hit-radio": {
-      "fingerprint": "b6e1d32b59ead6ad1948134f6141b005681c4e6ace91abf5db050c0d7369e7e8",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "49d5be463497d461375061c556ecb2f1b64adf876d0c443e4ac326806b2719d8",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/jazz-fm": {
-      "fingerprint": "4c2f4bad8de5d5867d19f1f7515875b39455915e604c144e8526d9591afba904",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "e9724cafd81f2eec96747e9afdb81f88d190e37fb7b3b0b713a4d5a5efc584a9",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/jazz-fm-grooves": {
-      "fingerprint": "1f15445cb889e09982bacf0795062f70235bb4486eb9db8d3ea68f8ee002c08e",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "12b7d0643dbe7ac58b6c31f8afce8934f1629ecd49f4d636c8f88b7615d0af8e",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/just-music": {
-      "fingerprint": "5031732a6a05e0faa867f0b6b334e7cd84aa2a3a498164de45c5058053ee5058",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "4eb99a894a0bdc106840fc4e8dbdd0fbea890f28b544316841511b00d8fbdd75",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/kanal-103": {
-      "fingerprint": "d5706cb0bf1d40859d17e2d62493e5e163bb6578540d2316138d84fc459dd99e",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "da7298271c09c3b510f15912e73d49805e07995e3e7cf10e6b8100a1337ed4bc",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/kanal-77": {
-      "fingerprint": "12912116125c11e85417d6c07b7b01d34e505c794a9a84625572c04d69822a10",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "a6a7e82b556113d9945c2e3ba12d0c7740463dce44be6c796945e735d6903f93",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/life-radio": {
-      "fingerprint": "64f93e802654e5fd2f0ce2a13a10209cfbe4a3d40980a6eaa201d08c152d04ab",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ab9263cfc28883f719854722722bfff287b8fb6a217c9964749bb5e83987d05d",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/metropolis": {
-      "fingerprint": "45c4d37bfc33698d95d0418577136378a03a0261df445577a97c43419e079adb",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "19425df84882a0133d2b9d1084921f52104e28b17c3ccb6c0aad492675eb4faf",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/play-fm": {
-      "fingerprint": "cb04089d6d0fd9f4823e3946fe9aa3626f3bd2c5e003cdcb4e263b2275139680",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "c100c159c7d0f1b54327c54285835d7a02adeb8b9f23fca547037664cd4f6a7c",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-105-bombarder": {
-      "fingerprint": "ff2471ea3beafc7fb28d6985ad2482311e511563754b4d40ad2a9177bb7bbe12",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "f466f5458d8c943dc496a98a48991c78bb2c312feaf35e3ffe59989a906eaf9a",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-106": {
-      "fingerprint": "31c77415d692d2d5a13a379edd26c9a4d38543e77f23354c9a3101c872fd7f21",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "07f4c718ca6aeecff8bb9e57e71a6ba7ae69eaa2e2fc7e3ac8d38017dee27d39",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-2": {
-      "fingerprint": "f7ca3d3996dd1faefe03f0dc18509c176fc8e7d045d2bf56809a4b5e782c8f51",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "4daf0d67c556ecd1e3677b341c0b384035eac8b51abd2ebeceb25894de8d0eb8",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-22": {
-      "fingerprint": "17649174e8dffd31aee96d46961fd24d4d7ae0171eaf41c5bd57a2225acc99fa",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "9d382f546bca74f4fa54b2f400d016e63c6d6714c3ceb33643531faa48a4b6a6",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-3": {
-      "fingerprint": "82803ba5b9dfb6c61296d207a7b3d6d3cd347038e9d2e5c2735182030d2ce4d9",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "c29dc6e6806d4639cfa2c42dbc769202195114b4d00ebaf725d2bb729e63b4c6",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-5": {
-      "fingerprint": "d9efe3b430adb297031e732cefad38a25c9c18b4b17398b729854373de278555",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "112208a8e5f87f21ad971535bfd8db6d3eda09b428ee6c99c56a199c389fa2ec",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-bar": {
-      "fingerprint": "10d18869ee061420f90d8355205534704a4f62eb4676be6ab5a656f88790c9ba",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "1d49240b55abb0b7b7aed7a1cf054e95cf881613596328812351e7558c11fb5b",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-bubamara": {
-      "fingerprint": "0f812e4d14eb8ec8001c2bcfb31d4c58d710e1764f3dc9add1fa741638ebe589",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "00d0cf793881a7cb6d79fc34a4497baa3fd6d32a885cece08bc1be1192721f5c",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-bum": {
-      "fingerprint": "d9059baad2dcee5c438f7d79d7144adf832209e8eb05afbd5de6e053ff4f5a9d",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "aae097fe3a51ca4174260ddcc0ff7f2b70134c1160925fa039a7065bf42711be",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-fortuna": {
-      "fingerprint": "eeffa378279e8601503d84ba6ddb4efc443f9668206c1aa83e4005f2783fbef4",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "69349ec144b8d93a57129dcee07c9404e50994d55ef2524bcc977e29d5e90e85",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-kavadarci": {
-      "fingerprint": "0f610454ef0c7d95cab6ae57f219bc27a682b12325ca9aba8531a6e83b546349",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "b12edb9d300767f4e967b13b5c3de1cdf04f50e86e40bd69c1e92b242de4733d",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-lav": {
-      "fingerprint": "38ffb775e1b71e14150cddd7437dd9693f17ea88d12313be37951587b51f8fd3",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "803eb9b6219095b977f49f67f8514dffb1711a2754b9f6f9804eaa6cd14a4142",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-lider": {
-      "fingerprint": "d023682a7761e324f08d137903c62f5a1de28ba7e4c989d0fc35f45b11cf4c7b",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "e4a3efa051b5b36fec39823920a2873cc630fdb75df6a45859db67a8b5b1c109",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-marija": {
-      "fingerprint": "80c415f5c86f1476be497875d96712b90fbb8c8e3152df234bace35df042428a",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "3f35490daf9626194c48f8973e3ea1488ade7c89a4fdaaaeabd794de1e69d4ed",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-meff": {
-      "fingerprint": "3d2cfc0fcea2dc53c87b153bfb458cf1ce8030ffdff6700289cb0ce8d5c7f1a4",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "b0dc0f6970f0683fb76c84e57aa17f8b76f4b578f44cefe64cb6c19278be7ae2",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-orbis": {
-      "fingerprint": "294aaf6e29803450f3faeb18dff31ae578df590737d726d0c5fabdd061c6b4ff",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ab82d114e56afd2ee1d749d47c776e13eb8baa86fc6181cd444781ca9c9006e7",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-orbis-2": {
-      "fingerprint": "6acb0a0a8f822b147c9350597eecc762de48aea9234a329710383862d95b5f23",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "4f7c9430208cd3846b1bb597c96cb793621fe8a49d0e721bd517536475ff9596",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-pela": {
-      "fingerprint": "43d043920ff38cd1e1b75fe44d5457f59768fce078be883169542b971830ad92",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "c4480fbb40e9482e7a2c19cc2c155a7dd582cb3533dff5d29fa840d1c59a7aed",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-puls": {
-      "fingerprint": "d7e5f9fbf240432d8c08b0e0efa719813e74a530d9183003ca8295ec7d8414b5",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "f3fdb9e9e983d26d11d6c63acf09d168e61edc6824926cedb0f052ec88042180",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-s": {
-      "fingerprint": "72fdfc4fea4fd640601914c6d951f2a44f58404d9c7b75340ee02b57d0aa7985",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "c128ec8ea874b0f5ebaaf52e9408773196a55c02eb6f0089d355ae195e6d7f46",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-sat": {
-      "fingerprint": "0986689432fd0c3850637966faae6210306749dc9c84c8fa52d61ab9cd708d6e",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "27fedbb5c489951cb024bcc2fbc791cb7d8f0d52ff4acff520b5f20223236d21",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-skopje": {
-      "fingerprint": "1d9b056b4148b4b1146d66dc2234ab526dd466d8e4655b8836de86b2223b18b8",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "fc335177b55202e706339e787bbcffbd1130775c2628a48b12760321f0e289e6",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-tim": {
-      "fingerprint": "cb2bbd06f1d6d4339a0e2e838e11e591cf060529d829c3b71d4ce3b15f617b89",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "9cb18119c069d4691d8e6faf60a5dcbf67b80c189c6d83371e0fc59f0bc93f33",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/radio-vmro": {
-      "fingerprint": "6638bb2fd1f806e988a6a1fed1d25c3fff6d6a22e8e312b480a62e6400af1a26",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "d520540f5d3e1d9c779e045ffdd74a3b648150309d24c66adab2bf9478cb5c8e",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/samo-mk": {
-      "fingerprint": "6888b688aafcd23a79ab753e17ea8c7d37984da6da2da4200412d73377883d53",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "4c301120b3886a478df5d89935e315fb2a74dcc8f2e0bf35ffd1178f124edc5e",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/sky-radio": {
-      "fingerprint": "c102998a2ae5b391246c3b448626665a3e67500df5e1ecc9355d24635d7dbea9",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "1aafe26968203a205c02334dbe72be8f757a4284ad6a6e42055dc090cb0fc794",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/sportsko-radio": {
-      "fingerprint": "4292073279831e728f684e89c9e1669120234dae38bbc808a2d50465f004cf8d",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "686a8c16beef74005886a2be8f2c7a5a4eebef3796f13f2145832129cda5eb4c",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/super-radio": {
-      "fingerprint": "d9aac9153e8c7c9258209a21db6ac6e1171c7277e86f9ebb0c873d0e0f1a2566",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "301840bf000d59f09a5996c3d12cf560f26458781001ea8de1c5b5b730d43091",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/time-fm": {
-      "fingerprint": "1c3fffb4dc3421d501e42fc75be14d24e573b0aafe2851d419a33c66dce183cb",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "dc91e4fa9571dbc61b2d0de96c88dc7deb74c241d5c1a1f3834ac36f69162e20",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/ugd-fm": {
-      "fingerprint": "76640bc198503db4d89c0fabe7cd4d909914ce7a09634ad83fedb7b48cc8906a",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "6375bfa834a1957a304fa379ad698cdc00dd4396727ee551d73834d9387a47a4",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/urban-fm": {
-      "fingerprint": "1c57fb6e21a1d90a827d70fdc0a70a92191e6fb3a51cf40b90feeab22ef5018c",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "a2c78f2b470435605c3548204e0bf956d61c43ef0081aae18b003c1fee1c8972",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/stations/zona-m1": {
-      "fingerprint": "85906a3a553e35c06ca03ab17ba09dbef0fe7bb5550014b8a3b69090e282feb8",
-      "lastmod": "2026-07-22T12:25:53.000Z"
+      "fingerprint": "ee919084229af7585eb88deca9e246dee8ebfde154ea29ecd30602af913e9b09",
+      "lastmod": "2026-08-03T12:10:46.748Z"
     },
     "/webplayer": {
-      "fingerprint": "df8ecd10767a5c1a9a94e1b6b0c486203de97ef11cc3a68fc32c7d417a288570",
-      "lastmod": "2026-07-22T18:44:57.670Z"
+      "fingerprint": "bcdd45339c43180a97da2596fe6a784f0dc7dcc3a809e7e4054ef44e2870d79c",
+      "lastmod": "2026-08-03T12:10:46.683Z"
     }
   }
 }
