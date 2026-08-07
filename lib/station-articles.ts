@@ -372,7 +372,7 @@ const RESEARCH_SEEDS: Record<number, ResearchSeed> = {
       {
         heading: "A healthier relationship with media",
         paragraphs: [
-          "Beskonechno Carstvo helps children and parents find a better balance between screens and everyday life. The radio extends that mission through an accessible audio format designed to inform, encourage curiosity, and support families.",
+          "Beskonechno Carstvo helps children and parents build a healthier relationship with media. The radio continues that mission through an accessible audio format that informs, sparks curiosity, and helps families manage technology without allowing it to control their lives.",
         ],
       },
     ],
