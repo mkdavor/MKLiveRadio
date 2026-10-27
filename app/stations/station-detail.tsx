@@ -3,8 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter, SiteHeader, StoreButtons } from "@/app/components/site-chrome";
-import { absoluteUrl, DEFAULT_OG_IMAGE, SEO_KEYWORDS, SITE_NAME } from "@/lib/seo";
+import { absoluteUrl, APP_STORE_ID, BASE_OTHER_METADATA, DEFAULT_OG_IMAGE, SEO_KEYWORDS, SITE_NAME } from "@/lib/seo";
 import { getStationArticle, type StationArticleLanguage } from "@/lib/station-articles";
+import { getCityPath, getCitySlug } from "@/lib/cities";
 import {
   findStationBySlug,
   getStationDisplayCity,
@@ -54,6 +55,9 @@ export async function generateStationMetadata(slug: string, language: StationArt
       images: [absoluteUrl(DEFAULT_OG_IMAGE)],
     },
     other: {
+      ...BASE_OTHER_METADATA,
+      // Smart App Banner "Open" lands on this station in the iOS app
+      "apple-itunes-app": `app-id=${APP_STORE_ID}, app-argument=${absoluteUrl(canonicalPath)}`,
       "content-language": language,
       "article:section": "Macedonian radio stations",
       "article:tag": article.keywords.slice(0, 8).join(", "),
@@ -136,6 +140,7 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
             <span className="eyebrow">{language === "mk" ? "Македонско радио во живо" : "Macedonian radio live"}</span>
             <h1>{displayName}</h1>
             <p className="station-hero__meta">
+              {language === "mk" && stationName !== stationNameMk ? `${stationName} · ` : ""}
               {displayCity ? `${displayCity} · ` : ""}{language === "mk" ? "Достапно во MK Live Radio" : "Available in MK Live Radio"}
             </p>
             <StoreButtons compact />
@@ -225,7 +230,14 @@ export default function StationDetailPage({ slug, language }: { slug: string; la
 
           {relatedStations.length ? (
             <section className="section-block">
-              <div className="section-heading"><div><span className="eyebrow">{displayCity}</span><h2>{language === "mk" ? "Уште станици од градот" : "More stations from the city"}</h2></div></div>
+              <div className="section-heading">
+                <div><span className="eyebrow">{displayCity}</span><h2>{language === "mk" ? "Уште станици од градот" : "More stations from the city"}</h2></div>
+                {station.city_en ? (
+                  <Link href={getCityPath(getCitySlug(station.city_en), language)} className="secondary-link">
+                    {language === "mk" ? `Сите радија од ${displayCity}` : `All ${displayCity} radio`} →
+                  </Link>
+                ) : null}
+              </div>
               <div className="station-showcase station-showcase--city">
                 {relatedStations.map((related, index) => (
                   <Link className="station-tile" href={`${language === "en" ? "/en" : ""}${getStationPath(related)}`} key={related.id}>

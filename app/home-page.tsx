@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter, SiteHeader, StoreButtons } from "@/app/components/site-chrome";
+import { getCities, getCityPath } from "@/lib/cities";
 import {
   absoluteUrl,
   APP_STORE_URL,
@@ -120,17 +121,6 @@ const copy = {
 
 function localizedPath(path: string, language: HomeLanguage) {
   return language === "en" ? `/en${path}` : path;
-}
-
-function cityAnchor(city: string) {
-  return (
-    city
-      .toLowerCase()
-      .normalize("NFKD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^\p{L}\p{N}]+/gu, "-")
-      .replace(/^-+|-+$/g, "") || "city"
-  );
 }
 
 export function createHomeMetadata(language: HomeLanguage): Metadata {
@@ -374,9 +364,9 @@ export function HomePageContent({ language }: { language: HomeLanguage }) {
             </div>
           </div>
           <div className="city-cloud">
-            {cityStats.map(({ city, count }) => (
-              <Link key={city} href={`${stationsPath}#city-${cityAnchor(city)}`} className="city-chip">
-                {city} <span>{count}</span>
+            {getCities().map((city) => (
+              <Link key={city.slug} href={getCityPath(city.slug, language)} className="city-chip">
+                {language === "en" ? city.nameEn : city.nameMk} <span>{city.stations.length}</span>
               </Link>
             ))}
           </div>

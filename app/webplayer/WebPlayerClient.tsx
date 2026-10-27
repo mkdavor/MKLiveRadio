@@ -7,6 +7,7 @@ import { FiCheckCircle, FiGlobe, FiPause, FiPlay, FiShare2, FiXCircle } from "re
 import { resolveStationStream } from "../../lib/resolve-station-stream";
 import { getStationPath, pickStationLogoName, stations } from "@/lib/stations";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/seo";
+import { MobileAppBanner, trackStoreClick } from "@/app/components/store-buttons";
 import {
   grantAnalyticsConsent,
   hasAnalyticsConsent,
@@ -617,6 +618,7 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
     <main lang={locale} className={styles.page}>
       <div className={styles.bgOrbA} aria-hidden />
       <div className={styles.bgOrbB} aria-hidden />
+      <MobileAppBanner language={locale} placement="webplayer_banner" />
       <div className={styles.languageSwitch}>
         <Link
           href={`/webplayer?id=${selectedStationId}`}
@@ -809,7 +811,7 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
             </div>
           </div>
           <div className={styles.downloadBadges}>
-            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className={styles.storeBadgeLink}>
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className={styles.storeBadgeLink} onClick={() => trackStoreClick("app_store", "webplayer")}>
               <Image
                 src="/appstore.svg"
                 alt="Download on the App Store"
@@ -818,7 +820,7 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
                 className={styles.storeBadge}
               />
             </a>
-            <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className={styles.storeBadgeLink}>
+            <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className={styles.storeBadgeLink} onClick={() => trackStoreClick("google_play", "webplayer")}>
               <Image
                 src="/playstore.svg"
                 alt="Get it on Google Play"

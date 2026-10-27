@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
   absoluteUrl,
   APP_STORE_URL,
+  BASE_OTHER_METADATA,
   DEFAULT_OG_IMAGE,
   INSTAGRAM_URL,
   PLAY_STORE_URL,
@@ -80,12 +81,7 @@ export const metadata: Metadata = {
       "Listen to Macedonian radios online with the MK Live Radio mobile app and web player.",
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
   },
-  other: {
-    "google-adsense-account": "ca-pub-3134423958482288",
-    "apple-itunes-app": "app-id=6748603781, app-argument=mkliveradio://",
-    "google-play-app": "app-id=app.mkliveradio.android",
-    "mobile-web-app-capable": "yes",
-  },
+  other: BASE_OTHER_METADATA,
 };
 
 export const viewport: Viewport = {

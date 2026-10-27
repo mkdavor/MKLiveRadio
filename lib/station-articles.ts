@@ -523,9 +523,12 @@ export function getStationArticle(station: Station, language: StationArticleLang
   const cityPhraseEn = cityEn === "Macedonia" ? "Macedonia" : cityEn;
   const cityPhraseMk = cityMk === "Македонија" ? "Македонија" : cityMk;
   const pagePath = getStationPath(station);
+  // Many people search station names in Latin script ("antena 5"), so Macedonian titles carry both
+  const nameMkWithLatin =
+    stationNameMk === stationNameEn ? stationNameMk : `${stationNameMk} (${stationNameEn})`;
   const title =
     language === "mk"
-      ? `${stationNameMk} во живо`
+      ? `${nameMkWithLatin} во живо`
       : `Listen to ${stationNameEn} Live`;
   const description =
     language === "mk"

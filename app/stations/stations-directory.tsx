@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SiteFooter, SiteHeader, StoreButtons } from "@/app/components/site-chrome";
 import { absoluteUrl, DEFAULT_OG_IMAGE, SEO_KEYWORDS } from "@/lib/seo";
 import type { StationArticleLanguage } from "@/lib/station-articles";
+import { getCityPath, getCitySlug } from "@/lib/cities";
 import {
   getCityStats,
   getStationDisplayCity,
@@ -161,7 +162,11 @@ export default function StationsDirectoryPage({ language }: { language: StationA
         {sortedCities.map((city) => (
           <section className="city-section" key={city} id={`city-${cityAnchor(city)}`}>
             <div className="city-section__heading">
-              <h2>{city}</h2><span>{String(groupedByCity[city].length).padStart(2, "0")} STATIONS</span>
+              <h2>
+                {groupedByCity[city][0]?.city_en ? (
+                  <Link href={getCityPath(getCitySlug(groupedByCity[city][0].city_en), language)}>{city}</Link>
+                ) : city}
+              </h2><span>{String(groupedByCity[city].length).padStart(2, "0")} STATIONS</span>
             </div>
             <ul className="station-directory-grid">
               {groupedByCity[city].map((station) => {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { APP_STORE_URL, INSTAGRAM_URL, PLAY_STORE_URL } from "@/lib/seo";
+import { INSTAGRAM_URL } from "@/lib/seo";
 import { MobileMenu } from "@/app/components/mobile-menu";
 
 export type SiteLanguage = "mk" | "en";
@@ -9,38 +9,8 @@ function pathFor(language: SiteLanguage, path: string) {
   return language === "en" ? `/en${path === "/" ? "" : path}` : path;
 }
 
-export function StoreButtons({
-  className = "",
-  compact = false,
-}: {
-  className?: string;
-  compact?: boolean;
-}) {
-  return (
-    <div className={`store-buttons ${compact ? "store-buttons--compact" : ""} ${className}`}>
-      <a
-        href={APP_STORE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="store-button"
-        aria-label="Download MK Live Radio on the App Store"
-      >
-        <span className="store-button__platform">iPhone &amp; iPad</span>
-        <Image src="/appstore.svg" alt="Download on the App Store" width={168} height={56} />
-      </a>
-      <a
-        href={PLAY_STORE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="store-button"
-        aria-label="Get MK Live Radio on Google Play"
-      >
-        <span className="store-button__platform">Android</span>
-        <Image src="/playstore.svg" alt="Get it on Google Play" width={189} height={56} />
-      </a>
-    </div>
-  );
-}
+// Client component: orders the stores by the visitor's phone and tracks clicks
+export { StoreButtons } from "@/app/components/store-buttons";
 
 export function SiteHeader({
   language,
