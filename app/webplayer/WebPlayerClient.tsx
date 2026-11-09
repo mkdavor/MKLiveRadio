@@ -16,6 +16,9 @@ import {
 } from "@/lib/analytics";
 import styles from "./webplayer.module.css";
 
+// Like the iOS and Android apps: a station that doesn't start playing within this time is shown as unavailable
+const LOAD_TIMEOUT_MS = 15_000;
+
 type Locale = "mk" | "en";
 type StatusKey =
   | "ready"
@@ -154,6 +157,9 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
   const sessionStationRef = useRef<{ id: number; name: string } | null>(null);
   const checkpointTimerRef = useRef<number | null>(null);
   const analyticsConsentRef = useRef(false);
+  const loadTimeoutRef = useRef<number | null>(null);
+  // Set while the player is stopped by the load timeout, so the pause/abort that follows doesn't overwrite the status
+  const timedOutRef = useRef(false);
   const locale = initialLocale;
   const [selectedStationId, setSelectedStationId] = useState<number>(fallbackStation.id);
   const [searchQuery, setSearchQuery] = useState("");
@@ -289,6 +295,38 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
     [clearListenSessionCheckpoint, resetListenSession, saveListenSessionCheckpoint],
   );
 
+  const cancelLoadTimeout = useCallback(() => {
+    if (loadTimeoutRef.current !== null) {
+      window.clearTimeout(loadTimeoutRef.current);
+      loadTimeoutRef.current = null;
+    }
+  }, []);
+
+  // Without this, a stream host that never answers leaves the player on "connecting" until the browser gives up
+  const startLoadTimeout = useCallback(() => {
+    cancelLoadTimeout();
+    timedOutRef.current = false;
+
+    loadTimeoutRef.current = window.setTimeout(() => {
+      loadTimeoutRef.current = null;
+      const audio = audioRef.current;
+
+      if (!audio || audio.paused) {
+        return;
+      }
+
+      // Stop and reset the element; the next play or station switch loads the source again
+      timedOutRef.current = true;
+      audio.pause();
+      audio.load();
+      setIsPlaying(false);
+      setIsConnecting(false);
+      setStatusKey("streamUnavailable");
+    }, LOAD_TIMEOUT_MS);
+  }, [cancelLoadTimeout]);
+
+  useEffect(() => cancelLoadTimeout, [cancelLoadTimeout]);
+
   useEffect(() => {
     const consentGranted = hasAnalyticsConsent();
     analyticsConsentRef.current = consentGranted;
@@ -391,6 +429,8 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
     }
 
     const onPlaying = () => {
+      cancelLoadTimeout();
+      timedOutRef.current = false;
       setIsPlaying(true);
       setIsConnecting(false);
       setStatusKey("live");
@@ -398,6 +438,10 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
     };
 
     const onPause = () => {
+      if (timedOutRef.current) {
+        return;
+      }
+
       setIsPlaying(false);
       setIsConnecting(false);
       setStatusKey("paused");
@@ -416,6 +460,7 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
     };
 
     const onError = () => {
+      cancelLoadTimeout();
       setIsPlaying(false);
       setIsConnecting(false);
       setStatusKey("streamUnavailable");
@@ -435,7 +480,7 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
       audio.removeEventListener("canplay", onCanPlay);
       audio.removeEventListener("error", onError);
     };
-  }, [endListenSession, startListenSession]);
+  }, [cancelLoadTimeout, endListenSession, startListenSession]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -479,6 +524,7 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
     }
 
     const shouldResume = !audio.paused || autoplayFromQuery;
+    cancelLoadTimeout();
     audio.pause();
     audio.load();
     setIsPlaying(false);
@@ -490,13 +536,19 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
       return;
     }
 
+    startLoadTimeout();
     void audio.play().catch(() => {
+      if (timedOutRef.current) {
+        return;
+      }
+
+      cancelLoadTimeout();
       setIsConnecting(false);
       setStatusKey("pressPlay");
     }).finally(() => {
       setAutoplayFromQuery(false);
     });
-  }, [autoplayFromQuery, resolvedStreamUrl, selectedStation.id]);
+  }, [autoplayFromQuery, cancelLoadTimeout, resolvedStreamUrl, selectedStation.id, startLoadTimeout]);
 
   useEffect(() => {
     const persistSessionForAppClose = () => {
@@ -544,14 +596,21 @@ export default function WebPlayerClient({ initialLocale }: { initialLocale: Loca
       try {
         setIsConnecting(true);
         setStatusKey("starting");
+        startLoadTimeout();
         await audio.play();
       } catch {
+        if (timedOutRef.current) {
+          return;
+        }
+
+        cancelLoadTimeout();
         setIsConnecting(false);
         setStatusKey("autoplayBlocked");
       }
       return;
     }
 
+    cancelLoadTimeout();
     endListenSession("stopButton");
     audio.pause();
   };
