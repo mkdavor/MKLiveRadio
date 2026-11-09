@@ -275,13 +275,13 @@ const RESEARCH_SEEDS: Record<number, ResearchSeed> = {
     frequency: "98.7 FM Prilep",
   },
   190: {
-    titleEn: "Play FM Struga live",
-    titleMk: "Play FM Струга во живо",
+    titleEn: "Play Radio Struga live",
+    titleMk: "Play Радио Струга во живо",
     descriptionEn:
-      "Listen to Play FM live from Struga, with pop, rock, dance, retro, lounge, and online music channels.",
+      "Listen to Play Radio live from Struga, with pop, rock, dance, retro, lounge, and online music channels.",
     descriptionMk:
-      "Слушај Play FM во живо од Струга, со pop, rock, dance, retro, lounge и други онлајн музички канали.",
-    keywords: ["Play FM Struga", "Play FM live", "dance radio Macedonia"],
+      "Слушај Play Радио во живо од Струга, со pop, rock, dance, retro, lounge и други онлајн музички канали.",
+    keywords: ["Play Radio Struga", "Play Radio live", "Play FM Struga", "dance radio Macedonia"],
     frequency: "90.4 FM Struga",
     formatEn: "pop, rock, dance, retro, and lounge radio",
     formatMk: "pop, rock, dance, retro и lounge радио",

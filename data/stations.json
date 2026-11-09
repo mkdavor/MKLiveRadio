@@ -255,8 +255,8 @@
     },
     {
         "id": 190,
-        "name": "Play FM",
-        "name_en": "Play FM",
+        "name": "Play Радио",
+        "name_en": "Play Radio",
         "slug": "play-fm",
         "logoDefault": "playFMLogo",
         "url": "https://live.playfm.mk:8046/live",
