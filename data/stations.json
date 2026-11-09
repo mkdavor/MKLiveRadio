@@ -259,7 +259,7 @@
         "name_en": "Play FM",
         "slug": "play-fm",
         "logoDefault": "playFMLogo",
-        "url": "https://radio.shoutcast.mk:8046/;",
+        "url": "https://live.playfm.mk:8046/live",
         "city": "Струга",
         "city_en": "Struga",
         "shouldParseUrl": false,
